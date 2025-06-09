@@ -1,0 +1,66 @@
+:root{
+    --white-color: #fff; 
+    --black-color: #000;
+    --button-color: #C7F300; 
+    --primary-color: #1C62EB; 
+}
+
+/* Reset CSS cơ bản */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
+
+html, body {
+  height: 100%;
+  font-family: sans-serif;
+  color: var(--black-color);
+  font-size: 16px;
+  line-height: 1.5;
+  overflow-x: hidden;
+
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* WebKit browsers (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 12px; /* độ rộng thanh cuộn */
+}
+
+::-webkit-scrollbar-track {
+  background: #1f1f1f; /* màu nền track: đen xám */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ccc;   /* màu nút cuộn: xám nhạt */
+  border-radius: 10px;      /* bo tròn góc */
+  border: 2px solid #1f1f1f; /* viền tạo cảm giác nổi */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #eee; /* sáng hơn khi hover */
+}
