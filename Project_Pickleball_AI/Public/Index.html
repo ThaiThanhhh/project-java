@@ -5,22 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>King Pickleball</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-     <link rel="stylesheet" href="../Assets/CSS/main.css">
-     <link rel="stylesheet" href="../Assets/CSS/base.css"> <!-- có độ ưu tiên cao vì chèn sau cùng  -->
-     <script src="../Assets/javascript/main.js"></script>
-     
+    <link rel="stylesheet" href="../Assets/CSS/main.css">
+    <link rel="stylesheet" href="../Assets/CSS/base.css">
+    <script src="../Assets/javascript/main.js" defer></script>
 </head>
 <body>
-    <!-- Phan header -->
-    <header>
+    <!-- Header -->
+    <header class="main-header">
         <div class="container__header">
             <nav class="container__header__nav">
                 <div class="container__header__nav--left">
-                    
-                        <a href="#">Features</a>
-                        <a href="#">Find a Coaches</a>
-                        <a href="#">For Coaches</a>
-                    
+                    <div class="dropdown">
+                        <a href="#" class="dropdown-toggle">Features</a>
+                        <div class="dropdown-menu">
+                            <a href="#">Structured Learning</a>
+                            <a href="#">Video Library</a>
+                            <a href="#">AI Technique Analysis</a>
+                            <a href="#">Progress Dashboard</a>
+                            <a href="#">Achievements & Badges</a>
+                            <a href="#">Booking & Payment</a>
+                        </div>
+                    </div>
+                    <a href="#">Find a Coaches</a>
+                    <a href="#">AOPC</a>
                 </div>
                 <div class="container__header__nav--logo">
                     <img src="../Assets/Img/Logo app.png" alt="Logo King Pickleball">
@@ -28,31 +35,270 @@
                 <div class="container__header__nav--right">
                     <a href="#">Community</a>
                     <a href="#">Blog</a>
-                    <a href="#">About us</a>
-                    <a href="#" class="container__header__nav--login">Login</a>
+                    <div class="dropdown">
+                        <a href="#" class="dropdown-toggle">About us</a>
+                        <div class="dropdown-menu">
+                            <a href="#">About Us</a>
+                            <a href="#">Contact Us</a>
+                        </div>
+                    </div>
+                    <a href="#" class="container__header__nav--button">Login</a>
                 </div>
             </nav>
         </div>
     </header>
-    <!-- phan noi dung chinh cua trang web -->
-    <main class="container">
-
+    <!-- Main Content -->
+    <div class="container">
         <div class="container__background--header">
-            <img src="../Assets/Img/30379153_Cancun_P2_Yasmine_Akki_20250323_005637.jpg (2).png" alt="background trang chủ King Pickleball" style="width: 100%; height: 95vh;">
+            <div class="video-background">
+                <iframe
+                    src="https://www.youtube.com/embed/JMwKyO4-WYU?autoplay=1&mute=1&controls=0&loop=1&playlist=JMwKyO4-WYU"
+                    frameborder="0"
+                    allow="autoplay; encrypted-media"
+                    allowfullscreen>
+                </iframe>
+            </div>
         </div>
 
-        <div class="container__text">
-                <button class="container__text--btn">LEARN ABOUT THE COURSE</button>
-                <h1>Join our Pickleball course with professional coaches to improve your skills and enjoy the fun of this sport.</h1>
-        </div>
+        <div class="container__misson">
+            <h1>Innovation. Creativity. Ingenuity</h1>
+            <p>King Pickleball Education, based in Vietnam, is a premier online platform connecting learners with expert pickleball coaches and AI trainers, offering world-class educational resources for players globally.</p>
+            <a href="#">MORE ABOUT US</a>
+        </div>   
+        <div class="container__matches">
+            <div id="container__matches__title"><h1>Matches</h1></div>
+            <div id="container__matches__day">10 July 2025</div>
+            <div class="container__matches__tournament--button">
+                <button id="btn-aopc" class="container__matches__tournament--left active">
+                    <div class="container__tournament--img"><img src="../Assets/Img/AOPC.png" alt="giải đấu AOPC"></div>
+                    <div class="container__tournament--title"><p>AOPC - TP. Thu Duc, 2025</p></div>
+                </button>
+                <button id="btn-ppa" class="container__matches__tournament--right">
+                    <div class="container__tournament--img"><img src="../Assets/Img/PPA.png" alt="Giải đấu PPA"></div>
+                    <div class="container__tournament--title"><p>PPA Tour - New York, 2025</p></div>
+                </button>
+            </div>
 
-    </main>
-        
-
-   
-    <!-- phan footer -->
+            <!-- AOPC Tournament -->
+            <div id="aopc-info" class="tournament--info" style="display: block;"> 
+                <div class="tournament--info--header">
+                    <img src="../Assets/Img/AOPC.png" alt="giải đấu AOPC" style="border-radius: 50%;">
+                    <p>AOPC - TP. Thu Duc, 2025</p>
+                </div>
+                <div class="tournament--matches">
+                    <!-- Match 1 -->
+                    <div class="tournament--matches--row">
+                        <div class="category">MEN</div>
+                        <div class="match">
+                            <div class="match__player">
+                                <img src="../Assets/Img/co hongkong.png" alt="co hongkong">
+                                <span>Jack Wong</span>
+                            </div>
+                            <div class="match__player">
+                                <img src="../Assets/Img/co ando.png" alt="co ando">
+                                <span>Vanshik</span>
+                            </div>   
+                        </div>
+                        <div class="score">
+                            <div style="padding-bottom: 40px;">1</div>
+                            <div>0</div>
+                        </div>
+                        <a href="https://www.youtube.com/watch?v=YoG4AS5HRhI"><button class="hightlight--btn">HIGHLIGHT</button></a>
+                    </div>
+                    <div class="line"></div>
+                    <!-- Match 2 -->
+                    <div class="tournament--matches--row">
+                        <div class="category">WOMEN</div>
+                        <div class="match">
+                            <div class="match__player">
+                                <img src="../Assets/Img/co Litva.png" alt="co Litva">
+                                <span>Lina Padegimaite</span>
+                            </div>
+                            <div class="match__player">
+                                <img src="../Assets/Img/Co my.jpg" alt="co usa">
+                                <span>Milan Rane</span>
+                            </div>   
+                        </div>
+                        <div class="score">
+                            <div style="padding-bottom: 40px;">1</div>
+                            <div>1</div>
+                        </div>
+                        <a href="https://youtu.be/8qKCXSqIzmg?si=spCEEGRFmKodKA8_"><button class="hightlight--btn">HIGHLIGHT</button></a>
+                    </div>
+                    <!-- Match 3 -->
+                    <div class="tournament--matches--row">
+                        <div class="category">MEN</div>
+                        <div class="match">
+                            <div class="match__player">
+                                <img src="../Assets/Img/co vietnam.png" alt="co vietnam">
+                                <span>Ninh Ngoc Chung</span>
+                            </div>
+                            <div class="match__player">
+                                <img src="../Assets/Img/co vietnam.png" alt="co vietnam">
+                                <span>Vo Hoang Tam</span>
+                            </div>   
+                        </div>
+                        <div class="score">
+                            <div style="padding-bottom: 40px;">2</div>
+                            <div>3</div>
+                        </div>
+                        <a href="https://www.youtube.com/live/Y9AxWgiHZB4?si=7O4I8MS22e4dIzLC"><button class="hightlight--btn">HIGHLIGHT</button></a>
+                    </div>
+                    <!-- Match 4 (Hidden) -->
+                    <div class="tournament--matches--row hidden-match">
+                        <div class="category">MEN</div>
+                        <div class="match">
+                            <div class="match__player">
+                                <img src="../Assets/Img/co dai loan.png" alt="co dailoan">
+                                <span>Chen An Hsieh</span>
+                            </div>
+                            <div class="match__player">
+                                <img src="../Assets/Img/co dai loan.png" alt="co dailoan">
+                                <span>Zong Jin Li</span>
+                            </div>   
+                        </div>
+                        <div class="score">
+                            <div style="padding-bottom: 40px;">1</div>
+                            <div>0</div>
+                        </div>
+                        <a href="https://www.youtube.com/live/Y9AxWgiHZB4?si=7O4I8MS22e4dIzLC"><button class="hightlight--btn">HIGHLIGHT</button></a>
+                    </div>
+                    <!-- Match 5 (Hidden) -->
+                    <div class="tournament--matches--row hidden-match">
+                        <div class="category">MEN</div>
+                        <div class="match">
+                            <div class="match__player">
+                                <img src="../Assets/Img/co ando.png" alt="co ando">
+                                <span>Tejas Mahajan</span>
+                            </div>
+                            <div class="match__player">
+                                <img src="../Assets/Img/co hongkong.png" alt="co hongkong">
+                                <span>Wtly Chung</span>
+                            </div>   
+                        </div>
+                        <div class="score">
+                            <div style="padding-bottom: 40px;">2</div>
+                            <div>0</div>
+                        </div>
+                        <a href="https://www.youtube.com/live/Y9AxWgiHZB4?si=7O4I8MS22e4dIzLC"><button class="hightlight--btn">HIGHLIGHT</button></a>
+                    </div>
+                </div>
+                <div class="show-more-container">
+                    <button id="show-more-aopc" class="show-more-btn">SHOW MORE</button>
+                </div>
+            </div>
+            <!-- PPA Tournament -->
+            <div id="ppa-info" class="tournament--info" style="display: none;">
+                <div class="tournament--info--header">
+                    <img src="../Assets/Img/PPA.png" alt="giải đấu PPA" style="border-radius: 50%;">
+                    <p>PPA Tour - New York, 2025</p>
+                </div>
+                <div class="tournament--matches">
+                    <!-- Match 1 -->
+                    <div class="tournament--matches--row">
+                        <div class="category">WOMEN</div>
+                        <div class="match">
+                            <div class="match__player">
+                                <img src="../Assets/Img/Co my.jpg" alt="co usa">
+                                <span>Kaitlyn Christian</span>
+                            </div>
+                            <div class="match__player">
+                                <img src="../Assets/Img/Co my.jpg" alt="co usa">
+                                <span>Marcela Hones</span>
+                            </div>   
+                        </div>
+                        <div class="score">
+                            <div style="padding-bottom: 40px;">1</div>
+                            <div>0</div>
+                        </div>
+                        <a href="https://www.youtube.com/watch?v=YoG4AS5HRhI"><button class="hightlight--btn">HIGHLIGHT</button></a>
+                    </div>
+                    <div class="line"></div>
+                    <!-- Match 2 -->
+                    <div class="tournament--matches--row">
+                        <div class="category">WOMEN</div>
+                        <div class="match">
+                            <div class="match__player">
+                                <img src="../Assets/Img/co dai loan.png" alt="co dailoan">
+                                <span>Chao Yi Wang</span>
+                            </div>
+                            <div class="match__player">
+                                <img src="../Assets/Img/Co-Trung-Quoc.jpg" alt="co china">
+                                <span>Lingwei Kong</span>
+                            </div>   
+                        </div>
+                        <div class="score">
+                            <div style="padding-bottom: 40px;">2</div>
+                            <div>0</div>
+                        </div>
+                        <a href="https://youtu.be/8qKCXSqIzmg?si=spCEEGRFmKodKA8_"><button class="hightlight--btn">HIGHLIGHT</button></a>
+                    </div>
+                    <!-- Match 3 -->
+                    <div class="tournament--matches--row">
+                        <div class="category">WOMEN</div>
+                        <div class="match">
+                            <div class="match__player">
+                                <img src="../Assets/Img/co canada.png" alt="co canada">
+                                <span>Catherine Parenteau</span>
+                            </div>
+                            <div class="match__player">
+                                <img src="../Assets/Img/Co my.jpg" alt="co usa">
+                                <span>Jalina Ingram</span>
+                            </div>   
+                        </div>
+                        <div class="score">
+                            <div style="padding-bottom: 40px;">2</div>
+                            <div>3</div>
+                        </div>
+                        <a href="https://www.youtube.com/live/Y9AxWgiHZB4?si=7O4I8MS22e4dIzLC"><button class="hightlight--btn">HIGHLIGHT</button></a>
+                    </div>
+                    <!-- Match 4 (Hidden) -->
+                    <div class="tournament--matches--row hidden-match">
+                        <div class="category">MEN</div>
+                        <div class="match">
+                            <div class="match__player">
+                                <img src="../Assets/Img/co tay ban nha.png" alt="co tay ban nha">
+                                <span>Jaume Martinez Vich</span>
+                            </div>
+                            <div class="match__player">
+                                <img src="../Assets/Img/co phap.jpg" alt="co phap">
+                                <span>Jay Devilliers</span>
+                            </div>   
+                        </div>
+                        <div class="score">
+                            <div style="padding-bottom: 40px;">1</div>
+                            <div>2</div>
+                        </div>
+                        <a href="https://www.youtube.com/live/Y9AxWgiHZB4?si=7O4I8MS22e4dIzLC"><button class="hightlight--btn">HIGHLIGHT</button></a>
+                    </div>
+                    <!-- Match 5 (Hidden) -->
+                    <div class="tournament--matches--row hidden-match">
+                        <div class="category">MEN</div>
+                        <div class="match">
+                            <div class="match__player">
+                                <img src="../Assets/Img/Co my.jpg" alt="co usa">
+                                <span>Dylan Frazier</span>
+                            </div>
+                            <div class="match__player">
+                                <img src="../Assets/Img/Co my.jpg" alt="co usa">
+                                <span>Donald Young</span>
+                            </div>   
+                        </div>
+                        <div class="score">
+                            <div style="padding-bottom: 40px;">2</div>
+                            <div>0</div>
+                        </div>
+                        <a href="https://www.youtube.com/live/Y9AxWgiHZB4?si=7O4I8MS22e4dIzLC"><button class="hightlight--btn">HIGHLIGHT</button></a>
+                    </div>
+                </div>
+                <div class="show-more-container">
+                    <button id="show-more-ppa" class="show-more-btn">SHOW MORE</button>
+                </div>
+            </div>
+        </div>  
+    </div>  
+    <!-- Footer -->
     <footer>
-
     </footer>
 </body>
 </html>

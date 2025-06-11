@@ -1,12 +1,13 @@
 :root{
     --white-color: #fff; 
     --black-color: #000;
-
+    --button-color:#C7F300; 
 }
 
 .container__header__nav{
     display: flex;
     justify-content: space-between;
+    object-fit: cover;
     
 }
 
@@ -16,7 +17,7 @@
     align-items: center;
     position: relative;
     left: 50px;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 900;
 }
 .container__header__nav--right{
@@ -25,11 +26,88 @@
     align-items: center;
     position: relative;
     right: 50px;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 900;
     
 }
 
+.container__header__nav--right :hover{
+    color: var(--button-color);
+    cursor:pointer; 
+    transition: all 0.3s ease-in-out;
+}
+
+.container__header__nav--left :hover{
+    color: var(--button-color);
+    cursor:pointer; 
+    transition: all 0.3s ease-in-out;
+}
+
+/* Dropdown Styling */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-toggle {
+    text-decoration: none;
+    color: var(--white-color);
+    font-size: 18px;
+    font-weight: 900;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 3px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    min-width: 270px;
+    z-index: 1001;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px 10px;
+    color: var(--black-color);
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.dropdown-menu a:hover {
+    background-color: var(--button-color);
+    color: var(--black-color);
+    transition: all 0.6s ease-in-out;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Ensure dropdown integrates with existing nav hover effects */
+.container__header__nav--left .dropdown-toggle:hover,
+.container__header__nav--right .dropdown-toggle:hover {
+    color: var(--button-color);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Accessibility: Focus state for dropdown toggle */
+.dropdown-toggle:focus {
+    outline: 2px solid var(--button-color);
+    outline-offset: 2px;
+}
+
+/* Fix for header nav alignment */
+.container__header__nav--left,
+.container__header__nav--right {
+    display: flex;
+    align-items: center;
+}
 .container__header__nav--login{
     padding: 7px 15px;
     border: 2px solid var(--button-color); 
@@ -55,19 +133,302 @@
     height: 80px;
 }
 
-.container__header{
+.container__header {
     position: fixed;
-    width: 100%;
+    top:0; 
+    left:0;
+    right:0;
+    width: 100vw;
     height: 100px;
     z-index: 1000;
-    color:var(--white-color); 
+    color: var(--white-color);
+    background-color: var(--black-color);
+    box-shadow: none;
+    padding: 10px 0; /* Thêm padding để đẹp hơn */
+    box-sizing: border-box;
 }
 
-.container__background--header{
-    position: relative;
-    top: 0;
-    left: 0;
-    right: 0; 
+
+/* ...existing code... */
+.container__header__nav{
+    display: flex;
+    justify-content: space-between;
+    object-fit: cover;
+}
+
+
+
+.video-background {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100vh;
+    overflow: hidden;
+    z-index: 1;
     
+}
+
+.video-background iframe {
+    width: 100vw;
+    height: 100vh;
+    min-width: 100%;
+    min-height: 100%;
+    position: absolute;
+    top: 0; left: 0;
+    pointer-events: none; /* Để không bị click vào video */
+}
+.container__background--header {
+    position: relative;
+    width: 100vw; 
+    height: 80vh;
+    overflow: hidden;
    
+}
+
+.container__misson{
+    background-color: #f5f4f3;
+    width: 100vw;
+    height: 300px;
+    margin-top:0px; 
+    padding-top: 1px;
+    padding: 50px 0;
+    
+}
+
+.container__misson h1{
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--black-color);
+}
+
+.container__misson p{
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1rem;
+    font-weight:lighter;
+    color: var(--black-color);
+}
+
+.container__misson a{
+    font-size: 1rem; 
+    text-decoration: underline;
+    margin: 20px auto;
+    display: block;
+    text-align: center;
+}
+
+#container__matches__title{
+    font-size: 1rem; 
+    font-weight: 900;
+    margin-left: 30px;
+}
+
+#container__matches__day{
+    font-size: 2rem; 
+    font-weight: 900;
+    color: var(--black-color);
+    text-align: center;
+}
+
+.container__matches__tournament--button{
+    display: flex;
+    gap:50px;
+    justify-content: center;
+    padding-top: 30px;
+}
+
+.container__tournament--img{
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.container__tournament--img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.container__matches__tournament--left{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 3px solid transparent;
+    border-radius: 100px;
+    padding-left: 10px;
+}
+
+.container__matches__tournament--right{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 3px solid transparent;
+    border-radius: 100px;
+    padding-left: 10px;
+
+
+}
+.container__tournament--title{
+    font-size: 12px;
+    font-weight: 900;
+    color: var(--black-color);
+    padding: 0 8px;
+}
+button:hover{
+    cursor: pointer;
+}
+
+.tournament--info{
+    display: block;
+    align-items: center;
+    margin-top: 50px;
+    margin-left: 30px;
+}
+
+.tournament--info img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.tournament--info p{
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: var(--black-color);
+}
+
+
+
+.tournament--info--header{
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.tournament--matches {
+    display: flex;
+    flex-direction: column; /* Xếp các row theo chiều dọc */
+    gap: 30px;              /* Khoảng cách giữa các trận */
+}
+
+.tournament--matches--row {
+    display: flex;
+    align-items: center; /* Đảm bảo tất cả các phần tử con được căn giữa theo chiều dọc */
+    justify-content: space-between; /* Phân bố đều khoảng cách */
+    padding: 10px 150px; /* Thay thế margin-left bằng padding để toàn bộ row có padding */
+    margin-top: 30px;
+    width: 100%; /* Chiếm toàn bộ chiều rộng */
+    box-sizing: border-box; /* Đảm bảo padding không làm tăng kích thước */
+}
+
+.category {
+    font-size: 1rem;
+    height: 50px;
+    width: 130px;
+    text-align: center;
+    padding: 10px 10px;
+    border-radius: 20px;
+    border: 1px solid var(--black-color);
+    color: var(--white-color);
+    font-weight: 900;
+    background-color: var(--black-color); 
+    /* Bỏ margin-top vì đã có align-items: center */
+    flex-shrink: 0; /* Ngăn không cho co lại */
+}
+
+.match {
+    flex-grow: 1; /* Chiếm không gian còn lại */
+    max-width: 400px; /* Giới hạn chiều rộng tối đa */
+}
+
+.match__player {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 15px 0;
+    font-weight: bold;
+    font-size: 1rem;
+    min-height: 60px;
+}
+
+.match__player img {
+    width: 70px;
+    height: 40px; 
+    object-fit: cover;
+    display: block;
+}
+
+.score {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 800;
+    width: 50px; /* Cố định chiều rộng */
+    flex-shrink: 0; /* Ngăn không cho co lại */
+}
+
+.hightlight--btn {
+    padding: 10px 20px;
+    border-radius: 100px;
+    border: 1px solid var(--black-color);
+    background-color: var(--white-color); 
+    color: var(--black-color);
+    font-weight: 900;
+    font-size: 1rem;
+    width: 150px; /* Giảm chiều rộng cho phù hợp */
+    flex-shrink: 0; /* Ngăn không cho co lại */
+    margin-left: auto; /* Đẩy về phía bên phải */
+}
+
+.hightlight--btn:hover{
+    background-color: var(--button-color);
+    color: var(--black-color);
+    border: 1px solid var(--button-color);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.line{
+    width: 1178px;
+    height: 1px; 
+    background-color:red;
+    margin: 0 auto;
+}
+
+.container__matches__tournament--left.active,
+.container__matches__tournament--right.active {
+    border: 2px solid var(--button-color);
+    background: var(--button-color);
+    font-weight: bold;    
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.hidden-match {
+    display: none;
+}
+.show-more-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.show-more-btn {
+    padding: 10px 25px;
+    border-radius: 100px;
+    border: 1px solid var(--black-color);
+    background-color: var(--white-color);
+    color: var(--black-color);
+    font-weight: 900;
+    font-size: 1rem;
+    width: 170px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.show-more-btn:hover {
+    background-color: var(--button-color);
 }
