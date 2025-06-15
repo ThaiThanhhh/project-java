@@ -1,0 +1,546 @@
+ :root {
+            --white-color: #fff;
+            --black-color: #000;
+            --button-color: #C7F300;
+            --primary-color: #0084ff;
+            --background-color: #f0f2f5;
+            --chat-bg: #fff;
+            --sent-bg: #0084ff;
+            --received-bg: #e4e6eb;
+            --text-color: #1c1e21;
+            --border-color: #dddfe2;
+            --hover-color: #e7f3ff;
+            --end-call-color: #ff4444; /* Red for end call button */
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--background-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container__header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100vw;
+            height: 100px;
+            z-index: 1000;
+            color: var(--white-color);
+            background-color: var(--black-color);
+            padding: 10px 0;
+            box-sizing: border-box;
+        }
+
+        .container__header__nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .container__header__nav--left,
+        .container__header__nav--right {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+            font-size: 18px;
+            font-weight: 900;
+        }
+
+        .container__header__nav--left {
+            position: relative;
+            left: 50px;
+        }
+
+        .container__header__nav--right {
+            position: relative;
+            right: 50px;
+        }
+
+        .container__header__nav--left a,
+        .container__header__nav--right a {
+            color: var(--white-color);
+            text-decoration: none;
+        }
+
+        .container__header__nav--left a:hover,
+        .container__header__nav--right a:hover {
+            color: var(--button-color);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .container__header__nav--logo img {
+            width: 80px;
+            height: 80px;
+        }
+
+        .container__header__nav--login {
+            padding: 7px 15px;
+            border: 2px solid var(--button-color);
+            background-color: var(--button-color);
+            border-radius: 100px;
+            color: var(--black-color);
+            font-weight: bold;
+            font-size: 17px;
+            text-decoration: none;
+        }
+
+        .container__header__nav--login:hover {
+            background-color: var(--black-color);
+            color: var(--button-color);
+            border: 2px solid var(--button-color);
+            transition: all 0.4s ease-in-out;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-toggle {
+            text-decoration: none;
+            color: var(--white-color);
+            font-size: 18px;
+            font-weight: 900;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 3px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            min-width: 270px;
+            z-index: 1001;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 10px;
+            color: var(--black-color);
+            text-decoration: none;
+            font-size: 17px;
+            font-weight: 600;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: var(--button-color);
+            color: var(--black-color);
+            transition: all 0.6s ease-in-out;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .messenger-container {
+            display: flex;
+            height: calc(100vh - 100px);
+            max-width: 1200px;
+            margin: 100px auto 0;
+            padding-bottom: 100px;
+        }
+
+        .sidebar {
+            width: 300px;
+            background-color: var(--chat-bg);
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar-header {
+            padding: 16px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .sidebar-header h2 {
+            font-size: 1.2rem;
+            margin: 0;
+            color: var(--text-color);
+        }
+
+        .conversation-list {
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .conversation-item {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border-color);
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .conversation-item:hover {
+            background-color: var(--hover-color);
+        }
+
+        .conversation-item.active {
+            background-color: var(--hover-color);
+        }
+
+        .conversation-item p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: var(--text-color);
+        }
+
+        .conversation-item .timestamp {
+            font-size: 0.8rem;
+            color: #65676b;
+        }
+
+        .chat-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background-color: var(--chat-bg);
+        }
+
+        .chat-header {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-header h3 {
+            margin: 0;
+            font-size: 1.1rem;
+            color: var(--text-color);
+        }
+
+        .chat-actions {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        #myPeerId {
+            font-size: 0.9rem;
+            color: #65676b;
+        }
+
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 16px;
+            background-color: var(--background-color);
+        }
+
+        .message {
+            margin-bottom: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .message.sent {
+            align-items: flex-end;
+        }
+
+        .message.received {
+            align-items: flex-start;
+        }
+
+        .message-content {
+            max-width: 60%;
+            padding: 8px 12px;
+            border-radius: 18px;
+            font-size: 0.9rem;
+        }
+
+        .message.sent .message-content {
+            background-color: var(--sent-bg);
+            color: #fff;
+        }
+
+        .message.received .message-content {
+            background-color: var(--received-bg);
+            color: var(--text-color);
+        }
+
+        .message .timestamp {
+            font-size: 0.7rem;
+            color: #65676b;
+            margin-top: 2px;
+        }
+
+        .chat-input {
+            padding: 12px 16px;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .chat-input input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .chat-input input:disabled {
+            background-color: #f0f2f5;
+            cursor: not-allowed;
+        }
+
+        .action-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .action-btn:hover {
+            background-color: var(--hover-color);
+        }
+
+        .action-btn i {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+
+        .action-btn:disabled {
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+
+        .video-call-area {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.85); /* Darker overlay */
+            display: none;
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .video-container {
+            display: flex;
+            gap: 10px; /* Reduced gap for larger videos */
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: 1800px; /* Max width for large screens */
+            flex-wrap: wrap;
+        }
+
+        .video-box {
+            position: relative;
+            width: 48%; /* Increased width for larger videos */
+            min-width: 400px; /* Larger minimum width */
+            max-width: 800px; /* Limit max width */
+        }
+
+        .video-box h3 {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 8px 12px;
+            border-radius: 5px;
+            font-size: 1rem; /* Larger title */
+        }
+
+        .video-box video {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: #000;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .end-call-overlay-btn {
+            background-color: var(--end-call-color);
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .end-call-overlay-btn:hover {
+            background-color: #cc0000;
+        }
+
+        .end-call-overlay-btn i {
+            font-size: 1.2rem;
+            color: #fff;
+        }
+
+        .container__footer {
+            width: 100vw;
+            background-color: var(--black-color);
+            color: var(--white-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding-top: 20px;
+        }
+
+        .footer__logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 100px;
+            background-color: #1E1E1E;
+            width: 100%;
+            height: 100px;
+        }
+
+        .footer__logo img {
+            height: 80px;
+            width: auto;
+        }
+
+        .footer__info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px 0;
+        }
+
+        .footer__logo-img {
+            width: 80px;
+            height: 80px;
+        }
+
+        .footer__socials {
+            display: flex;
+            gap: 50px;
+            margin: 30px 0;
+        }
+
+        .footer__socials img {
+            width: 40px;
+            height: 40px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .footer__links {
+            display: flex;
+            gap: 50px;
+            margin: 20px 0 80px;
+        }
+
+        .footer__links-column {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 160px;
+        }
+
+        .footer__links-column ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .footer__links-column a {
+            color: var(--white-color);
+            text-decoration: none;
+        }
+
+        .footer__links-column a:hover {
+            color: var(--button-color);
+        }
+
+        .footer__contact {
+            background-color: #1E1E1E;
+            width: 100%;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .footer__contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-bottom: 20px;
+        }
+
+        .footer__contact-info p {
+            margin: 0;
+            color: var(--white-color);
+        }
+
+        @media (max-width: 900px) {
+            .container__header__nav--left,
+            .container__header__nav--right {
+                gap: 1.5rem;
+                font-size: 16px;
+                left: 0;
+                right: 0;
+            }
+            .container__header__nav--logo img {
+                width: 60px;
+                height: 60px;
+            }
+            .messenger-container {
+                flex-direction: column;
+                margin-top: 80px;
+            }
+            .sidebar {
+                width: 100%;
+                height: 40%;
+            }
+            .chat-area {
+                height: 60%;
+            }
+            .video-box {
+                width: 90%; /* Full width on small screens */
+                min-width: 280px;
+            }
+            .video-container {
+                gap: 5px;
+            }
+            .footer__logo {
+                flex-wrap: wrap;
+                gap: 20px;
+                height: auto;
+                padding: 20px;
+            }
+            .footer__links {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
