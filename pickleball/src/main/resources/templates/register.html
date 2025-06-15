@@ -16,6 +16,8 @@
             <img src="/pickleball/images/logo app.png" alt="Logo">
         </a>
         <h2>REGISTER</h2>
+        <div th:if="${error}" style="color:red;">[[${error}]]</div>
+
         <div class="form-group">
             <label for="fullname">Full Name</label>
             <input type="text" id="fullname" name="fullname" class="input-field" placeholder="Full Name" required>
@@ -41,5 +43,7 @@
             Already have an account?  <a th:href="@{/login}">Login</a> |
         </div>
     </form>
+    <div th:if="${param.success}">
+</div>
 </body>
 </html>
