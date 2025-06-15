@@ -1,0 +1,83 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="/pickleball/css/main.css">
+    <link rel="stylesheet" href="/pickleball/css/base.css">
+    <link rel="stylesheet" href="/pickleball/css/aboutus.css">
+</head>
+<body>
+    <div th:replace="fragments/header :: header"></div>
+    <main class="container">
+            <div class="container__background">
+                <div class="background--header">
+                    <img src="/pickleball/images/backgroundAboutus.png" alt="backgroundAboutus" >
+                </div>
+                <div class="title">
+                    <h1>ABOUT US | KING PICKLEBALL VN</h1>
+                </div>
+            </div>
+            <div class="container__content">
+                <img src="/pickleball/images/sanbackground.png" alt="sanbackground" class="content__img">
+                <div class="content__text">
+                    <h2>Our Mission</h2>
+                    <p>
+                        Our mission is to create a dynamic, supportive learning environment that connects learners with expert coaches. We aim to make skill development accessible, personalized, and engaging through innovative technology and a vibrant community.
+                    </p>
+                    <h2 style="margin-top: 10px;">Who We Serve</h2>
+                    <div class="features-row">
+                        <div class="text__collumn-item" >
+                            <h3>Learners</h3>
+                            <p>
+                                Whether you're a beginner or an advanced learner, our platform provides tailored learning paths, AI-driven feedback, and a supportive community to help you master new skills.
+                            </p>
+                        </div>
+                        <div class="text__collumn-item">
+                            <h3>Coaches</h3>
+                            <p>
+                                Expert coaches can join our platform to share their knowledge, create professional profiles, manage schedules, and connect with motivated learners worldwide.
+                            </p>
+                        </div>
+                    </div>
+                    <h2 style="margin-top: 10px;">How It Works</h2>
+                    <div class="text__list">
+                        <ol>
+                            <li>Sign Up: Create an account as a learner or coach and complete your profile.</li>
+                            <li>Explore: Browse learning paths, video libraries, or coach profiles to find the right fit.</li>
+                            <li>Learn & Improve: Follow structured courses, upload videos for AI analysis, and book sessions with coaches.</li>
+                            <li>Connect: Engage with our community through forums, events, and shared stories.</li>
+                            <li>Track Progress: Monitor your growth with our progress dashboard and earn achievements.</li>
+                        </ol>
+                        
+                    </div>
+                    <h2 style="margin-top: 10px;">What Sets Us Apart</h2>
+                    <div class="features-row-2">
+                        <div class="text__collumn-item-2" >
+                            <h3>AI-Powered Analysis</h3>
+                            <p>
+                                Upload your practice videos and receive detailed, AI-driven feedback on your techniques to accelerate your learning.
+                            </p>
+                        </div>
+                        <div class="text__collumn-item-2">
+                            <h3>Expert Coaches</h3>
+                            <p>
+                                Learn from both online and in-person coaches who are verified, experienced, and dedicated to your success.
+                            </p>
+                        </div>
+                        <div class="text__collumn-item-2">
+                            <h3>Lifelong Community</h3>
+                            <p>
+                                Join a supportive community of learners and coaches to share experiences, participate in events, and grow together.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+ 
+        </main>
+    <div th:replace="fragments/footer :: footer"></div>
+    </body>
+</html>
