@@ -13,28 +13,28 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "full_name")
-    private String FullName;
-    @Column(name = "email", unique = true)
-    private String Email;
-    @Column(name = "password")
-    private String Password;
-    @Column(name = "phone_number")
-    private String PhoneNumber;
+    @Column(name = "full_name", nullable = false)
+    private String fullName;
+    @Column(name = "email", unique = true, nullable = false)
+    private String email;
+    @Column(name = "password", nullable = false)
+    private String password;
+    @Column(name = "phone_number", length = 15)
+    private String phoneNumber;
     @Column(name = "address")
-    private String Address;
-    @Column(name = "role")
-    private String Role;
+    private String address;
+    @Column(name = "role", nullable = false,length = 20)
+    private String role;
 
     public User() {
     }
     public User(String fullName, String email, String password, String phoneNumber, String address, String role) {
-        FullName = fullName;
-        Email = email;
-        Password = password;
-        PhoneNumber = phoneNumber;
-        Address = address;
-        Role = role;
+        this.fullName = fullName;
+        this.email = email;
+        this.password = password;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+        this.role = role;
     }
 
      public void setId(Long id) {
@@ -45,40 +45,40 @@ public class User {
         return this.id;
     }
     public String getFullName() {
-        return FullName;
+        return fullName;
     }
     public void setFullName(String fullName) {
-        FullName = fullName;
+        this.fullName = fullName;
     }
     public String getEmail() {
-        return Email;
+        return email;
     }
     public void setEmail(String email) {
-        Email = email;
+        this.email = email;
     }
     public String getPassword() {
-        return Password;
+        return password;
     }
     public void setPassword(String password) {
-        Password = password;
+        this.password = password;
     }
     public String getPhoneNumber() {
-        return PhoneNumber;
+        return phoneNumber;
     }
     public void setPhoneNumber(String phoneNumber) {
-        PhoneNumber = phoneNumber;
+        this.phoneNumber = phoneNumber;
     }
     public String getAddress() {
-        return Address;
+        return address;
     }
     public void setAddress(String address) {
-        Address = address;
+        this.address = address;
     }
     public String getRole() {
-        return Role;
+        return role;
     }
     public void setRole(String role) {
-        Role = role;
+        this.role = role;
     }
 
 
