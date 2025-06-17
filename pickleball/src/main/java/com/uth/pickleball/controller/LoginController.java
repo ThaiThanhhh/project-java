@@ -1,10 +1,10 @@
 package com.uth.pickleball.controller;
 
-import java.util.List;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.uth.pickleball.model.User;
 import com.uth.pickleball.service.UserService;
@@ -15,16 +15,27 @@ public class LoginController {
     public LoginController(UserService _userService) {
         this.userService = _userService;
     }
-    @ModelAttribute("users")
-    public List<User> getAllUsers() {
-        return userService.getAllUsers();
-    }
+   
     @RequestMapping({
         "/login"
     })
-    public String login(Model model) {
+     public String showLoginForm(Model model) {
         model.addAttribute("user", new User());
         return "login";
+    }
+    @PostMapping("/login")
+    public String login(
+            @RequestParam("email") String email,
+            @RequestParam("password") String password,
+            Model model) {
+        User user = userService.findByEmail(email);
+        if (user == null || !user.getPassword().equals(password)) {
+            model.addAttribute("error", "Email hoặc mật khẩu không đúng!");
+            model.addAttribute("user", new User());
+            return "login";
+        }
+        // Đăng nhập thành công, chuyển hướng tới trang chủ hoặc dashboard
+        return "redirect:/home";
     }
 
 }

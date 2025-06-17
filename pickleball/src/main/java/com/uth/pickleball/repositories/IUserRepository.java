@@ -13,7 +13,13 @@ public interface IUserRepository extends JpaRepository<User, Long> {
     // User findByUsername(String username);
     
     // Or to check if a user exists by email:
-    boolean existsByEmail(String email); 
+    boolean existsByEmail(String email);
+    // You can add more methods as needed for your application
+    // For example, to find a user by email:
+     User findByEmail(String email);
+    
+
+     
 }
 
 

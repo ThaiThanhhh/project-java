@@ -11,14 +11,13 @@
     <div class="login-bg">
         <img src="/pickleball/images/backgroundlogin.png" alt="Background" class="login-bg-img">
     </div>
-    <form class="login-form" method="get">
+    <form class="login-form" method="post">
         <a th:href="@{/}" class="login-logo">
             <img src="/pickleball/images/logo app.png" alt="Logo">
         </a>
         <h2>LOGIN</h2>
+        <div th:if="${error}" style="color:red;">[[${error}]]</div>
 
-
-        
         <div class="form-group">
             <label for="email">Email Address</label>
             <input type="email" id="email" name="email" class="input-field" placeholder="Email Address" required>
