@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import com.uth.pickleball.service.UserService;
 import org.springframework.ui.Model;
 import com.uth.pickleball.model.User;
@@ -35,14 +36,17 @@ public class RegisterController {
             model.addAttribute("user", new User(fullName, email, "", null, null, role));
             return "register";
         }
-        // Kiểm tra email đã tồn tại
-    if (userService.existsByEmail(email)) {
-        model.addAttribute("error", "Email already exists!");
-        model.addAttribute("user", new User(fullName, "", "", null, null, role));
-        return "register";
-    }
+            // Kiểm tra email đã tồn tại
+        if (userService.existsByEmail(email)) {
+            model.addAttribute("error", "Email already exists!");
+            model.addAttribute("user", new User(fullName, "", "", null, null, role));
+            return "register";
+        }
+        // Hash password trước khi lưu
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        String hashedPassword = encoder.encode(password);
 
-        User user = new User(fullName, email, password, null, null, role);
+        User user = new User(fullName, email, hashedPassword, null, null, role);
         userService.addUser(user);
         return "redirect:/login";
     }}

@@ -1,6 +1,7 @@
 package com.uth.pickleball.controller;
 
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,7 +30,9 @@ public class LoginController {
             @RequestParam("password") String password,
             Model model) {
         User user = userService.findByEmail(email);
-        if (user == null || !user.getPassword().equals(password)) {
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+
+        if (user == null || !encoder.matches(password, user.getPassword())) {
             model.addAttribute("error", "Email hoặc mật khẩu không đúng!");
             model.addAttribute("user", new User());
             return "login";
