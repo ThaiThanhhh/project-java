@@ -20,7 +20,7 @@ public class RegisterController {
     @GetMapping("/register")
     public String showRegisterForm(Model model) {
         model.addAttribute("user", new User());
-        return "register";
+        return "public/register";
     }
     @PostMapping("/register")
     public String register(
@@ -28,25 +28,24 @@ public class RegisterController {
             @RequestParam("email") String email,
             @RequestParam("password") String password,
             @RequestParam("confirm-password") String confirmPassword,
-            @RequestParam("role") String role,
             Model model) {
 
         if (!password.equals(confirmPassword)) {
             model.addAttribute("error", "Passwords do not match!");
-            model.addAttribute("user", new User(fullName, email, "", null, null, role));
-            return "register";
+            model.addAttribute("user", new User(fullName, email, "", null, null, ""));
+            return "public/register";
         }
             // Kiểm tra email đã tồn tại
         if (userService.existsByEmail(email)) {
             model.addAttribute("error", "Email already exists!");
-            model.addAttribute("user", new User(fullName, "", "", null, null, role));
-            return "register";
+            model.addAttribute("user", new User(fullName, "", "", null, null, ""    ));
+            return "public/register";
         }
         // Hash password trước khi lưu
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         String hashedPassword = encoder.encode(password);
 
-        User user = new User(fullName, email, hashedPassword, null, null, role);
+        User user = new User(fullName, email, hashedPassword, null, null, "");
         userService.addUser(user);
         return "redirect:/login";
     }}

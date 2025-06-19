@@ -9,6 +9,6 @@ public class HomeController {
         "/", "/home"
     })
     public String home() {
-        return "home";
+        return "public/home";
     }
 }

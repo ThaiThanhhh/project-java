@@ -22,7 +22,7 @@ public class LoginController {
     })
      public String showLoginForm(Model model) {
         model.addAttribute("user", new User());
-        return "login";
+        return "public/login";
     }
     @PostMapping("/login")
     public String login(
@@ -35,7 +35,7 @@ public class LoginController {
         if (user == null || !encoder.matches(password, user.getPassword())) {
             model.addAttribute("error", "Email hoặc mật khẩu không đúng!");
             model.addAttribute("user", new User());
-            return "login";
+            return "public/login";
         }
         // Đăng nhập thành công, chuyển hướng tới trang chủ hoặc dashboard
         return "redirect:/home";
