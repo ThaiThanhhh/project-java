@@ -29,20 +29,20 @@
                             <a href="#">Booking & Payment</a>
                         </div>
                     </div>
-                    <a href="#">Find a Coaches</a>
+                    <a href="#">My learning</a>
                     <a href="#">For Coach</a>
                 </div>
                 <div class="container__header__nav--logo">
                     <a th:href="@{/}"><img src="/pickleball/images/Logo app.png" alt="Logo King Pickleball"></a>
                 </div>
                 <div class="container__header__nav--right">
-                    <a href="#">Community</a>
-                    <a href="../Public/blog.html">Blog</a>
+                    <a th:href="@{/community}">Community</a>
+                    <a th:href="@{/blog}">Blog</a>
                     <div class="dropdown">
                         <a class="dropdown-toggle">About us</a>
                         <div class="dropdown-menu">
                             <a th:href="@{/aboutus}">About Us</a>
-                            <a th:href="@{/contact}">Contact Us</a>
+                            <a th:href="@{/contactus}">Contact Us</a>
                         </div>
                     </div>
                     <a th:href="@{/login}" class="container__header__nav--button">Login</a>
