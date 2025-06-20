@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Learning</title>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="/pickleball/css/base.css">
+    <link rel="stylesheet" href="/pickleball/css/my_learning.css">
+    <script src="/pickleball/js/history.js" defer></script>
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+    <div class="container">
+        <div class="container__background">
+            <img src="/pickleball/images/gettyimages-1355170068-612x612.jpg" alt="back">
+        </div>
+        <div class="container__content">
+                <h1>MY LEARNING | KING PICKLEBALL VN</h1>
+        </div>
+        <div class="container__learning--btn">
+            <button class="learning--btn " id="course--btn">All course</button>
+            <button class="learning--btn " id="history--btn">History</button>
+        </div>
+
+        <!-- All course -->
+         <div class="container__allcourse" id="all-course-section">
+            <div class="course__header">
+                    <div class="course__title">
+                    <h2>Start a weekly streak</h2>
+                    <p>Let’s chip away at your learning goals.</p>
+                    </div>
+
+                    <div class="course__streak">
+                        <div class="icon--fire"><i class="fa-solid fa-fire-flame-curved"></i></div>
+                        <div class="streak__text">
+                            <p><span>0</span> Streak</p>
+                        </div>
+                    </div>
+            </div>
+
+            <div class="course__title--description">
+                <h2>My Courses</h2>
+                <div class="course__list">
+                    <div class="course__item--row">
+                        <div class="item--row--content">
+                            <h3>Pickleball with Scott Moore – 21x Champion</h3>
+                            <ul>
+                                <li>Instructor: Scott Moore</li>
+                                <li>Progress: 0%</li>
+                                <li>Level: Beginner</li>
+                                <li>6 lectures</li>
+                                <li>Time: 10:00 AM - 11:30 AM June 15, 2025</li>
+                            </ul>
+                            
+                        </div>
+                        <div class="item--row--button">
+                            <a href="./learn.html"><button>Learn</button></a>
+                        </div>
+                    </div>
+
+                    <div class="course__item--row">
+                        <div class="item--row--content">
+                            <h3>Level Up Fast – Learn Pickleball with Matt</h3>
+                            <ul>
+                                <li>Instructor: Matt Manasse</li>
+                                <li>Progress: 50%</li>
+                                <li>Level: Beginner</li>
+                                <li>21 lectures</li>
+                                <li>Time: 10:00 AM - 11:30 AM June 17, 2025</li>
+                            </ul>
+                            
+                        </div>
+                        <div class="item--row--button">
+                            <a href="./learn.html"><button>Learn</button></a>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div> 
+         </div>
+        <!-- history -->
+         <div class="container--history" id="history-section">
+            <h1>Study History</h1>
+            
+            <!-- Filter and Search -->
+            <div class="filter-search">
+                <input type="text" id="searchInput" placeholder="Search by course name or ID...">
+                <select id="statusFilter">
+                    <option value="all">All Statuses</option>
+                    <option value="in_progress">In Progress</option>
+                    <option value="completed">Completed</option>
+                    <option value="paused">Paused</option>
+                </select>
+            </div>
+
+            <!-- Study History List -->
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Course ID</th>
+                            <th>Course Name</th>
+                            <th>Start Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="studyTable">
+                        <!-- Sample data will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        
+    </div>
+   
+    <div th:replace="fragments/footer :: footer"></div>
+    
+</body>
+</html>

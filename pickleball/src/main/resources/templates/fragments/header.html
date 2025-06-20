@@ -21,7 +21,7 @@
                     <div class="dropdown">
                         <a href="#" class="dropdown-toggle">Features</a>
                         <div class="dropdown-menu">
-                            <a href="#">Structured Learning</a>
+                            <a th:href="@{/structured}">Structured Learning</a>
                             <a href="#">Video Library</a>
                             <a href="#">AI Technique Analysis</a>
                             <a href="#">Progress Dashboard</a>
@@ -29,8 +29,8 @@
                             <a href="#">Booking & Payment</a>
                         </div>
                     </div>
-                    <a href="#">My learning</a>
-                    <a href="#">For Coach</a>
+                    <a th:href="@{/mylearning}">My learning</a>
+                    <a th:href="@{/forcoach}">For Coach</a>
                 </div>
                 <div class="container__header__nav--logo">
                     <a th:href="@{/}"><img src="/pickleball/images/Logo app.png" alt="Logo King Pickleball"></a>

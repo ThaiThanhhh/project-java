@@ -4,12 +4,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class AboutUsController {
+public class ForCoachController {
 
-    @GetMapping("/aboutus")
-    public String aboutUs() {
-        return "public/about_us";
+    @GetMapping("/forcoach")
+    public String forCoach() {
+        return "private/for_coach";
     }
-    
 
 }
