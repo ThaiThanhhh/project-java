@@ -19,19 +19,34 @@
         <div class="container__content">
                 <h1>BLOG | KING PICKLEBALL VN</h1>
         </div>
-
         <div class="container__blog">
-            <div class="container__blog--row">
-                <div class="blog--row--img "><img src="/pickleball/images/tintuc1.png" alt="tintuc"></div>
+            <div class="container__blog--row" th:each="blog : ${blogPage.content}">
+                <div class="blog--row--img">
+                    <img th:src="${#strings.startsWith(blog.imageUrl, 'http') ? blog.imageUrl : '/pickleball/images/' + blog.imageUrl}" alt="tintuc">
+                </div>
                 <div class="blog--row-content">
-                    <h1>Cultivating Community and Skill: How Paul Bateman's Rockland County Program Thrives with Engage</h1>
-                    <p style="font-size: 14px; font-weight:lighter; padding-bottom: 10px; ">Lean Eleonor Tuazon Feb 05, 2025</p>
-                    <p>In Rockland County, New York, a unique and highly successful pickleball program is making waves as the county's only Adult Education offering for the sport. At the heart of this program is Head Instructor Paul...</p>
-                    <a href="https://engagepickleball.com/blogs/news-product-highlights/paul-batemans-rockland-county-program"><button>READ MORE</button></a>
+                    <h1 th:text="${blog.title}"></h1>
+                    <p style="font-size: 14px; font-weight:lighter; padding-bottom: 10px;" th:text="${blog.publishedDate}"></p>
+                    <p th:text="${blog.summary}"></p>
+                    <a th:href="${blog.articleUrl}" target="_blank"><button>READ MORE</button></a>
                 </div>
             </div>
+        </div>
 
-            <div class="container__blog--row">
+            <!-- <div class="container__blog">
+    <div class="container__blog--row" th:each="blog : ${blogs}">
+        <div class="blog--row--img">
+            <img th:src="${blog.imageUrl}" alt="tintuc">        </div>
+        <div class="blog--row-content">
+            <h1 th:text="${blog.title}"></h1>
+            <p style="font-size: 14px; font-weight:lighter; padding-bottom: 10px;" th:text="${blog.publishedDate}"></p>
+            <p th:text="${blog.summary}"></p>
+            <a th:href="${blog.articleUrl}" target="_blank"><button>READ MORE</button></a>
+        </div>
+    </div>
+</div> -->
+
+            <!-- <div class="container__blog--row">
                 <div class="blog--row--img "><img src="/pickleball/images/unnamed_8ccb5857-b8c9-4115-9920-995d4be7612d.webp" alt="tintuc"></div>
                 <div class="blog--row-content">
                     <h1>Beyond the Win: Nick's Inspiring Partnership with Camden Raboin</h1>
@@ -60,9 +75,9 @@
                     <a href="https://engagepickleball.com/blogs/news-product-highlights/jessie-irvines-exciting-journey-on-the-ppa-tour"><button>READ MORE</button></a>
                 </div>
             </div>
-        </div>
+        </div> -->
 
-        <div class="pagination">
+        <!-- <div class="pagination">
             <button class="page-btn prev" disabled>
                 <span>&lt;</span>
             </button>
@@ -77,7 +92,33 @@
             </button>
             </a>
            
-        </div>
+        </div> -->
+        <div class="pagination">
+    <!-- Nút Previous -->
+    <a th:if="${blogPage.hasPrevious()}" th:href="@{/blog(page=${blogPage.number - 1})}">
+        <button class="page-btn prev"><span>&lt;</span></button>
+    </a>
+    <button class="page-btn prev" th:unless="${blogPage.hasPrevious()}" disabled>
+        <span>&lt;</span>
+    </button>
+
+    <!-- Số trang -->
+    <div class="page-numbers">
+        <span th:each="i : ${#numbers.sequence(0, blogPage.totalPages - 1)}">
+            <a th:href="@{/blog(page=${i})}">
+                <span class="page-number" th:text="${i + 1}" th:classappend="${i == blogPage.number} ? ' active'"></span>
+            </a>
+        </span>
+    </div>
+
+    <!-- Nút Next -->
+    <a th:if="${blogPage.hasNext()}" th:href="@{/blog(page=${blogPage.number + 1})}">
+        <button class="page-btn next"><span>&gt;</span></button>
+    </a>
+    <button class="page-btn next" th:unless="${blogPage.hasNext()}" disabled>
+        <span>&gt;</span>
+    </button>
+</div>
 
     </div>    <div th:replace="fragments/footer :: footer"></div>
 
