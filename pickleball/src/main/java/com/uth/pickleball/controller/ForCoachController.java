@@ -8,7 +8,19 @@ public class ForCoachController {
 
     @GetMapping("/forcoach")
     public String forCoach() {
-        return "private/for_coach";
+        return "private/for_coach/for_coach";
+    }
+    @GetMapping("/forcoach/addcertifications")
+    public String addCertifications() {
+        return "private/for_coach/add_certifications";
+    }
+    @GetMapping("/forcoach/teach")
+    public String teach() {
+        return "private/for_coach/teach";
+    }
+    @GetMapping("/forcoach/viewfinancial")
+    public String viewFinancial() {
+        return "private/for_coach/view_financial";
     }
 
 }

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lear</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="/pickleball/css/base.css">
+    <link rel="stylesheet" href="/pickleball/css/learn.css">
+    <script src="/pickleball/js/learn.js" defer></script>
+    <script src="https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js"></script>
+</head>
+<body>
+    
+    <div th:replace="fragments/header :: header"></div>
+    <main class="messenger-container">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h2>Select a conversation</h2>
+                <label for="courseId">Course ID:</label>
+                <input type="text" id="courseId" placeholder="Enter Course ID">
+                <p>Your Peer ID: <span id="my-peer-id"></span></p>
+            </div>
+            <div class="conversation-list" id="conversationList"></div>
+        </div>
+
+        <div class="chat-area">
+            <div class="chat-header">
+                <h3 id="chatTitle">Select a conversation</h3>
+                <div class="chat-actions">
+                    <input type="text" id="remotePeerId" placeholder="Enter Peer ID">
+                    <button class="action-btn" id="connectBtn"><i class="fas fa-link"></i> Connect</button>
+                    <button class="action-btn" id="videoCallBtn"><i class="fas fa-video"></i></button>
+                    <button class="action-btn" id="endCallBtn" style="display: none;"><i class="fas fa-phone-slash"></i></button>
+                </div>
+            </div>
+            <div class="chat-messages" id="chatMessages"></div>
+            <div class="chat-input">
+                <input type="text" id="messageInput" placeholder="Type a message..." disabled>
+                <button class="action-btn" id="sendBtn" disabled><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+
+        <div class="video-call-area" id="videoCallArea" style="display: none;">
+            <div class="video-container">
+                <div class="video-box">
+                    <h3>Your Video</h3>
+                    <video id="my-video" autoplay muted></video>
+                    <div class="video-controls">
+                        <button class="video-control-btn" id="pauseVideoBtn" title="Pause Video"><i class="fas fa-pause"></i></button>
+                        <button class="video-control-btn" id="muteMicBtn" title="Mute Mic"><i class="fas fa-microphone"></i></button>
+                    </div>
+                </div>
+                <div class="video-box">
+                    <h3>Teacher videos</h3>
+                    <video id="remote-video" autoplay></video>
+                </div>
+            </div>
+            <div class="call-controls">
+                <button class="call-control-btn" id="endCallOverlayBtn">
+                    <i class="fas fa-phone-slash"></i> End Call
+                </button>
+            </div>
+        </div>
+    </main>
+    <div th:replace="fragments/footer :: footer"></div>
+
+  
+</body>
+</html>

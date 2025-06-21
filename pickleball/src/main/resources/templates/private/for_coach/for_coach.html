@@ -69,7 +69,7 @@
                         </div>
                         
                     </div>
-                    <a href="../Private/Add certifications.html"><button class="add-button">Add Certification</button></a>
+                    <a th:href="@{forcoach/addcertifications}"><button class="add-button">Add Certification</button></a>
                 </div>
 
                 <div class="detail-card">
@@ -105,7 +105,7 @@
                             
                         </div>
                         <div class="item--row--button">
-                            <a href="../Private/teach.html"><button>Teach</button></a>
+                            <a th:href="@{forcoach/teach}"><button>Teach</button></a>
                         </div>
                     </div>
 
@@ -121,7 +121,7 @@
                             
                         </div>
                         <div class="item--row--button">
-                            <a href="../Private/teach.html"><button>Teach</button></a>
+                            <a th:href="@{forcoach/teach}"><button>Teach</button></a>
                         </div>
                     </div>
                 </div>
@@ -286,7 +286,7 @@
                     <p class="change positive">+3 this month</p>
                 </div>
             </div>
-            <a href="../Private/view financial.html"><button class="view-details-button">View Financial Details</button></a>
+            <a th:href="@{/forcoach/viewfinancial}"><button class="view-details-button">View Financial Details</button></a>
         </section>
     </main>
     <div th:replace="fragments/header :: header"></div>
