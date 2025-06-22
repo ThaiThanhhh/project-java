@@ -16,7 +16,9 @@
 </script>
     <script src="/pickleball/js/video_library.js" defer></script>
 </head>
-<body>
+<body><div th:replace="fragments/header :: header"></div>
+
+
 
     <!-- Main Content -->
        <div class="container">
@@ -50,6 +52,8 @@
             </div>
         </div>
     </div>
+    <div th:replace="fragments/footer :: footer"></div>
+
     
   
 </body>

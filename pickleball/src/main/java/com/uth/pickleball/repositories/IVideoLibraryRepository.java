@@ -7,6 +7,4 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 @Repository
 public interface IVideoLibraryRepository extends JpaRepository<VideoLibrary, Long> {
-    List<VideoLibrary> findByCategory(String category);
-    List<VideoLibrary> findAll();
 }
