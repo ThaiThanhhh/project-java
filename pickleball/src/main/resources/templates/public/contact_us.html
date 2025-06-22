@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="/pickleball/css/main.css">
+    <link rel="stylesheet" href="/pickleball/css/base.css">
+    <link rel="stylesheet" href="/pickleball/css/contact_us.css">
+</head>
+<body>
+        <div th:replace="fragments/header :: header"></div>
+<div class="container__content">
+        <h1>CONTACT US | KING PICKLEBALL VN</h1>
+        </div>
+    <div class="container__form-product">
+                <form class="form" id="orderForm" action="#" method="post">
+                    <div class="form__row">
+                        <div class="form__row--left">
+                            <div class="form__group">
+                                <input type="text" name="fullname" id="fullname" placeholder="NAME" required>
+                            </div>
+                            <div class="form__group">
+                                <input type="tel" name="phone-number" id="phone-number" placeholder="PHONE NUMBER" required>
+                            </div>   
+                            <div class="form__group">
+                                <input type="email" name="email" id="email" placeholder="EMAIL" required>
+                            </div>  
+                            <div class="form__group">
+                                <input type="text" name="address" id="address" placeholder="ADDRESS" required>
+                            </div>  
+                                              
+                        </div>
+                        <div class="form__row--right">
+                            <div class="form__group">
+                                <select name="contact-reason" id="contact-reason" required>
+                                    <option value selected hidden >REASON TO CONTACT</option>
+                                    <option value="PRODUCT’S INFORMATION">COMPLAINTS</option>
+                                    <option value="COLLABORATION – SPONSORSHIP">COLLABORATION – SPONSORSHIP</option>
+                                    <option value="RECRUITMENT">RECRUITMENT</option>
+                                    <option value="OTHERS">OTHERS</option>
+                                </select>
+                            </div>  
+                            <div class="form__group">
+                                <textarea name="message" id="message" rows="8" placeholder="MESSAGE" required></textarea>
+                            </div>  
+                            <div class="form__group"></div> 
+                            <button type="submit" class="form__btn">Send</button>
+                        </div>
+                    </div>
+                </form>
+                
+
+            </div>                       
+            <div th:replace="fragments/footer :: footer"></div>
+
+            
+    
+</body>
+</html>

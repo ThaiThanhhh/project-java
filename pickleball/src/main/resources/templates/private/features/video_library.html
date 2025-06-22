@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Library</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="/pickleball/css/base.css">
+    <link rel="stylesheet" href="/pickleball/css/video_library.css">
+    
+    <script th:inline="javascript">
+    /*<![CDATA[*/
+    let videos = /*[[${videos}]]*/ [];
+    /*]]>*/
+</script>
+    <script src="/pickleball/js/video_library.js" defer></script>
+</head>
+<body><div th:replace="fragments/header :: header"></div>
+
+
+
+    <!-- Main Content -->
+       <div class="container">
+        <h1>Video Lecture Library</h1>
+        
+        <!-- Search Bar -->
+        <div class="search-bar">
+            <input id="searchInput" type="text" placeholder="Search lectures...">
+        </div>
+
+        <!-- Basic Videos Section -->
+        <div class="section">
+            <h2>Basic Pickleball Videos</h2>
+            <div id="basicVideoGrid" class="video-grid">
+                <!-- Basic videos will be added via JavaScript -->
+            </div>
+        </div>
+
+        <!-- Advanced Videos Section -->
+        <div class="section">
+            <h2>Advanced Pickleball Videos</h2>
+            <div id="advancedVideoGrid" class="video-grid">
+                <!-- Advanced videos will be added via JavaScript -->
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Tournament Pickleball Videos</h2>
+            <div id="tournamentVideoGrid" class="video-grid">
+                <!-- Advanced videos will be added via JavaScript -->
+            </div>
+        </div>
+    </div>
+    <div th:replace="fragments/footer :: footer"></div>
+
+    
+  
+</body>
+</html>

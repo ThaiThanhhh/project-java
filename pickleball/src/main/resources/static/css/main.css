@@ -1,0 +1,1375 @@
+:root{
+    --white-color: #fff; 
+    --black-color: #000;
+    --button-color:#C7F300; 
+}
+
+.container__header__nav{
+    display: flex;
+    justify-content: space-between;
+    object-fit: cover;
+    
+}
+
+.container__header__nav--left{
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+    position: relative;
+    left: 50px;
+    font-size: 18px;
+    font-weight: 900;
+}
+.container__header__nav--right{
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+    position: relative;
+    right: 50px;
+    font-size: 18px;
+    font-weight: 900;
+    
+}
+
+.container__header__nav--right :hover{
+    color: var(--button-color);
+    cursor:pointer; 
+    transition: all 0.3s ease-in-out;
+}
+
+.container__header__nav--left :hover{
+    color: var(--button-color);
+    cursor:pointer; 
+    transition: all 0.3s ease-in-out;
+}
+.container__header__nav--button{
+    padding: 7px 15px;
+    border: 2px solid var(--button-color); 
+    background-color: var(--button-color);
+    border-radius: 100px;
+    color: var(--black-color);
+    font-weight:bolder; 
+    font-size: 17px;
+}
+.container__header__nav--button:hover{
+    background-color: var(--black-color);
+    color: var(--button-color);
+    border:1px solid var(--button-color);
+}
+
+/* Dropdown Styling */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-toggle {
+    text-decoration: none;
+    color: var(--white-color);
+    font-size: 18px;
+    font-weight: 900;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 3px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    min-width: 270px;
+    z-index: 1001;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px 10px;
+    color: var(--black-color);
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.dropdown-menu a:hover {
+    background-color: var(--button-color);
+    color: var(--black-color);
+    transition: all 0.6s ease-in-out;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Ensure dropdown integrates with existing nav hover effects */
+.container__header__nav--left .dropdown-toggle:hover,
+.container__header__nav--right .dropdown-toggle:hover {
+    color: var(--button-color);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Accessibility: Focus state for dropdown toggle */
+.dropdown-toggle:focus {
+    outline: 2px solid var(--button-color);
+    outline-offset: 2px;
+}
+
+/* Fix for header nav alignment */
+.container__header__nav--left,
+.container__header__nav--right {
+    display: flex;
+    align-items: center;
+}
+.container__header__nav--login{
+    padding: 7px 15px;
+    border: 2px solid var(--button-color); 
+    background-color: var(--button-color);
+    border-radius: 100px;
+    color: var(--black-color);
+    font-weight:bolder; 
+    font-size: 17px;
+}
+
+.container__header__nav--login:hover{
+    background-color: var(--black-color);
+    color: var(--button-color);
+    border: 2px solid var(--black-color);
+    cursor: pointer;
+    font-size: 17px;
+    transition: all 0.4s ease-in-out;
+    
+}
+
+.container__header__nav--logo img{
+    width: 80px;
+    height: 80px;
+}
+
+.container__header {
+    position: fixed;
+    top:0; 
+    left:0;
+    right:0;
+    width: 100vw;
+    height: 100px;
+    z-index: 1000;
+    color: var(--white-color);
+    background-color: var(--black-color);
+    box-shadow: none;
+    padding: 10px 0; /* Thêm padding để đẹp hơn */
+    box-sizing: border-box;
+}
+
+
+/* ...existing code... */
+.container__header__nav{
+    display: flex;
+    justify-content: space-between;
+    object-fit: cover;
+}
+
+
+
+.video-background {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100vh;
+    overflow: hidden;
+    z-index: 1;
+    
+}
+
+.video-background iframe {
+    width: 100vw;
+    height: 100vh;
+    min-width: 100%;
+    min-height: 100%;
+    position: absolute;
+    top: 0; left: 0;
+    pointer-events: none; /* Để không bị click vào video */
+}
+.container__background--header {
+    position: relative;
+    width: 100vw; 
+    height: 85vh;
+    overflow: hidden;
+   
+}
+
+.container__misson{
+    background-color: #f5f4f3;
+    width: 100vw;
+    height: 300px;
+    margin-top:0px; 
+    padding-top: 1px;
+    padding: 50px 0;
+    
+}
+
+.container__misson h1{
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--black-color);
+}
+
+.container__misson p{
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1rem;
+    font-weight:lighter;
+    color: var(--black-color);
+}
+
+.container__misson a{
+    font-size: 1rem; 
+    text-decoration: underline;
+    margin: 20px auto;
+    display: block;
+    text-align: center;
+}
+
+#container__matches__title{
+    font-size: 1rem; 
+    font-weight: 900;
+    margin-left: 30px;
+}
+
+#container__matches__day{
+    font-size: 2rem; 
+    font-weight: 900;
+    color: var(--black-color);
+    text-align: center;
+}
+
+.container__matches__tournament--button{
+    display: flex;
+    gap:50px;
+    justify-content: center;
+    padding-top: 30px;
+}
+
+.container__tournament--img{
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.container__tournament--img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.container__matches__tournament--left{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 3px solid transparent;
+    border-radius: 100px;
+    padding-left: 10px;
+}
+
+.container__matches__tournament--right{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 3px solid transparent;
+    border-radius: 100px;
+    padding-left: 10px;
+
+
+}
+.container__tournament--title{
+    font-size: 12px;
+    font-weight: 900;
+    color: var(--black-color);
+    padding: 0 8px;
+}
+button:hover{
+    cursor: pointer;
+}
+
+.tournament--info{
+    display: block;
+    align-items: center;
+    margin-top: 50px;
+    margin-left: 30px;
+}
+
+.tournament--info img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.tournament--info p{
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: var(--black-color);
+}
+
+
+
+.tournament--info--header{
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.tournament--matches {
+    display: flex;
+    flex-direction: column; /* Xếp các row theo chiều dọc */
+    gap: 30px;     
+    width: 100%; /* Ensure full width */
+    align-items: center         /* Khoảng cách giữa các trận */
+}
+
+.tournament--matches--row {
+    display: flex;
+    align-items: center; /* Đảm bảo tất cả các phần tử con được căn giữa theo chiều dọc */
+    justify-content: space-between; /* Phân bố đều khoảng cách */
+    padding: 10px 150px; /* Thay thế margin-left bằng padding để toàn bộ row có padding */
+    margin-top: 30px;
+    width: 100%; /* Chiếm toàn bộ chiều rộng */
+    box-sizing: border-box; /* Đảm bảo padding không làm tăng kích thước */
+}
+
+.category {
+    font-size: 1rem;
+    height: 50px;
+    width: 130px;
+    text-align: center;
+    padding: 10px 10px;
+    border-radius: 20px;
+    border: 1px solid var(--black-color);
+    color: var(--white-color);
+    font-weight: 900;
+    background-color: var(--black-color); 
+    /* Bỏ margin-top vì đã có align-items: center */
+    flex-shrink: 0; /* Ngăn không cho co lại */
+}
+
+.match {
+    flex-grow: 1; /* Chiếm không gian còn lại */
+    max-width: 400px; /* Giới hạn chiều rộng tối đa */
+}
+
+.match__player {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 15px 0;
+    font-weight: bold;
+    font-size: 1rem;
+    min-height: 60px;
+}
+
+.match__player img {
+    width: 70px;
+    height: 40px; 
+    object-fit: cover;
+    display: block;
+}
+
+.score {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 800;
+    width: 50px; /* Cố định chiều rộng */
+    flex-shrink: 0; /* Ngăn không cho co lại */
+}
+
+.hightlight--btn {
+    padding: 10px 20px;
+    border-radius: 100px;
+    border: 1px solid var(--black-color);
+    background-color: var(--white-color); 
+    color: var(--black-color);
+    font-weight: 900;
+    font-size: 1rem;
+    width: 150px; /* Giảm chiều rộng cho phù hợp */
+    flex-shrink: 0; /* Ngăn không cho co lại */
+    margin-left: auto; /* Đẩy về phía bên phải */
+}
+
+.hightlight--btn:hover{
+    background-color: var(--button-color);
+    color: var(--black-color);
+    border: 1px solid var(--button-color);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.line{
+    width: 1178px;
+    height: 1px; 
+    background-color:red;
+    margin: 0 auto;
+}
+
+.container__matches__tournament--left.active,
+.container__matches__tournament--right.active {
+    border: 2px solid var(--button-color);
+    background: var(--button-color);
+    font-weight: bold;    
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.hidden-match {
+    display: none;
+}
+.show-more-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    width: 100%; /* Ensure full width to center properly */
+    text-align: center; /* Fallback for non-flex contexts */
+    
+}
+
+.show-more-btn {
+    padding: 10px 25px;
+    border-radius: 100px;
+    border: 1px solid var(--black-color);
+    background-color: var(--white-color);
+    color: var(--black-color);
+    font-weight: 900;
+    font-size: 1rem;
+    width: 170px; /* Keep fixed width but ensure centering */
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    display: inline-block;
+}
+
+.show-more-btn:hover {
+    background-color: var(--button-color);
+}
+
+.container__background__course{
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.container__background__course--img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 30px; 
+    left: 0;
+    z-index: -1; /* Đặt hình nền ở dưới cùng */
+}
+
+.container__background__course--img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.container__background__content h1{
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--white-color);
+    margin-top: 80px;
+}
+
+.container__background__card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap:40px;
+    position: relative;
+    top: 30px;
+    z-index: 1; /* Đặt card trên hình nền */
+}
+
+.container__background__card--item{
+    width: 350px;
+    height: 500px;
+    background-color: transparent;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    overflow: hidden;
+}
+
+
+.container__card--img{
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 20px;
+
+
+}
+
+.container__card--img img{
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+.container__card--title{
+    font-size: 16px;
+    background-color: var(--white-color);
+    padding: 10px;
+    height: 150px;
+    width: 75%;;
+    border-radius: 20px;
+    position: relative;
+    left: 40px;
+    bottom: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+}
+.container__card--title h2{
+    font-size: 1rem;
+    font-weight: 900;
+    color: var(--black-color);
+    text-align: center;
+}
+
+.container__card--title button{
+    width: 130px;
+    height: 40px;
+    background-color: var(--button-color);
+    color: var(--black-color);
+    border: none;
+    border-radius: 100px;
+    margin-top: 25px;
+    margin-left: 58px;
+    font-weight: 700;
+
+}
+
+.container__card--title button:hover{
+    background-color: var(--black-color);
+    color: var(--button-color);
+    border: 1px solid var(--black-color);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  
+}
+
+.background__course__undertext{
+    font-size: 18px;
+    color:var(--white-color); 
+    text-align: center;
+    margin-top: 20px;
+}
+
+.container__background__trainer{
+    width: 100vw;
+    min-height: 90vh; 
+    position: relative;
+    overflow: hidden;
+}
+
+.container__background__trainer--img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0; 
+    left: 0;
+    z-index: -1; /* Đặt hình nền ở dưới cùng */
+}
+
+.container__background__trainer--img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.container__background__content--trainer h1{
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--white-color);
+    margin-top:50px;
+}
+
+.background__card--item{
+    width: 300px;
+    height: 420px;
+    background-color: transparent;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s ease, opacity 0.5s ease; /* Hiệu ứng trượt và mờ */
+    opacity: 1;
+}
+.background__card--item.hidden {
+    transform: translateX(-100%); /* Trượt ra ngoài bên trái */
+    opacity: 0;
+    pointer-events: none; /* Ngăn tương tác khi ẩn */
+}
+.card__block--upper{
+    width: 100%;
+    height: 270px;
+    object-fit: cover;
+    position: relative;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    background-color: var(--white-color);
+}
+
+.card__block--upper--1{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-bottom-left-radius: 80px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    background-color: var(--button-color);
+    position: absolute;
+    z-index: 1;
+}
+
+.card__block--upper--2{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    overflow: hidden;
+    background: transparent;
+    z-index: 2; /* Đặt trên cùng */
+    position: relative;
+
+}
+
+.card__block--upper--2 img{
+    width: 200px;         /* Đặt kích thước phù hợp */
+    height: 200px;
+    border-radius: 50%;   /* Bo tròn */
+    object-fit: cover;
+    margin-top: 20px;     /* Cách phía trên một chút */
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+.card__block--under{
+    width:100%; 
+    height: 150px;
+    background-color: var(--button-color);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.card__block--under--1{
+    width: 100%;
+    height: 100%;
+    background-color: var(--white-color);
+    border-top-right-radius: 80px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.card__block--under--1 h2 {
+    font-size: 18px;
+    font-weight: 900;
+    color: var(--black-color);
+    margin: 0;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.card__block--under--1 p {
+    font-size: 10px;
+    color: #000;
+    margin: 5px 10px;
+    max-width: 280px;
+    padding-left: 10px;
+}
+
+.card__block--under--1 button {
+    width: 120px;
+    height: 40px;
+    background-color: var(--button-color);
+    color: #000;
+    border: none;
+    border-radius: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    margin: 10px 0;
+    position: relative;
+    left: 80px;
+    
+}
+
+.card__block--under--1 button:hover {
+    background-color: #000;
+    color: #C7F300;
+    border: 1px solid #000;
+    transition: all 0.3s ease-in-out;
+}
+
+.trainer__background__card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 100px;
+    position: relative;
+    top: 30px;
+    z-index: 1; /* Đặt card trên hình nền */
+    overflow: hidden;
+}
+
+.arrow--left {
+    left: 20px;
+}
+
+.arrow--right {
+    right: 20px;
+}
+
+.arrow--left i, .arrow--right i{
+    font-size: 40px;
+    color: var(--white-color);
+    cursor: pointer;
+    transform: translateY(-50%);
+}
+
+.arrow--left i:hover, .arrow--right i:hover{
+    color: var(--button-color);
+    transition: all 0.2s ease-in-out;
+}
+
+.background__trainer__undertext {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.background__trainer__undertext p {
+    font-size: 18px;
+    color: var(--white-color);
+    text-align: center;
+    margin: 0 auto;
+    padding: 0 20px;
+    max-width: 900px;
+    z-index: 1;
+}
+
+
+.container__background__AI {
+    position: relative;
+    width: 100vw;
+    height: 90vh; /* hoặc giá trị bạn muốn */
+    overflow: hidden;
+}
+
+.background_AI--img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.background_AI--img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-color:#16166c ;
+}
+.background_AI--content {
+    position: relative;
+    z-index: 1; /* Đặt nội dung trên hình nền */
+    padding: 20px;
+    text-align: center;
+    color: var(--white-color);
+}
+.background_AI--content h1 {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--white-color);
+    margin-top: 50px;
+}
+
+.connect_AI{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 300px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    left:150px;
+    z-index: 2;
+    min-height: 500px;
+}
+
+.connect_AI--img{
+    flex: 0 0 420px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    max-width: 300px;
+    position: relative;
+}
+.connect_AI--img img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    position: relative;
+    top:30px;
+    left:100px; 
+    
+}
+
+.ai-features-list {
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    top: -120px; right:100px;
+}
+
+.ai-feature-row {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    color: #fff;
+    border-bottom: 1px solid red;
+    padding-bottom: 10px;
+}
+
+.ai-feature-number {
+    font-weight: 900;
+    color: var(--button-color);
+    font-size: 2rem;
+    margin-right: 30px;
+    min-width: 30px;
+    text-align: center;
+}
+
+.ai-feature-text {
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+.ai-feature-row {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.6s ease, transform 0.6s cubic-bezier(.17,.67,.83,.67);
+}
+
+.ai-feature-row.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.container__dialogue{
+    width: 100vw;
+    height:300px; 
+    display: flex;
+    background-color: #2763DB ;
+}
+
+.dialogue__content{
+    max-width: 65%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: inherit;
+    color: var(--white-color);
+    position: relative;
+    font-size: 1.2rem;
+    padding-left: 50px;
+}
+
+.dialogue__img{
+    width: 30%;
+    height:300px;
+    
+}
+.dialogue__img img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.container__location__content h1{
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--black-color);
+    margin-top: 50px;
+}
+.container__location__content p{
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1rem;
+    font-weight:lighter;
+    color: var(--black-color);
+}
+
+.container__location__card--item{
+    width: 350px;
+    height: 500px;
+    background-color: transparent;
+    margin: 20px;
+    overflow: hidden;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    opacity: 1;
+}
+
+.container__location__card--item.hidden {
+    transform: translateX(-100%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.container__location__card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    position: relative;
+    top: 30px;
+}
+
+.container__card--title--location{
+    background-color: var(--white-color);
+    padding: 10px;
+    height: 160px;
+    width: 75%;;
+    border-radius: 20px;
+    position: relative;
+    left: 40px;
+    bottom: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+}
+
+.container__card--title--location h2{
+    font-size: 14px;
+    font-weight: 600;
+    
+}
+
+.container__card--title--location p{
+    font-size: 12px;
+    color: var(--black-color);
+    margin: 5px 0px;
+    max-width: 280px;position: relative;
+    top:10px;
+}
+
+.container__card--title--location button{
+    width: 130px;
+    height: 40px;
+    background-color: var(--button-color);
+    color: var(--black-color);
+    border: none;
+    border-radius: 100px;
+    margin-top: 25px;
+    margin-left: 58px;
+    font-weight: 700;
+
+}
+
+.arrow--right--location{
+    right: 20px;
+}
+
+.arrow--left--location{
+    left: 20px;
+}
+
+.arrow--left--location i, .arrow--right--location i{
+    font-size: 40px;
+    color: var(--black-color);
+    cursor: pointer;
+    transform: translateY(-50%);
+}
+
+.arrow--left--location i:hover, .arrow--right--location i:hover{
+    color: var(--button-color);
+    transition: all 0.2s ease-in-out;
+
+}
+
+/* Thêm vào main.css */
+.pickleball-info-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 30px;
+    font-family: Raleway, sans-serif;
+    color: var(--black-color);
+}
+
+.court-dimensions {
+    background-color: #f5f5f5;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.court-dimensions h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.sub-dimensions {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+}
+
+.sub-dimensions h2 {
+    font-size: 1.8rem;
+    color: var(--black-color);
+}
+
+.court-markings {
+    text-align: left;
+    margin-top: 30px;
+}
+
+.court-markings h3 {
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    margin: 15px 0 10px;
+}
+
+.court-markings ul {
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+.court-markings li {
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 15px;
+}
+
+.court-markings li::before {
+    content: "•";
+    color: var(--button-color);
+    position: absolute;
+    left: 0;
+}
+
+.history-section,
+.court-layout-section {
+    margin-bottom: 40px;
+}
+
+.history-section h2,
+.court-layout-section h2 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--button-color);
+    padding-bottom: 10px;
+}
+
+.history-section p,
+.court-layout-section p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.details-link {
+    display: inline-block;
+    margin-top: 15px;
+    color: var(--primary-color);
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.details-link:hover {
+    color: var(--button-color);
+    text-decoration: underline;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .pickleball-info-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .court-dimensions {
+        margin-bottom: 30px;
+    }
+}
+
+.pickleball-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 24px;
+    margin: 40px auto;
+    max-width: 1200px;
+}
+
+.pickleball-info-card {
+    background: #bde0fe;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    padding: 28px 28px 24px 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.pickleball-info-blue {
+    background: #2563eb;
+    color: #fff;
+}
+
+.pickleball-info-card h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+.pickleball-info-card p {
+    font-size: 14px;
+    margin-bottom: 18px;
+    line-height: 1.6;
+}
+
+.pickleball-info-img {
+    background: #bde0fe;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.pickleball-info-img img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 12px;
+    object-fit: contain;
+    display: block;
+}
+
+.info-btn {
+    background: #fff;
+    color: #2563eb;
+    border: none;
+    border-radius: 24px;
+    padding: 10px 28px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    align-self: flex-start;
+    transition: background 0.2s, color 0.2s;
+    margin-top: 8px;
+}
+
+.pickleball-info-blue .info-btn {
+    background: #fff;
+    color: #2563eb;
+}
+
+.info-btn:hover {
+    background: #bde0fe;
+    color: #1e40af;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .pickleball-info-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 18px;
+        padding: 0 8px;
+    }
+    .pickleball-info-img img {
+        max-width: 100%;
+    }
+}
+
+.container__new h1{
+    font-size: 2.2rem;
+    font-weight: 900;
+    text-align: center;
+    position: relative; top:30px; 
+}
+
+.new__card{
+    width: 100vw;
+    height: 370px;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    gap:10px; 
+    position: relative;
+    /* left:80px; */
+    
+}
+
+.new__card--item{
+    white-space: normal;      /* Cho phép xuống dòng */
+    overflow: visible;        /* Không ẩn tràn */
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 16px 12px;
+    background: transparent;
+    border-radius: 4px;
+    margin: 0 0 12px 0;
+    box-sizing: border-box;
+    max-width: 400px;
+    max-height: 400px;
+
+}
+
+.new__card--img{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 20px;
+    display: block;
+}
+
+.new__card--img img{
+    width: 100%;
+    height:100%; 
+    filter: blur(1px);
+}
+
+.new__card--title{
+    background-color: hsla(0,0%,100%,.95);
+    padding: 10px;
+    height: 130px;
+    max-width: 80%;
+    position: relative;
+    left: 40px;
+    bottom: 50px;
+    border: 1px solid rgba(255, 255, 255, 0);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+   
+}
+
+.new__card--title h2{
+    font-size: 1rem;    
+    text-align: center;
+}
+
+.new__card--title p{
+    font-size: 14px;
+    text-align: center; 
+    font-weight: lighter;
+}
+
+/* footer */
+.container__footer {
+    width: 100vw;
+    height: 100%;
+    background-color: var(--black-color);
+    color: var(--white-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+}
+.footer__logo {
+    display: flex;
+    flex-direction: row;   /* mặc định là row, có thể bỏ */
+    justify-content: center;
+    align-items: center;
+    gap: 100px; 
+    background-color: #1E1E1E;     
+    width: 100%;  
+    height: 100px;     /* khoảng cách giữa các logo */
+}
+
+.footer__logo img {
+    height: 80px;          /* hoặc kích thước bạn muốn */
+    width: auto;
+    display: block;
+}
+
+.footer__logo-img {
+    width: 80px;
+    height: 80px;
+    margin-left: 100px;
+    margin-top: 20px;
+}
+.footer__socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+.footer__socials img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+}
+.footer__links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    margin-left: 30px;
+    margin-top: 20px;
+    margin-bottom: 80px;
+}
+.footer__links-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 160px; /* Đặt chiều rộng cố định cho mỗi cột */
+    
+}
+.footer__links-column ul{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    list-style-type: none;
+}
+.footer__contact {
+    gap: 50px;
+    margin-top: 30px;
+    background-color: #1E1E1E;
+    width: 100%;
+    height: 80px;
+    text-align: center;
+    align-items: center;
+}
+
+.footer__contact-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    margin-bottom: 20px;
+}
