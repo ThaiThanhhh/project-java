@@ -20,21 +20,15 @@ public class User {
     private String email;
     @Column(name = "password", nullable = false)
     private String password;
-    @Column(name = "phone_number", length = 15)
-    private String phoneNumber;
-    @Column(name = "address")
-    private String address;
     @Column(name = "role", length = 20)
     private String role;
 
     public User() {
     }
-    public User(String fullName, String email, String password, String phoneNumber, String address, String role) {
+    public User(String fullName, String email, String password, String role) {
         this.fullName = fullName;
         this.email = email;
         this.password = password;
-        this.phoneNumber = phoneNumber;
-        this.address = address;
         this.role = role;
     }
 
@@ -63,18 +57,7 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-    public String getAddress() {
-        return address;
-    }
-    public void setAddress(String address) {
-        this.address = address;
-    }
+    
     public String getRole() {
         return role;
     }

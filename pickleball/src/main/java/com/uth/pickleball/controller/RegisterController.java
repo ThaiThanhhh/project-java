@@ -32,20 +32,20 @@ public class RegisterController {
 
         if (!password.equals(confirmPassword)) {
             model.addAttribute("error", "Passwords do not match!");
-            model.addAttribute("user", new User(fullName, email, "", null, null, ""));
+            model.addAttribute("user", new User(fullName, email, "", ""));
             return "public/register";
         }
             // Kiểm tra email đã tồn tại
         if (userService.existsByEmail(email)) {
             model.addAttribute("error", "Email already exists!");
-            model.addAttribute("user", new User(fullName, "", "", null, null, ""    ));
+            model.addAttribute("user", new User(fullName, "", "", ""));
             return "public/register";
         }
         // Hash password trước khi lưu
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         String hashedPassword = encoder.encode(password);
 
-        User user = new User(fullName, email, hashedPassword, null, null, "");
+        User user = new User(fullName, email, hashedPassword, "");
         userService.addUser(user);
         return "redirect:/login";
     }}

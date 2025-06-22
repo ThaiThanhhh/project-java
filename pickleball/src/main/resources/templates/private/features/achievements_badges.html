@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achievements & Badges</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="/pickleball/css/base.css">
+    <link rel="stylesheet" href="/pickleball/css/achievements_badges.css">
+    <!-- <script src="../../Assets/js/course.js"></script> -->
+</head>
+<body>
+
+<div th:replace="fragments/header :: header"></div>
+
+
+    <div class="container">
+    <!-- Hồ sơ -->
+    <section class="profile-card">
+      <img src="/pickleball/images/hlv_DuongThienQuang.webp" alt="Avatar học sinh" class="avatar">
+      <div class="profile-info">
+        <h1>Nguyễn Minh Sang</h1>
+        <p>Pickleball student • Level: Professional</p>
+        <p>• Country: VietNam</p>
+      </div>
+    </section>
+
+    <!-- Thành tích -->
+    <section class="section-card">
+      <h2>🏵️ Recognized Achievements</h2>
+      <ul class="achievement-list">
+        <li>🏅 Fair Play Athlete of the Month for May</li>
+        <li>🏆 School Pickleball Champion</li>
+        <li>💪 Attend 20 consecutive training sessions</li>
+      </ul>
+    </section>
+
+    <!-- Huy hiệu -->
+    <section class="section-card">
+      <h2>🏆 Badge achieved</h2>
+      <div class="badge-grid">
+        <div class="badge">
+          <img src="/pickleball/images/trophy-emoji.png" alt="badge">
+          <span>Champion</span>
+        </div>
+        <div class="badge">
+          <img src="/pickleball/images/biceps.png" alt="badge">
+          <span>Hard-working</span>
+        </div>
+        <div class="badge">
+          <img src="/pickleball/images/deal.png" alt="badge">
+          <span>Fair Play</span>
+        </div>
+      </div>
+    </section>
+  </div>
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>
