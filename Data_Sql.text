@@ -1,3 +1,4 @@
+#blog
 INSERT INTO Blogs (title, summary, image_url, article_url, published_date, hidden)
 VALUES 
 (
@@ -40,3 +41,30 @@ VALUES
     'Lean Eleonor Tuazon Feb 05, 20255',
     0
 );
+
+
+#video_library
+INSERT INTO video_library (title, youtube_id, duration, category) VALUES
+('How to Hold a Racket', 'gp6N_DhvacM', '02:00', 'Basic'),
+('Dink Forehand', '-GaiEA1rCQc', '02:47', 'Basic'),
+('Dink Backhand', 'IUSxXvgpWMs', '01:59', 'Basic'),
+('Drop Forehand', 'vWnVnG0qQAU', '02:22', 'Basic'),
+('Drop Backhand', 'P-vxM_97DKQ', '02:23', 'Basic'),
+('Drive Forehand', 'izbqLI0QJYA', '01:51', 'Basic'),
+('Learn Topspin', 'zUsv0NIVD0c', '08:32', 'Basic'),
+('How to Serve A Pickleball | Beginner''s Guide', 'BmdnJNCEwxI', '09:37', 'Basic'),
+('7 tip', 'izbqLI0QJYA', '01:51', 'Basic'),
+
+('Drive Backhand', 'jQ1r_JV1Zy4', '02:48', 'Advanced'),
+('Serve', 'cQxpPphr-Zc', '01:32', 'Advanced'),
+('Smash', 'zGRY1t2Jkbs', '01:52', 'Advanced'),
+('Pickleball’s 3rd and 5th Shots!', 'mIzddYkHV6Q', '02:48', 'Advanced'),
+('5 Common Mistakes Beginners Make', 'b7xmSY94nu4', '13:08', 'Advanced'),
+('How to Hit Topspin Drive in Pickleball', 'odhhfqkQB-k', '01:52', 'Advanced'),
+('Improve Your Pickleball Drop Shot', 'JDqs_vGQKsY', '23:40', 'Advanced'),
+('The Slice Return in Pickleball', 'zZMQjd_efD8', '01:32', 'Advanced'),
+('How to Dink', 'XW3gyKe20f0', '06:56', 'Advanced'),
+
+('Pickleball Championships', 'oReod5Ip2dY', '21:35', 'Tournament'),
+('Quang Duong v Phuc Hyunh', 'dozPHU9cXU0', '21:58', 'Tournament'),
+('Bright/Kawamoto vs Brascia/Brascia', 'Q2jsm-22xew', '01:34:44', 'Tournament');
