@@ -22,5 +22,9 @@ public class ForCoachController {
     public String viewFinancial() {
         return "private/for_coach/view_financial";
     }
+    @GetMapping("/forcoach/edit")
+    public String edit() {
+        return "private/for_coach/edit";
+    }
 
 }

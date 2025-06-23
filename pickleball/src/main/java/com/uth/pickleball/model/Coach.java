@@ -40,6 +40,8 @@ public class Coach {
 
     @Column(name = "price")
     private Double price;
+    @Column(name = "bio")
+    private String bio;
 
     @Column(name = "verified")
     private Boolean verified;
@@ -122,6 +124,6 @@ public class Coach {
     public void setCertifications(Certifications certifications) {
         this.certifications = certifications;
     }
-    
+
     
 }

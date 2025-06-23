@@ -9,6 +9,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import com.uth.pickleball.service.UserService;
 import org.springframework.ui.Model;
 import com.uth.pickleball.model.User;
+import jakarta.servlet.http.HttpSession;
+
 
 @Controller
 public class RegisterController {
@@ -18,8 +20,11 @@ public class RegisterController {
     }
 
     @GetMapping("/register")
-    public String showRegisterForm(Model model) {
+    public String showRegisterForm(Model model, HttpSession session) {
         model.addAttribute("user", new User());
+        if (session.getAttribute("role") != null) {
+            return "redirect:/"; // hoặc redirect về trang chính
+        }
         return "public/register";
     }
     @PostMapping("/register")
