@@ -38,9 +38,23 @@
 }
 
 .container__header__nav--left :hover{
-     color: var(--button-color);
+    color: var(--button-color);
     cursor:pointer; 
     transition: all 0.3s ease-in-out;
+}
+.container__header__nav--button{
+    padding: 7px 15px;
+    border: 2px solid var(--button-color); 
+    background-color: var(--button-color);
+    border-radius: 100px;
+    color: var(--black-color);
+    font-weight:bolder; 
+    font-size: 17px;
+}
+.container__header__nav--button:hover{
+    background-color: var(--black-color);
+    color: var(--button-color);
+    border:1px solid var(--button-color);
 }
 
 /* Dropdown Styling */
@@ -74,7 +88,7 @@
     padding: 10px 10px;
     color: var(--black-color);
     text-decoration: none;
-    font-size: 16px;
+    font-size: 17px;
     font-weight: 600;
 }
 
@@ -155,217 +169,151 @@
     justify-content: space-between;
     object-fit: cover;
 }
-/* main */
-.container__background1 {
-    padding-top: 90px;
-    height: 530px;
-    background-color: #000000;
+
+
+.container__background{
+    width: 100%;
+    height:530px; 
+    filter:brightness(0.2);
 }
 
-.title1 p {
-    color: white;
-    font-size: 40px;
-    font-weight: 900;
-    text-align: center;
-    margin-top: 150px;
-    
+.container{
+    max-width: 1200px;
+    margin: 20px auto;
+    margin-top: 120px;
+    padding: 0 20px;
 }
-.content__first {
-    text-align: center;
-    margin-top: 50px;
-}
-.content__first h3 {
+
+.container__title h1{
     font-size: 30px;
-    font-weight: 900;
+    font-weight: 700;
 }
-.content__first p {
-    font-size: 20px;
-    width: 600px;
-    margin: 0 auto;
-    margin-top: 15px;
+
+.container__title p{
+    font-size: 16px;
+    font-weight: 400;
+    color: #1E1E1E;
+    margin-top: 10px;
 }
-.container__content {
+
+.card__img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card__img img{
     width: 100%;
     height: 100%;
-    flex-direction: column;  
-    margin: auto;
-    gap: 32px;
-    font-size: 20px;
-}
-.content__group {
-    display: flex;
-    justify-content: center;
-    gap: 32px;
-    margin-top: 60px;
-}
-.group--item {
-    width: 450px;
-    min-height: 260px;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    padding: 32px 24px 32px 24px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: box-shadow 0.2s;
-    color: #111;
-    margin-top: 0;
-    box-sizing: border-box;
-    line-height: 1.5;
-}
-.group--item:hover {
-    box-shadow: 0 8px 24px rgba(0,0,0,0.16);
-}
-.gruop--item__header {
-    display: flex;
-    gap: 10px;
-    font-size: 20px;
-    font-weight: 900;
-}
-.gruop--item__header img {
-    width: 30px;
-    height: 30px;
     object-fit: cover;
-}
-.gruop--item__header h4 {
-    margin: 5px 0 8px 0;
-    font-size: 19px;
-    font-weight: bold;
-}
-.group--item p {
-    margin-top: 20px;
-}
-.gruop__btn {
-    background-color: var(--button-color);
-    color: var(--black-color);
-    border: none;
-    border-radius: 100px;
-    cursor: pointer;
-    font-weight: 700;
-    font-size: 18px;
-    padding: 10px 15px;
-    transition: all 0.3s ease-in-out;
-    display: block;
-    margin: 24px auto 0 auto;
-    text-align: center;
-    width: 180px; /* Đặt chiều rộng cố định cho nút */
-    height: 50px; /* Đặt chiều cao cố định cho nút */
-}
-.gruop__btn:hover {
-    background-color: var(--black-color);
-    color: var(--button-color);
-    border: 2px solid var(--black-color);
-    cursor: pointer;
-    font-size: 18px;
-    transition: all 0.4s ease-in-out;
+    border-radius: 50%;
 }
 
-.content__forum {
+.content__card{
     display: flex;
-    justify-content: center;
-    gap: 32px;
-    margin-top: 50px;
-}
-.forum__discussion {
-    width: 700px;
-    min-height: 260px;
-    background: #fff;
+    padding: 20px;
+    background-color: #fff;
     border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    padding: 32px 24px 32px 24px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: box-shadow 0.2s;
-    color: #111;
-    margin-top: 0;
-    box-sizing: border-box;
-    line-height: 1.5;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 550px;
+    border:1px solid #ccc;
+
 }
-.forum__discussion:hover {
-    box-shadow: 0 8px 24px rgba(0,0,0,0.16);
-}
-.forum__discussion__header {
-    gap: 10px;
-    font-size: 20px;
+.card__text {
+    flex: 1;
+    padding-left: 5px;
 }
 
-.forum__discussion__header h4 {
-    margin: 5px 0 8px 0;
-    font-weight: 900;
-}
-.forum__discussion__header p {
+.card__text h2 {
     font-size: 16px;
-    margin-top: 20px;
+    font-weight: 700;
+    color: #1E1E1E;
+}
+.card__text p {
+    font-size: 12px;
+    font-weight: 400;
+    color: #1E1E1E;
+    margin-top: 10px;
 }
 
-.forum__discussion__name {
-    display: flex;
-    align-items: center;
-    gap: 200px;
-}
-.forum__discussion__name p {
-    font-size: 15px;
-}
-.discussion__readmore {
-    font-weight: bold;
-    font-size: 15px;
-}
-.discussion__btn {
+.card__text button{
+    padding: 5px 15px;
     background-color: var(--button-color);
     color: var(--black-color);
     border: none;
-    border-radius: 100px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 10px;
     cursor: pointer;
-    font-weight: 700;
-    font-size: 18px;
-    padding: 10px 15px;
-    transition: all 0.3s ease-in-out;
-    display: block;
-    margin: 24px auto 0 auto;
-    text-align: center;
-    width: 200px; /* Đặt chiều rộng cố định cho nút */
-    height: 50px; /* Đặt chiều cao cố định cho nút */
-    margin-top: 50px;
+    border-radius: 50px;
+    transition: background-color 0.3s ease-in-out;
 }
-.discussion__btn:hover {
-    background-color: var(--black-color);
-    color: var(--button-color);
-    border: 2px solid var(--black-color);
-    cursor: pointer;
-    font-size: 18px;
-    transition: all 0.4s ease-in-out;
-}
-.content__socials {
-    justify-content: center;
-    align-items: center;
-    gap: 32px;
-    margin-top: 50px;
-    text-align: center;
-}
-.socials__icons {
+
+.container__content{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 80px;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 30px;
+    max-width: 1200px;
 }
-.socials__icons img {
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-    transition: transform 0.3s ease-in-out;
-    margin-top: 50px;
+
+.container__connect{
+    display: flex;
+    margin-top: 100px;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 30px 20px;
 }
-.content__conversation {
-    text-align: center;
-    margin-top: 80px;
-    margin-bottom: 40px;
-    gap: 32px;
-    border-top: 3px solid #ccc;
-    border-bottom: 3px solid #ccc;
-    padding: 20px 0;
+
+.connect__content h2{
+    font-size: 24px;
+    font-weight: 700;
+    color: #1E1E1E;
 }
+.connect__content p{
+    font-size: 16px;
+    font-weight: 400;
+    color: #1E1E1E;
+    margin-top: 10px;
+}
+
+.connect__content button{
+    padding: 10px 20px;
+    background-color: var(--white-color);
+    color: var(--black-color);
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.connect__content button:hover{
+    color: var(--black-color);
+    border: 2px solid #000;
+    transition: all 0.3s ease-in-out;
+}
+
+.connect__img {
+    display: flex;
+    width: 300px;
+    height: auto; 
+}
+.connect__img img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+.card__text button:hover{
+    transform: translateY(-2px);
+    
+}
+
 /* footer */
 .container__footer {
     width: 100vw;

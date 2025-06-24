@@ -1,7 +1,12 @@
-:root{
-    --white-color: #fff; 
+:root {
+    --white-color: #fff;
     --black-color: #000;
-    --button-color:#C7F300; 
+    --button-color: #C7F300;
+    --background-color: #F8F9FA;
+    --border-color: #E9ECEF;
+}
+.container {
+    flex: 1;
 }
 
 .container__header__nav{
@@ -38,9 +43,23 @@
 }
 
 .container__header__nav--left :hover{
-     color: var(--button-color);
+    color: var(--button-color);
     cursor:pointer; 
     transition: all 0.3s ease-in-out;
+}
+.container__header__nav--button{
+    padding: 7px 15px;
+    border: 2px solid var(--button-color); 
+    background-color: var(--button-color);
+    border-radius: 100px;
+    color: var(--black-color);
+    font-weight:bolder; 
+    font-size: 17px;
+}
+.container__header__nav--button:hover{
+    background-color: var(--black-color);
+    color: var(--button-color);
+    border:1px solid var(--button-color);
 }
 
 /* Dropdown Styling */
@@ -74,7 +93,7 @@
     padding: 10px 10px;
     color: var(--black-color);
     text-decoration: none;
-    font-size: 16px;
+    font-size: 17px;
     font-weight: 600;
 }
 
@@ -147,6 +166,18 @@
     padding: 10px 0; /* Thêm padding để đẹp hơn */
     box-sizing: border-box;
 }
+.container__background{
+    width: 100%;
+    height:530px; 
+    filter: brightness(0.4);
+}
+
+.container__background img{
+    width: 100%;
+    height:100%;
+}
+
+
 
 
 /* ...existing code... */
@@ -155,217 +186,118 @@
     justify-content: space-between;
     object-fit: cover;
 }
+
 /* main */
-.container__background1 {
-    padding-top: 90px;
-    height: 530px;
-    background-color: #000000;
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  margin-top:100px;
+
+}
+/* Hồ sơ */
+.profile-card {
+  display: flex;
+  align-items: center;
+  background: #f9f9f9;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.100);
+  padding: 20px;
+  margin-bottom: 30px;
 }
 
-.title1 p {
-    color: white;
-    font-size: 40px;
-    font-weight: 900;
-    text-align: center;
-    margin-top: 150px;
-    
-}
-.content__first {
-    text-align: center;
-    margin-top: 50px;
-}
-.content__first h3 {
-    font-size: 30px;
-    font-weight: 900;
-}
-.content__first p {
-    font-size: 20px;
-    width: 600px;
-    margin: 0 auto;
-    margin-top: 15px;
-}
-.container__content {
-    width: 100%;
-    height: 100%;
-    flex-direction: column;  
-    margin: auto;
-    gap: 32px;
-    font-size: 20px;
-}
-.content__group {
-    display: flex;
-    justify-content: center;
-    gap: 32px;
-    margin-top: 60px;
-}
-.group--item {
-    width: 450px;
-    min-height: 260px;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    padding: 32px 24px 32px 24px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: box-shadow 0.2s;
-    color: #111;
-    margin-top: 0;
-    box-sizing: border-box;
-    line-height: 1.5;
-}
-.group--item:hover {
-    box-shadow: 0 8px 24px rgba(0,0,0,0.16);
-}
-.gruop--item__header {
-    display: flex;
-    gap: 10px;
-    font-size: 20px;
-    font-weight: 900;
-}
-.gruop--item__header img {
-    width: 30px;
-    height: 30px;
-    object-fit: cover;
-}
-.gruop--item__header h4 {
-    margin: 5px 0 8px 0;
-    font-size: 19px;
-    font-weight: bold;
-}
-.group--item p {
-    margin-top: 20px;
-}
-.gruop__btn {
-    background-color: var(--button-color);
-    color: var(--black-color);
-    border: none;
-    border-radius: 100px;
-    cursor: pointer;
-    font-weight: 700;
-    font-size: 18px;
-    padding: 10px 15px;
-    transition: all 0.3s ease-in-out;
-    display: block;
-    margin: 24px auto 0 auto;
-    text-align: center;
-    width: 180px; /* Đặt chiều rộng cố định cho nút */
-    height: 50px; /* Đặt chiều cao cố định cho nút */
-}
-.gruop__btn:hover {
-    background-color: var(--black-color);
-    color: var(--button-color);
-    border: 2px solid var(--black-color);
-    cursor: pointer;
-    font-size: 18px;
-    transition: all 0.4s ease-in-out;
+.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid #C7F300;
+  margin-right: 20px;
 }
 
-.content__forum {
-    display: flex;
-    justify-content: center;
-    gap: 32px;
-    margin-top: 50px;
+.profile-info h1 {
+  margin: 0;
+  font-size: 24px;
+  color: #2c3e50;
 }
-.forum__discussion {
-    width: 700px;
-    min-height: 260px;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    padding: 32px 24px 32px 24px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: box-shadow 0.2s;
-    color: #111;
-    margin-top: 0;
-    box-sizing: border-box;
-    line-height: 1.5;
-}
-.forum__discussion:hover {
-    box-shadow: 0 8px 24px rgba(0,0,0,0.16);
-}
-.forum__discussion__header {
-    gap: 10px;
-    font-size: 20px;
+.profile-info p {
+  margin: 4px 0;
+  font-size: 15px;
+  color: #555;
 }
 
-.forum__discussion__header h4 {
-    margin: 5px 0 8px 0;
-    font-weight: 900;
-}
-.forum__discussion__header p {
-    font-size: 16px;
-    margin-top: 20px;
+/* Section chung */
+.section-card {
+  background: #f9f9f9;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.100);
+  padding: 24px;
+  margin-bottom: 30px;
 }
 
-.forum__discussion__name {
-    display: flex;
-    align-items: center;
-    gap: 200px;
+.section-card h2 {
+  border-left: 5px solid #C7F300;
+  padding-left: 12px;
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 20px;
 }
-.forum__discussion__name p {
-    font-size: 15px;
+
+.achievement-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
-.discussion__readmore {
-    font-weight: bold;
-    font-size: 15px;
+
+.achievement-list li {
+  background: #f0f9ff;
+  padding: 15px 16px;
+  margin-bottom: 10px;
+  border-left: 2px solid #2196F3;
+  border-radius: 8px;
+  font-size: 15px;
 }
-.discussion__btn {
-    background-color: var(--button-color);
-    color: var(--black-color);
-    border: none;
-    border-radius: 100px;
+
+.achievement-list li:hover{
+    transform: scale(1.05);
     cursor: pointer;
-    font-weight: 700;
-    font-size: 18px;
-    padding: 10px 15px;
-    transition: all 0.3s ease-in-out;
-    display: block;
-    margin: 24px auto 0 auto;
-    text-align: center;
-    width: 200px; /* Đặt chiều rộng cố định cho nút */
-    height: 50px; /* Đặt chiều cao cố định cho nút */
-    margin-top: 50px;
+    transition: transform 0.3s ease;
 }
-.discussion__btn:hover {
-    background-color: var(--black-color);
-    color: var(--button-color);
-    border: 2px solid var(--black-color);
-    cursor: pointer;
-    font-size: 18px;
-    transition: all 0.4s ease-in-out;
+/* Huy hiệu */
+.badge-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
 }
-.content__socials {
-    justify-content: center;
-    align-items: center;
-    gap: 32px;
-    margin-top: 50px;
-    text-align: center;
+
+.badge {
+  width: 150px;
+  height: 150px;
+  border-radius: 14px;
+  border: 2px solid #2196F3;
+  background-color: #f0f9ff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 14px;
+  transition: transform 0.3s ease;
 }
-.socials__icons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 80px;
+
+.badge img {
+  width: 36px;
+  height: 36px;
+  margin-bottom: 6px;
 }
-.socials__icons img {
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-    transition: transform 0.3s ease-in-out;
-    margin-top: 50px;
+
+.badge:hover {
+  transform: scale(1.05);
+  cursor: pointer;
 }
-.content__conversation {
-    text-align: center;
-    margin-top: 80px;
-    margin-bottom: 40px;
-    gap: 32px;
-    border-top: 3px solid #ccc;
-    border-bottom: 3px solid #ccc;
-    padding: 20px 0;
-}
+
+
+
 /* footer */
 .container__footer {
     width: 100vw;

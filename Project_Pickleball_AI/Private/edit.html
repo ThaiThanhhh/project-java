@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us</title>
+    <title>King Pickleball</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="../Assets/CSS/base.css">
-    <link rel="stylesheet" href="../Assets/CSS/aboutus.css">
+    <link rel="stylesheet" href="../Assets/CSS/edit.css">
+    <script src="../Assets/js/edit.js"></script>
 </head>
 <body>
-        <!-- Header -->
         <!-- Header -->
         <header class="main-header">
             <div class="container__header">
@@ -27,7 +27,7 @@
                             </div>
                         </div>
                         <a href="../Private/my learning.html">My Learning</a>
-                        <a href="../Private/for coach.html">For Coach</a>
+                        <a href="../Private/for coach.html" style="color: #C7F300;">For Coach</a>
                     </div>
                     <div class="container__header__nav--logo">
                         <a href="../Public/Index.html"><img src="../Assets/Img/logo app.png" alt="Logo King Pickleball"></a>
@@ -36,9 +36,9 @@
                         <a href="../Public/community.html">Community</a>
                         <a href="../Public/blog.html">Blog</a>
                         <div class="dropdown">
-                            <a href="#" class="dropdown-toggle" style="color: #C7F300;">About us</a>
+                            <a href="#" class="dropdown-toggle">About us</a>
                             <div class="dropdown-menu">
-                                <a href="../Public/aboutus.html" style="background-color: #C7F300;">About Us</a>
+                                <a href="../Public/aboutus.html" >About Us</a>
                                 <a href="../Public/contact us.html">Contact Us</a>
                             </div>
                         </div>
@@ -47,76 +47,79 @@
                 </nav>
             </div>
         </header>
-        <!-- Main Content -->
-        <main class="container">
-            <div class="container__background">
+        <div class="container__background">
                 <div class="background--header">
-                    <img src="../Assets/Img/backgroundAboutus.png" alt="backgroundAboutus" >
+                    <img src="../Assets/Img/background edit.jpg" alt="backgroundAboutus" >
                 </div>
                 <div class="title">
-                    <h1>ABOUT US | KING PICKLEBALL VN</h1>
+                    <h1>EDIT | KING PICKLEBALL VN</h1>
                 </div>
-            </div>
-            <div class="container__content">
-                <img src="../Assets/Img/sanbackground.png" alt="sanbackground" class="content__img">
-                <div class="content__text">
-                    <h2>Our Mission</h2>
-                    <p>
-                        Our mission is to create a dynamic, supportive learning environment that connects learners with expert coaches. We aim to make skill development accessible, personalized, and engaging through innovative technology and a vibrant community.
-                    </p>
-                    <h2 style="margin-top: 10px;">Who We Serve</h2>
-                    <div class="features-row">
-                        <div class="text__collumn-item" >
-                            <h3>Learners</h3>
-                            <p>
-                                Whether you're a beginner or an advanced learner, our platform provides tailored learning paths, AI-driven feedback, and a supportive community to help you master new skills.
-                            </p>
-                        </div>
-                        <div class="text__collumn-item">
-                            <h3>Coaches</h3>
-                            <p>
-                                Expert coaches can join our platform to share their knowledge, create professional profiles, manage schedules, and connect with motivated learners worldwide.
-                            </p>
-                        </div>
-                    </div>
-                    <h2 style="margin-top: 10px;">How It Works</h2>
-                    <div class="text__list">
-                        <ol>
-                            <li>Sign Up: Create an account as a learner or coach and complete your profile.</li>
-                            <li>Explore: Browse learning paths, video libraries, or coach profiles to find the right fit.</li>
-                            <li>Learn & Improve: Follow structured courses, upload videos for AI analysis, and book sessions with coaches.</li>
-                            <li>Connect: Engage with our community through forums, events, and shared stories.</li>
-                            <li>Track Progress: Monitor your growth with our progress dashboard and earn achievements.</li>
-                        </ol>
-                        
-                    </div>
-                    <h2 style="margin-top: 10px;">What Sets Us Apart</h2>
-                    <div class="features-row-2">
-                        <div class="text__collumn-item-2" >
-                            <h3>AI-Powered Analysis</h3>
-                            <p>
-                                Upload your practice videos and receive detailed, AI-driven feedback on your techniques to accelerate your learning.
-                            </p>
-                        </div>
-                        <div class="text__collumn-item-2">
-                            <h3>Expert Coaches</h3>
-                            <p>
-                                Learn from both online and in-person coaches who are verified, experienced, and dedicated to your success.
-                            </p>
-                        </div>
-                        <div class="text__collumn-item-2">
-                            <h3>Lifelong Community</h3>
-                            <p>
-                                Join a supportive community of learners and coaches to share experiences, participate in events, and grow together.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
- 
-        </main>
+        </div>
+        <div class="container">
+            
+            <div class="title--header"><h1>Edit Your Profile</h1></div>
+        
 
-        <!-- footer -->
+            <div class="section">
+                <h2>Skills</h2>
+                <div id="skillsList">
+                    <div class="entry">
+                        <input type="text" class="skillName" placeholder="Skill Name">
+                        <input type="text" class="skillLevel"placeholder="Level">
+                        <textarea class="skillDesc" placeholder="Skill Description"></textarea>
+                        <button class="edit--btn" onclick="editEntry(this)">Edit</button>
+                        <button class="delete--btn" onclick="deleteEntry(this)">Delete</button>
+                    </div>
+                </div>
+                <button class="add--btn"onclick="addSkill()">Add Skill</button>
+                
+            </div>
+
+            <div class="section">
+                <h2>Experience</h2>
+                <div id="experienceList">
+                    <div class="entry">
+                        <input type="text" class="expName" placeholder="Experience Name">
+                        <input type="text" class="expWorkplace"placeholder="Work place">
+                        <textarea class="expDesc" placeholder="Experience Description"></textarea>
+                        <button class="edit--btn" onclick="editEntry(this)">Edit</button>
+                        <button class="delete--btn" onclick="deleteEntry(this)">Delete</button>
+                    </div>
+                </div>
+                <button class="add--btn" onclick="addExperience()">Add Experience</button>
+            </div>
+
+            <div class="section">
+                <h2>Calendar</h2>
+                <div id="calendarList">
+                    <div class="entry">
+                        <input type="date" class="calDate">
+                        <input type="time" class="calTime" value="08:00" placeholder="Time">
+                        <input type="time" class="calEndTime" value="12:00" placeholder="End Time">
+                        <button class="edit--btn" onclick="editEntry(this)">Edit</button>
+                        <button class="delete--btn"onclick="deleteEntry(this)">Delete</button>
+                    </div>
+                </div>
+                <button class="add--btn" onclick="addCalendar()">Add Calendar Entry</button>
+
+            </div>
+
+            <div class="section">
+                <h2>Price</h2>
+                <div id="priceList">
+                    <div class="entry">
+                        <input type="number" class="priceNumber" placeholder="Enter the price of a lesson">
+                        <button class="edit--btn" onclick="editEntry(this)">Edit</button>
+                    </div>
+                </div>
+            </div>
+            <div class="form-actions"><button class="save--btn" onclick="saveChanges()">Save Changes</button>   </div>
+            
+        </div>
+
+
+
+     <!-- footer -->
         <footer>
             <div class="container__footer">
                 <div class="footer__logo">

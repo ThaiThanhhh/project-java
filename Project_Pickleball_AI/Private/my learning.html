@@ -7,9 +7,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="../Assets/CSS/base.css">
-    <link rel="stylesheet" href="../Assets/CSS/blog.css">
+    <link rel="stylesheet" href="../Assets/CSS/my learning.css">
+    <script src="../Assets/js/history.js" defer></script>
 </head>
 <body>
+    
 <!-- Header -->
     <header class="main-header">
         <div class="container__header">
@@ -26,7 +28,7 @@
                             <a href="../Private/Features/elearnning.html">Booking & Payment</a>
                         </div>
                     </div>
-                    <a href="../Private/my learning.html">My Learning</a>
+                    <a href="../Private/my learning.html" style="color: #C7F300;">My Learning</a>
                     <a href="../Private/for coach.html">For Coach</a>
                 </div>
                 <div class="container__header__nav--logo">
@@ -34,11 +36,11 @@
                 </div>
                 <div class="container__header__nav--right">
                     <a href="../Public/community.html">Community</a>
-                    <a href="../Public/blog.html" style="color: #C7F300;;">Blog</a>
+                    <a href="../Public/blog.html" >Blog</a>
                     <div class="dropdown">
                         <a class="dropdown-toggle">About us</a>
                         <div class="dropdown-menu">
-                            <a href="./aboutus.html">About Us</a>
+                            <a href="../Public/aboutus.html">About Us</a>
                             <a href="../Public/contact us.html">Contact Us</a>
                         </div>
                     </div>
@@ -50,72 +52,109 @@
 
     <div class="container">
         <div class="container__background">
-            <img src="../Assets/Img/bblog.jpg" alt="background">
+            <img src="../Assets/Img/gettyimages-1355170068-612x612.jpg" alt="back">
         </div>
         <div class="container__content">
-                <h1>BLOG | KING PICKLEBALL VN</h1>
+                <h1>MY LEARNING | KING PICKLEBALL VN</h1>
+        </div>
+        <div class="container__learning--btn">
+            <button class="learning--btn " id="course--btn">All course</button>
+            <button class="learning--btn " id="history--btn">History</button>
         </div>
 
-        <div class="container__blog">
-            <div class="container__blog--row">
-                <div class="blog--row--img "><img src="../Assets/Img/tintuc1.png" alt="tintuc"></div>
-                <div class="blog--row-content">
-                    <h1>Cultivating Community and Skill: How Paul Bateman's Rockland County Program Thrives with Engage</h1>
-                    <p style="font-size: 14px; font-weight:lighter; padding-bottom: 10px; ">Lean Eleonor Tuazon Feb 05, 2025</p>
-                    <p>In Rockland County, New York, a unique and highly successful pickleball program is making waves as the county's only Adult Education offering for the sport. At the heart of this program is Head Instructor Paul...</p>
-                    <a href="https://engagepickleball.com/blogs/news-product-highlights/paul-batemans-rockland-county-program"><button>READ MORE</button></a>
-                </div>
+        <!-- All course -->
+         <div class="container__allcourse" id="all-course-section">
+            <div class="course__header">
+                    <div class="course__title">
+                    <h2>Start a weekly streak</h2>
+                    <p>Let’s chip away at your learning goals.</p>
+                    </div>
+
+                    <div class="course__streak">
+                        <div class="icon--fire"><i class="fa-solid fa-fire-flame-curved"></i></div>
+                        <div class="streak__text">
+                            <p><span>0</span> Streak</p>
+                        </div>
+                    </div>
             </div>
 
-            <div class="container__blog--row">
-                <div class="blog--row--img "><img src="../Assets/Img/unnamed_8ccb5857-b8c9-4115-9920-995d4be7612d.webp" alt="tintuc"></div>
-                <div class="blog--row-content">
-                    <h1>Beyond the Win: Nick's Inspiring Partnership with Camden Raboin</h1>
-                    <p style="font-size: 14px; font-weight:lighter; padding-bottom: 10px; ">Lean Eleonor Tuazon Feb 05, 2025</p>
-                    <p>Veteran player Nick Wittendorf joined forces with 14-year-old phenom Camden Raboin at the '8.2 DUPR Moneyball' tournament, proving that age is just a number in pickleball.  Camden's dominant performance and Nick's supportive role created a winning combination. 'He was a force,' Nick said about his young partner. Discover how this dynamic duo conquered the court and took home the gold.</p>
-                    <a href="https://engagepickleball.com/blogs/news-product-highlights/nick-and-camden-a-dynamic-duo-at-the-8-2-dupr-moneyball"><button>READ MORE</button></a>
+            <div class="course__title--description">
+                <h2>My Courses</h2>
+                <div class="course__list">
+                    <div class="course__item--row">
+                        <div class="item--row--content">
+                            <h3>Pickleball with Scott Moore – 21x Champion</h3>
+                            <ul>
+                                <li>Instructor: Scott Moore</li>
+                                <li>Progress: 0%</li>
+                                <li>Level: Beginner</li>
+                                <li>6 lectures</li>
+                                <li>Time: 10:00 AM - 11:30 AM June 15, 2025</li>
+                            </ul>
+                            
+                        </div>
+                        <div class="item--row--button">
+                            <a href="./learn.html"><button>Learn</button></a>
+                        </div>
+                    </div>
+
+                    <div class="course__item--row">
+                        <div class="item--row--content">
+                            <h3>Level Up Fast – Learn Pickleball with Matt</h3>
+                            <ul>
+                                <li>Instructor: Matt Manasse</li>
+                                <li>Progress: 50%</li>
+                                <li>Level: Beginner</li>
+                                <li>21 lectures</li>
+                                <li>Time: 10:00 AM - 11:30 AM June 17, 2025</li>
+                            </ul>
+                            
+                        </div>
+                        <div class="item--row--button">
+                            <a href="./learn.html"><button>Learn</button></a>
+                        </div>
+                    </div>
+
+                    
                 </div>
+            </div> 
+         </div>
+        <!-- history -->
+         <div class="container--history" id="history-section">
+            <h1>Study History</h1>
+            
+            <!-- Filter and Search -->
+            <div class="filter-search">
+                <input type="text" id="searchInput" placeholder="Search by course name or ID...">
+                <select id="statusFilter">
+                    <option value="all">All Statuses</option>
+                    <option value="in_progress">In Progress</option>
+                    <option value="completed">Completed</option>
+                    <option value="paused">Paused</option>
+                </select>
             </div>
 
-            <div class="container__blog--row">
-                <div class="blog--row--img "><img src="../Assets/Img/Nick_Rachel.webp" alt="tintuc"></div>
-                <div class="blog--row-content">
-                    <h1>Love All Tournament - A Golden Comeback for Rachel and Nick</h1>
-                    <p style="font-size: 14px; font-weight:lighter; padding-bottom: 10px; ">Lean Eleonor Tuazon Feb 05, 2025</p>
-                    <p>After a four-year break from competitive pickleball, Rachel Elliott teamed up with Nick Wittendorf to capture gold at the Orlando Racket Sports - Love All Tournament.  This heartwarming comeback story highlights the power of teamwork and the thrill of returning to the game.  'I didn't cry, haha, but I definitely felt a bit emotional winning my first tournament back!' Rachel shared. Read the full story to learn about their journey to victory and how their strategic partnership led them to the top of the podium.</p>
-                    <a href="https://engagepickleball.com/blogs/news-product-highlights/love-all-tournament-a-golden-comeback-for-rachel-and-nick"><button>READ MORE</button></a>
-                </div>
-            </div>
-
-            <div class="container__blog--row">
-                <div class="blog--row--img "><img src="../Assets/Img/240412_PPA_Houston_Day_2-Mauricio-Paiz-0990.webp" alt="tintuc"></div>
-                <div class="blog--row-content">
-                    <h1>Jessie Irvine's Exciting Journey on the PPA Tour</h1>
-                    <p style="font-size: 14px; font-weight:lighter; padding-bottom: 10px; ">Lean Eleonor Tuazon Feb 05, 2025</p>
-                    <p>Get ready to dive into the thrilling world of professional pickleball with TeamEngage player Jessie Irvine! She's been lighting up the court with her pro pickleball rackets and giving us a glimpse of her adventures...</p>
-                    <a href="https://engagepickleball.com/blogs/news-product-highlights/jessie-irvines-exciting-journey-on-the-ppa-tour"><button>READ MORE</button></a>
-                </div>
+            <!-- Study History List -->
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Course ID</th>
+                            <th>Course Name</th>
+                            <th>Start Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="studyTable">
+                        <!-- Sample data will be populated by JavaScript -->
+                    </tbody>
+                </table>
             </div>
         </div>
 
-        <div class="pagination">
-            <button class="page-btn prev" disabled>
-                <span>&lt;</span>
-            </button>
-
-            <div class="page-numbers">
-                <span class="page-number active">1</span>
-                <a href="../Public/blog2.html"><span class="page-number">2</span></a>
-            </div>
-            <a href="../Public/blog2.html">
-                 <button class="page-btn next">
-                <span>&gt;</span>
-            </button>
-            </a>
-           
-        </div>
-
+        
     </div>
+   
 
 
 

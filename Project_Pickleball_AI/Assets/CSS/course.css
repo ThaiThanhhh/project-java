@@ -155,217 +155,330 @@
     justify-content: space-between;
     object-fit: cover;
 }
-/* main */
-.container__background1 {
-    padding-top: 90px;
-    height: 530px;
-    background-color: #000000;
+/* Main Content Styles */
+/* Main Content */
+.container__main {
+    margin-top: 120px;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #f9f9f9;
 }
 
-.title1 p {
-    color: white;
-    font-size: 40px;
-    font-weight: 900;
-    text-align: center;
-    margin-top: 150px;
-    
+.course__container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+    align-items: start;
 }
-.content__first {
-    text-align: center;
-    margin-top: 50px;
+
+/* Video Section */
+.video-card {
+    background-color: var(--white-color);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
-.content__first h3 {
-    font-size: 30px;
-    font-weight: 900;
+
+.video-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #eee;
 }
-.content__first p {
-    font-size: 20px;
-    width: 600px;
-    margin: 0 auto;
+
+.video-title {
+    font-size: 22px;
+    color: var(--black-color);
+    margin: 0;
+}
+
+.video-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.action-btn {
+    background-color: transparent;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.action-btn:hover {
+    background-color: #f0f0f0;
+}
+
+.video-meta {
+    display: flex;
+    gap: 20px;
+    padding: 12px 20px;
+    background-color: #f8f8f8;
+    border-top: 1px solid #eee;
+    font-size: 14px;
+    color: #666;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Course Content Tabs */
+.content-tabs {
+    display: flex;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 15px;
+}
+
+.tab-btn {
+    padding: 10px 20px;
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+    font-size: 16px;
+    color: #666;
+    transition: all 0.2s ease;
+}
+
+.tab-btn.active {
+    color: var(--black-color);
+    border-bottom-color: var(--button-color);
+    font-weight: 600;
+}
+
+.tab-content {
+    display: none;
+    padding: 10px 0;
+    line-height: 1.6;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.tab-content ul {
+    padding-left: 20px;
+    margin: 15px 0;
+}
+
+.tab-content li {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.resource-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+}
+
+.resource-item a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+.resource-item a:hover {
+    text-decoration: underline;
+}
+
+/* Course Sidebar */
+.course__sidebar {
+    background-color: var(--white-color);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-header {
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 15px;
+}
+
+.sidebar-header h3 {
+    margin: 0 0 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.progress-container {
     margin-top: 15px;
 }
-.container__content {
-    width: 100%;
+
+.progress-bar {
+    height: 8px;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    overflow: hidden;
+}
+
+.progress {
     height: 100%;
-    flex-direction: column;  
-    margin: auto;
-    gap: 32px;
-    font-size: 20px;
-}
-.content__group {
-    display: flex;
-    justify-content: center;
-    gap: 32px;
-    margin-top: 60px;
-}
-.group--item {
-    width: 450px;
-    min-height: 260px;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    padding: 32px 24px 32px 24px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: box-shadow 0.2s;
-    color: #111;
-    margin-top: 0;
-    box-sizing: border-box;
-    line-height: 1.5;
-}
-.group--item:hover {
-    box-shadow: 0 8px 24px rgba(0,0,0,0.16);
-}
-.gruop--item__header {
-    display: flex;
-    gap: 10px;
-    font-size: 20px;
-    font-weight: 900;
-}
-.gruop--item__header img {
-    width: 30px;
-    height: 30px;
-    object-fit: cover;
-}
-.gruop--item__header h4 {
-    margin: 5px 0 8px 0;
-    font-size: 19px;
-    font-weight: bold;
-}
-.group--item p {
-    margin-top: 20px;
-}
-.gruop__btn {
     background-color: var(--button-color);
-    color: var(--black-color);
-    border: none;
-    border-radius: 100px;
-    cursor: pointer;
-    font-weight: 700;
-    font-size: 18px;
-    padding: 10px 15px;
-    transition: all 0.3s ease-in-out;
-    display: block;
-    margin: 24px auto 0 auto;
-    text-align: center;
-    width: 180px; /* Đặt chiều rộng cố định cho nút */
-    height: 50px; /* Đặt chiều cao cố định cho nút */
-}
-.gruop__btn:hover {
-    background-color: var(--black-color);
-    color: var(--button-color);
-    border: 2px solid var(--black-color);
-    cursor: pointer;
-    font-size: 18px;
-    transition: all 0.4s ease-in-out;
+    border-radius: 4px;
+    transition: width 0.3s ease;
 }
 
-.content__forum {
-    display: flex;
-    justify-content: center;
-    gap: 32px;
-    margin-top: 50px;
+.progress-container span {
+    font-size: 14px;
+    color: #666;
+    display: block;
+    text-align: right;
 }
-.forum__discussion {
-    width: 700px;
-    min-height: 260px;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    padding: 32px 24px 32px 24px;
+
+/* Lesson Items with Hidden Videos */
+.lesson__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.lesson__item {
+    border-radius: 5px;
+    border:1px solid #ccc;
+    margin-bottom: 10px;
+    overflow: hidden;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease;
+}
+
+.lesson-header {
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
-    transition: box-shadow 0.2s;
-    color: #111;
-    margin-top: 0;
-    box-sizing: border-box;
-    line-height: 1.5;
+    align-items: center;
+    padding: 12px 15px;
+    cursor: pointer;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease;
 }
-.forum__discussion:hover {
-    box-shadow: 0 8px 24px rgba(0,0,0,0.16);
+
+.lesson-header:hover {
+    background-color: #f0f0f0;
 }
-.forum__discussion__header {
+
+.lesson-header.active {
+    background-color: #f5f9e6;
+}
+
+.lesson-info {
+    display: flex;
+    align-items: center;
     gap: 10px;
-    font-size: 20px;
 }
 
-.forum__discussion__header h4 {
-    margin: 5px 0 8px 0;
-    font-weight: 900;
-}
-.forum__discussion__header p {
-    font-size: 16px;
-    margin-top: 20px;
+.lesson-info i {
+    transition: transform 0.3s ease;
+    font-size: 14px;
 }
 
-.forum__discussion__name {
-    display: flex;
-    align-items: center;
-    gap: 200px;
-}
-.forum__discussion__name p {
-    font-size: 15px;
-}
-.discussion__readmore {
-    font-weight: bold;
-    font-size: 15px;
-}
-.discussion__btn {
-    background-color: var(--button-color);
-    color: var(--black-color);
-    border: none;
-    border-radius: 100px;
-    cursor: pointer;
-    font-weight: 700;
-    font-size: 18px;
-    padding: 10px 15px;
-    transition: all 0.3s ease-in-out;
-    display: block;
-    margin: 24px auto 0 auto;
-    text-align: center;
-    width: 200px; /* Đặt chiều rộng cố định cho nút */
-    height: 50px; /* Đặt chiều cao cố định cho nút */
-    margin-top: 50px;
-}
-.discussion__btn:hover {
-    background-color: var(--black-color);
+.lesson-header.active .lesson-info i {
+    transform: rotate(90deg);
     color: var(--button-color);
-    border: 2px solid var(--black-color);
-    cursor: pointer;
-    font-size: 18px;
-    transition: all 0.4s ease-in-out;
 }
-.content__socials {
-    justify-content: center;
-    align-items: center;
-    gap: 32px;
-    margin-top: 50px;
-    text-align: center;
+
+.lesson-meta {
+    font-size: 12px;
+    color: #666;
+    margin-top: 3px;
 }
-.socials__icons {
+
+.video-list {
+    display: none;
+    background-color: white;
+    border-top: 1px solid #eee;
+}
+
+.lesson-header.active + .video-list {
+    display: block;
+}
+
+.video-item {
     display: flex;
-    justify-content: center;
     align-items: center;
-    gap: 80px;
+    padding: 10px 15px 10px 40px;
+    cursor: pointer;
+    border-bottom: 1px solid #f5f5f5;
+    transition: all 0.2s ease;
 }
-.socials__icons img {
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-    transition: transform 0.3s ease-in-out;
-    margin-top: 50px;
+
+.video-item:hover {
+    background-color: #f9f9f9;
 }
-.content__conversation {
-    text-align: center;
-    margin-top: 80px;
-    margin-bottom: 40px;
-    gap: 32px;
-    border-top: 3px solid #ccc;
-    border-bottom: 3px solid #ccc;
-    padding: 20px 0;
+
+.video-item i {
+    margin-right: 10px;
+    color: #666;
+    font-size: 14px;
 }
+
+.video-item:hover i {
+    color: var(--button-color);
+}
+
+.video-item span:first-of-type {
+    flex-grow: 1;
+}
+
+.video-duration {
+    font-size: 13px;
+    color: #999;
+}
+
+.video-item.active {
+    background-color: #f5f9e6;
+    border-left: 3px solid var(--button-color);
+}
+
+.video-item.active i {
+    color: var(--button-color);
+}
+
+.sidebar-footer {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.next-lesson-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--button-color);
+    border: none;
+    border-radius: 6px;
+    color: var(--black-color);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.next-lesson-btn:hover {
+    background-color: #d9ff33;
+}
+
+
+
 /* footer */
 .container__footer {
     width: 100vw;

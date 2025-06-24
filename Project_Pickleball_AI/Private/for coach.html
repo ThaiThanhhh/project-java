@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../Assets/CSS/base.css">
+    <link rel="stylesheet" href="../Assets/CSS/for coach.css">
+    <script src="../Assets/js/for coach.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body>
+    
+<!-- Header -->
+    <header class="main-header">
+        <div class="container__header">
+            <nav class="container__header__nav">
+                <div class="container__header__nav--left">
+                    <div class="dropdown">
+                        <a href="#" class="dropdown-toggle">Features</a>
+                        <div class="dropdown-menu">
+                            <a href="../Private/Features/Structured.html">Structured Learning</a>
+                            <a href="../Private/Features/Video Library.html">Video Library</a>
+                            <a href="../Private/Features/ai.html">AI Technique Analysis</a>
+                            <a href="../Private/Features/process.html">Progress Dashboard</a>
+                            <a href="../Private/Features/Achievements & Badges.html">Achievements & Badges</a>
+                            <a href="../Private/Features/elearnning.html">Booking & Payment</a>
+                        </div>
+                    </div>
+                    <a href="../Private/my learning.html">My Learning</a>
+                    <a href="../Private/for coach.html" style="color: #C7F300;">For Coach</a>
+                </div>
+                <div class="container__header__nav--logo">
+                    <a href="../Public/Index.html"><img src="../Assets/Img/Logo app.png" alt="Logo King Pickleball"></a>
+                </div>
+                <div class="container__header__nav--right">
+                    <a href="../Public/community.html">Community</a>
+                    <a href="../Public/blog.html" >Blog</a>
+                    <div class="dropdown">
+                        <a class="dropdown-toggle">About us</a>
+                        <div class="dropdown-menu">
+                            <a href="../Public/aboutus.html">About Us</a>
+                            <a href="../Public/contact us.html">Contact Us</a>
+                        </div>
+                    </div>
+                    <a href="../Public/login.html" class="container__header__nav--button">Login</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="coach-dashboard">
+        <!-- Hero Section -->
+        <section class="coach-hero">
+            <div class="hero-content">
+                <h1>Coach Dashboard</h1>
+                <p>Manage your coaching business with our powerful tools</p>
+                <button class="cta-button">Get Started</button>
+            </div>
+        </section>
+
+        <!-- Profile Section -->
+        <section class="profile-section">
+            <div class="profile-header">
+                <div class="profile-avatar">
+                    <img  id="preview" src="../Assets/Img/hlv_DuongThienQuang.webp" alt="Coach Avatar" >
+                    <button class="edit-button" id="triggerFileInput">
+                        <i class="fas fa-camera"></i>
+                    </button>
+
+                    <!-- Input file ẩn -->
+                    <input type="file" id="fileInput" accept="image/*" style="display: none;">
+                    
+                </div>
+                <div class="profile-info">
+                    <h2>Duong Thien Quang</h2>
+                    <div class="verification-badge">
+                        <i class="fas fa-check-circle"></i> Verified Coach
+                    </div>
+                    <div class="rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-number">5.0 (128 reviews)</span>
+                    </div>
+                </div>
+                <a href="../Private/edit.html"><button class="edit-profile-button">Edit Profile</button></a>
+            </div>
+
+            <div class="profile-details">
+                <div class="detail-card">
+                    <h3>Certifications</h3>
+                    <div class="certifications-list">
+                        <div class="certification-item">
+                            <i class="fas fa-certificate"></i>
+                            <span>USAPA Level 2 Certified</span>
+                            <button class="verify-button">Verified</button>
+                        </div>
+                        <!-- More certifications -->
+                         <div class="certification-item">
+                            <i class="fas fa-certificate"></i>
+                            <span>USAPA Level 2 Certified</span>
+                            <button class="verify-button">Verified</button>
+                        </div>
+                        
+                    </div>
+                    <a href="../Private/Add certifications.html"><button class="add-button">Add Certification</button></a>
+                </div>
+
+                <div class="detail-card">
+                    <h3>Teaching Methods</h3>
+                    <textarea class="teaching-methods" placeholder="Describe your teaching philosophy and methods..."></textarea>
+                    <button class="save-button">Save</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Schedule Section -->
+        <section class="schedule-section">
+            <h2>Schedule Management</h2>
+            <div class="schedule-tabs">
+                <button class="tab-button active" id="online">Online Sessions</button>
+                <button class="tab-button" id="offline">In-Person Sessions</button>
+            </div>
+        <!-- online -->
+            <div class="appointments-list" id="online-appointments">
+                <h3>Upcoming Appointments</h3>
+                <!-- danh sach cuoc goi -->
+                <div class="course__list">
+                    <div class="course__item--row">
+                        <div class="item--row--content">
+                            <h3>Pickleball with Nguyen Thien Duong</h3>
+                            <ul>
+                                <li>Course ID: KH001</li>
+                                <li>Progress: 50%</li>
+                                <li>Level: Beginner</li>
+                                <li>Time: 10:00 AM - 11:30 AM June 15, 2025</li>
+
+                            </ul>
+                            
+                        </div>
+                        <div class="item--row--button">
+                            <a href="../Private/teach.html"><button>Teach</button></a>
+                        </div>
+                    </div>
+
+                    <div class="course__item--row">
+                        <div class="item--row--content">
+                            <h3>Pickleball basic with Nguyen Thien Duong</h3>
+                            <ul>
+                                <li>Course ID: KH002</li>
+                                <li>Progress: 80%</li>
+                                <li>Level: Beginner</li>
+                                <li>Time: 10:00 AM - 11:30 AM June 17, 2025</li>
+                            </ul>
+                            
+                        </div>
+                        <div class="item--row--button">
+                            <a href="../Private/teach.html"><button>Teach</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- offline -->
+            <div class="appointments-list" id="offline-appointments" style="display: none;">
+                <h3>Upcoming Appointments</h3>
+                <p style="font-size: 18px;color: red;margin: 40px 0;text-align: center;font-style: italic;">No appointments available!</p>
+            </div>
+        </section>
+
+        <!-- Student Progress Section -->
+<section class="progress-section">
+    <h2>Student Progress Tracking</h2>
+    <div class="progress-chart-container">
+        <canvas id="studentProgressChart"></canvas>
+    </div>
+    <div class="students-grid">
+        <!-- Student cards will be dynamically populated -->
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.min.js"></script>
+    <script>
+        // Sample student data (can be replaced with dynamic data from backend)
+        const studentsData = [
+            { name: "Trung Hieu", sessionsAttended: 10, totalSessions: 15 },
+            { name: "Van Thanh", sessionsAttended: 6, totalSessions: 14 },
+            { name: "Hoai Linh", sessionsAttended: 9, totalSessions: 20 },
+            { name: "Ngoc Thai", sessionsAttended: 2, totalSessions: 10 },
+             { name: "Xuan Quyet", sessionsAttended: 4, totalSessions: 15 },
+            { name: "Hoang Bao", sessionsAttended: 10, totalSessions: 20 },
+            { name: "Dinh Duong", sessionsAttended: 7, totalSessions: 20 },
+        ];
+
+        // Create the bar chart
+        const ctx = document.getElementById('studentProgressChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: studentsData.map(student => student.name),
+                datasets: [{
+                    label: 'Sessions Attended',
+                    data: studentsData.map(student => student.sessionsAttended),
+                    backgroundColor: '#C7F300',
+                    borderColor: '#000000',
+                    borderWidth: 1
+                }, {
+                    label: 'Total Sessions',
+                    data: studentsData.map(student => student.totalSessions),
+                    backgroundColor: 'rgba(0, 132, 255, 0.3)',
+                    borderColor: '#0084ff',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        labels: {
+                            font: {
+                                size: 14
+                            }
+                        }
+                    },
+                    title: {
+                        display: true,
+                        text: 'Student Session Attendance',
+                        font: {
+                            size: 18
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                let value = context.parsed.y || 0;
+                                return `${label}: ${value} sessions`;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 22, // Y-axis maximum set to 22
+                        title: {
+                            display: true,
+                            text: 'Number of Sessions'
+                        },
+                        ticks: {
+                            stepSize: 1
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Students'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Dynamically populate student cards
+        const studentsGrid = document.querySelector('.students-grid');
+        studentsData.forEach(student => {
+            const progressPercentage = (student.sessionsAttended / student.totalSessions * 100).toFixed(0);
+            const studentCard = `
+                <div class="student-card">
+                    <h3>${student.name}</h3>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: ${progressPercentage}%"></div>
+                    </div>
+                    <span class="progress-text">${student.sessionsAttended}/${student.totalSessions} sessions completed</span>
+                </div>
+            `;
+            studentsGrid.innerHTML += studentCard;
+        });
+    </script>
+</section>
+
+        <!-- Lesson Plans Section -->
+        <section class="lesson-plans-section">
+            <h2>Custom Lesson Plans</h2>
+            <div class="lesson-plans-grid">
+                <div class="lesson-plan-card">
+                    <h3>Beginner Fundamentals</h3>
+                    <p>5 sessions - 10 exercises</p>
+                    <div class="plan-actions">
+                        <button class="edit-button"><i class="fas fa-edit"></i></button>
+                        <button class="assign-button"><i class="fas fa-user-plus"></i></button>
+                    </div>
+                </div>
+                <!-- More lesson plan cards -->
+                <div class="add-new-plan">
+                    <i class="fas fa-plus"></i>
+                    <span>Create New Plan</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Financial Section -->
+        <section class="financial-section">
+            <h2>Financial Overview</h2>
+            <div class="financial-cards">
+                <div class="financial-card">
+                    <h3>Earnings This Month</h3>
+                    <p class="amount">$2,450.00</p>
+                    <p class="change positive">+12% from last month</p>
+                </div>
+                <div class="financial-card">
+                    <h3>Upcoming Payments</h3>
+                    <p class="amount">$1,200.00</p>
+                    <p class="date">Next payout: June 30</p>
+                </div>
+                <div class="financial-card">
+                    <h3>Total Students</h3>
+                    <p class="amount">24</p>
+                    <p class="change positive">+3 this month</p>
+                </div>
+            </div>
+            <a href="../Private/view financial.html"><button class="view-details-button">View Financial Details</button></a>
+        </section>
+    </main>
+   
+
+
+
+     <!-- Footer -->
+    <footer>
+            <div class="container__footer">
+                <div class="footer__logo">
+                    <img src="../Assets/Img/adidas.png" alt="Adidas Logo">
+                    <img src="../Assets/Img/nike.png" alt="Nike Logo">
+                    <img src="../Assets/Img/newbalance.png" alt="New Balance Logo" style="height: 200px;">
+                    <img src="../Assets/Img/luisvuiton.png" alt="luisvuiton Logo" style="height: 200px; margin-bottom: 30px;">
+                    <img src="../Assets/Img/puma.png" alt="Puma Logo">
+                </div>
+                <div class="footer__info">
+                    <img src="../Assets/Img/Logo app.png" alt="Logo King Pickleball" class="footer__logo-img">
+                    <div class="footer__socials">
+                        <a href="#"><img src="../Assets/Img/fb2.png" alt="Facebook"></a>
+                        <a href="#"><img src="../Assets/Img/youtube.png" alt="Youtube"></a>
+                        <a href="#"><img src="../Assets/Img/instagram.png" alt="Instagram"></a>
+                        <a href="#"><img src="../Assets/Img/x.png" alt="X"></a>
+                    </div>
+                </div>    
+                <div class="footer__links">
+                    <div class="footer__links-column" style="border-right: 1px solid #FFFFFF;">
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">About us</a></li>
+                            <li><a href="#">Contact us</a></li>
+                            
+                        </ul>
+                    </div>
+                    <div class="footer__links-column" style="border-right: 1px solid #FFFFFF;">
+                        <ul>
+                            <li><a href="#">Features</a></li>
+                            <li><a href="#">Find a Coaches</a></li>
+                            <li><a href="#">For Coaches</a></li>
+                            
+                        </ul>
+                    </div>
+                    <div class="footer__links-column">
+                        <ul>
+                            <li><a href="#">Structured Learning</a></li>
+                            <li><a href="#">Video Library</a></li>
+                            <li><a href="#">AI Technique Analysis</a></li>
+                            
+                        </ul>
+                    </div>
+                </div>   
+                <div class="footer__contact">
+                    <p style="color: #837E7E; font-size: 17px; margin-top: 10px;">Copyright (C) 2025 Pickleball World | All Rights Reserved </p>
+                    <div class="footer__contact-info">
+                        <p>Terms of Service</p>
+                        <p>Privacy Policy</p>
+                        <p>Compliance</p>
+                        <p>Policy Media</p>
+                    </div>
+                </div>
+            </div>
+    </footer>
+    
+</body>
+</html>
