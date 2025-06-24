@@ -32,6 +32,8 @@ public class LoginController {
     public String login(
             @RequestParam("email") String email,
             @RequestParam("password") String password,
+            @RequestParam(value = "remember", required = false) String remember,
+
             Model model,
             HttpSession session) { // Thêm HttpSession vào đây
 
@@ -41,12 +43,19 @@ public class LoginController {
         if (user == null || !encoder.matches(password, user.getPassword())) {
             model.addAttribute("error", "Email hoặc mật khẩu không đúng!");
             model.addAttribute("user", new User());
+
             return "public/login";
         }
-         // Lưu role vào session
-    session.setAttribute("role", user.getRole());
-    // Lưu userId nếu cần
-    session.setAttribute("userId", user.getId());
+        // Lưu role vào session
+        session.setAttribute("role", user.getRole());
+        // Lưu userId nếu cần
+        session.setAttribute("userId", user.getId());
+        // Nếu có "remember", set thời gian session lâu hơn mặc định
+        if (remember != null) {
+            session.setMaxInactiveInterval(60 * 60 * 24 * 7); // 7 ngày
+        } else {
+            session.setMaxInactiveInterval(60 * 30); // 30 phút mặc định
+        }
         // Đăng nhập thành công, chuyển hướng tới trang chủ hoặc dashboard
         return "redirect:/home";
     }
