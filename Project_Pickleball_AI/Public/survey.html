@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pickleball Skill Assessment | Đánh giá kỹ năng Pickleball</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f2f5;
+            color: #333;
+        }
+        .survey-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .language-switcher {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+        .language-switcher button {
+            background: none;
+            border: 1px solid #C7F300;
+            padding: 6px 12px;
+            margin-left: 8px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        .language-switcher button.active {
+            background: #C7F300;
+            color: #333;
+        }
+        .question {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eaeaea;
+        }
+        .question-title {
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 18px;
+            color: #333;
+        }
+        .options label {
+            display: block;
+            margin: 10px 0;
+            padding: 12px 15px;
+            background: #f8f9fa;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .options label:hover {
+            background: #e0e7ff;
+            transform: translateX(3px);
+        }
+        input[type="radio"] {
+            margin-right: 12px;
+        }
+        button[type="submit"] {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            background: #C7F300;
+            color: #333;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 40px;
+            transition: all 0.3s;
+        }
+        button[type="submit"]:hover {
+            
+            transform: translateY(-4px);
+        }
+.role-confirmation {
+            display: none;
+            text-align: center;
+            margin-top: 30px;
+        }
+        .role-confirmation h3 {
+            color: #1a3c34;
+            margin-bottom: 20px;
+        }
+        .role-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .role-btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .role-btn.student {
+            background-color: #3498db;
+            color: white;
+        }
+        .role-btn.coach {
+            background-color: #e74c3c;
+            color: white;
+        }
+        .role-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+        
+        .result {
+            display: none;
+            margin-top: 40px;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 5px solid #C7F300;
+        }
+        .error {
+            color: #e74c3c;
+            text-align: center;
+            margin-top: 20px;
+            padding: 15px;
+            background: #ffebee;
+            border-radius: 6px;
+        }
+        @media (max-width: 600px) {
+            .survey-container {
+                padding: 20px;
+            }
+            .question-title {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="survey-container">
+        <div class="language-switcher">
+            <button id="langVi" class="active">Tiếng Việt</button>
+            <button id="langEn">English</button>
+        </div>
+        
+        <h1 id="surveyTitle">Đánh Giá Kỹ Năng Pickleball</h1>
+        
+        <form id="pickleballSurvey">
+            <!-- Các câu hỏi khảo sát (giữ nguyên như trước) -->
+            <!-- Question 1 -->
+            <div class="question">
+                <div class="question-title" id="q1">1. Bạn đã chơi Pickleball được bao lâu?</div>
+                <div class="options" id="o1">
+                    <label><input type="radio" name="experience" value="never" required> <span>Chưa bao giờ chơi</span></label>
+                    <label><input type="radio" name="experience" value="beginner"> <span>Dưới 3 tháng</span></label>
+                    <label><input type="radio" name="experience" value="intermediate"> <span>3 đến 12 tháng</span></label>
+                    <label><input type="radio" name="experience" value="advanced"> <span>Hơn 1 năm</span></label>
+                </div>
+            </div>
+            
+            <!-- Question 2 -->
+            <div class="question">
+                <div class="question-title" id="q2">2. Bạn chơi Pickleball bao nhiêu lần mỗi tuần (trung bình)?</div>
+                <div class="options" id="o2">
+                    <label><input type="radio" name="frequency" value="rarely" required> <span>Ít hơn 1 lần</span></label>
+                    <label><input type="radio" name="frequency" value="sometimes"> <span>1-2 lần mỗi tuần</span></label>
+                    <label><input type="radio" name="frequency" value="often"> <span>3-4 lần mỗi tuần</span></label>
+                    <label><input type="radio" name="frequency" value="daily"> <span>Hầu như mỗi ngày</span></label>
+                </div>
+            </div>
+            
+            <!-- Question 3 -->
+            <div class="question">
+                <div class="question-title" id="q3">3. Bạn biết và áp dụng các luật cơ bản của Pickleball như thế nào?</div>
+                <div class="options" id="o3">
+                    <label><input type="radio" name="rules" value="dont_know" required> <span>Không biết luật</span></label>
+                    <label><input type="radio" name="rules" value="few_rules"> <span>Biết một vài luật</span></label>
+                    <label><input type="radio" name="rules" value="apply_correctly"> <span>Biết và áp dụng luật chính xác</span></label>
+                    <label><input type="radio" name="rules" value="explain_rules"> <span>Hiểu rõ luật và có thể giải thích cho người khác</span></label>
+                </div>
+            </div>
+            
+            <!-- Question 4 -->
+            <div class="question">
+                <div class="question-title" id="q4">4. Bạn đánh giá khả năng giao bóng của mình thế nào?</div>
+                <div class="options" id="o4">
+                    <label><input type="radio" name="serve" value="struggle" required> <span>Khó khăn khi giao bóng</span></label>
+                    <label><input type="radio" name="serve" value="inconsistent"> <span>Có thể giao bóng nhưng không ổn định</span></label>
+                    <label><input type="radio" name="serve" value="consistent"> <span>Giao bóng ổn định với một số chiến thuật</span></label>
+                    <label><input type="radio" name="serve" value="effective"> <span>Có thể thực hiện nhiều kiểu giao bóng hiệu quả</span></label>
+                </div>
+            </div>
+            
+            <!-- Question 5 -->
+            <div class="question">
+                <div class="question-title" id="q5">5. Bạn giao tiếp và phối hợp với đối tác trong đánh đôi như thế nào?</div>
+                <div class="options" id="o5">
+                    <label><input type="radio" name="doubles" value="never" required> <span>Chưa bao giờ chơi đôi</span></label>
+                    <label><input type="radio" name="doubles" value="weak"> <span>Đã chơi đôi nhưng giao tiếp kém</span></label>
+                    <label><input type="radio" name="doubles" value="fair"> <span>Giao tiếp và phối hợp khá tốt</span></label>
+                    <label><input type="radio" name="doubles" value="strong"> <span>Giao tiếp và hỗ trợ nhau với chiến thuật rõ ràng</span></label>
+                </div>
+            </div>
+            
+            <!-- Question 6 -->
+            <div class="question">
+                <div class="question-title" id="q6">6. Bạn đánh giá khả năng di chuyển và bước chân trên sân của mình thế nào?</div>
+                <div class="options" id="o6">
+                    <label><input type="radio" name="movement" value="slow" required> <span>Di chuyển chậm, phản ứng kém</span></label>
+                    <label><input type="radio" name="movement" value="decent"> <span>Di chuyển khá nhưng thường sai vị trí</span></label>
+                    <label><input type="radio" name="movement" value="good"> <span>Di chuyển tốt và giữ vị trí hợp lý</span></label>
+                    <label><input type="radio" name="movement" value="excellent"> <span>Di chuyển nhanh và kiểm soát tốt các khu vực sân</span></label>
+                </div>
+            </div>
+            
+            <!-- Question 7 -->
+            <div class="question">
+                <div class="question-title" id="q7">7. Bạn đã từng tham gia giải đấu Pickleball nào chưa?</div>
+                <div class="options" id="o7">
+                    <label><input type="radio" name="tournaments" value="never" required> <span>Chưa bao giờ</span></label>
+                    <label><input type="radio" name="tournaments" value="local"> <span>Sự kiện giải trí hoặc địa phương</span></label>
+                    <label><input type="radio" name="tournaments" value="several"> <span>Đã tham gia một số giải đấu giải trí</span></label>
+                    <label><input type="radio" name="tournaments" value="official"> <span>Đã tham gia giải đấu chính thức (cấp huyện trở lên)</span></label>
+                </div>
+            </div>
+            
+            <button type="submit" id="submitBtn">Gửi Đánh Giá</button>
+        </form>
+        
+        <div id="result" class="result"></div>
+        <div id="error" class="error"></div>
+        
+        <!-- Phần xác nhận vai trò mới thêm -->
+        <div id="roleConfirmation" class="role-confirmation">
+            <h3 id="roleQuestion">Vui lòng xác nhận vai trò của bạn:</h3>
+            <div class="role-buttons">
+                <button id="studentBtn" class="role-btn student">Tôi là Học viên</button>
+                <button id="coachBtn" class="role-btn coach">Tôi là Huấn luyện viên</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Dữ liệu ngôn ngữ (giữ nguyên như trong code gốc)
+const translations = {
+    vi: {
+        title: "Đánh Giá Kỹ Năng Pickleball",
+        questions: [
+            "1. Bạn đã chơi Pickleball được bao lâu?",
+            "2. Bạn chơi Pickleball bao nhiêu lần mỗi tuần (trung bình)?",
+            "3. Bạn biết và áp dụng các luật cơ bản của Pickleball như thế nào?",
+            "4. Bạn đánh giá khả năng giao bóng của mình thế nào?",
+            "5. Bạn giao tiếp và phối hợp với đối tác trong đánh đôi như thế nào?",
+            "6. Bạn đánh giá khả năng di chuyển và bước chân trên sân của mình thế nào?",
+            "7. Bạn đã từng tham gia giải đấu Pickleball nào chưa?"
+        ],
+        options: [
+            ["Chưa bao giờ chơi", "Dưới 3 tháng", "3 đến 12 tháng", "Hơn 1 năm"],
+            ["Ít hơn 1 lần", "1-2 lần mỗi tuần", "3-4 lần mỗi tuần", "Hầu như mỗi ngày"],
+            ["Không biết luật", "Biết một vài luật", "Biết và áp dụng luật chính xác", "Hiểu rõ luật và có thể giải thích cho người khác"],
+            ["Khó khăn khi giao bóng", "Có thể giao bóng nhưng không ổn định", "Giao bóng ổn định với một số chiến thuật", "Có thể thực hiện nhiều kiểu giao bóng hiệu quả"],
+            ["Chưa bao giờ chơi đôi", "Đã chơi đôi nhưng giao tiếp kém", "Giao tiếp và phối hợp khá tốt", "Giao tiếp và hỗ trợ nhau với chiến thuật rõ ràng"],
+            ["Di chuyển chậm, phản ứng kém", "Di chuyển khá nhưng thường sai vị trí", "Di chuyển tốt và giữ vị trí hợp lý", "Di chuyển nhanh và kiểm soát tốt các khu vực sân"],
+            ["Chưa bao giờ", "Sự kiện giải trí hoặc địa phương", "Đã tham gia một số giải đấu giải trí", "Đã tham gia giải đấu chính thức (cấp huyện trở lên)"]
+        ],
+        submit: "Gửi Đánh Giá",
+        errors: {
+            incomplete: "Vui lòng trả lời tất cả các câu hỏi (Câu %s chưa được trả lời)"
+        },
+        results: {
+            thank: "Cảm ơn bạn đã tham gia đánh giá!",
+            experience: "Thời gian chơi",
+            frequency: "Tần suất chơi",
+            rules: "Hiểu biết luật",
+            serve: "Khả năng giao bóng",
+            doubles: "Phối hợp đánh đôi",
+            movement: "Di chuyển trên sân",
+            tournaments: "Tham gia giải đấu",
+            summary: "Kết quả đánh giá của bạn:"
+        },
+        role: {
+            question: "Vui lòng xác nhận vai trò của bạn:",
+            student: "Tôi là Học viên",
+            coach: "Tôi là Huấn luyện viên",
+            confirmed: "Bạn đã xác nhận %role%. Kết quả đã được ghi nhận!"
+        }
+    },
+    en: {
+        title: "Pickleball Skill Assessment",
+        questions: [
+            "1. How long have you been playing Pickleball?",
+            "2. How often do you play Pickleball per week (on average)?",
+            "3. How well do you know and follow the basic rules of Pickleball?",
+            "4. How would you rate your serving ability?",
+            "5. How well do you communicate and coordinate with your partner in doubles matches?",
+            "6. How would you rate your movement and footwork on the court?",
+            "7. Have you ever participated in any Pickleball tournaments?"
+        ],
+        options: [
+            ["Never played", "Less than 3 months", "3 to 12 months", "More than 1 year"],
+            ["Less than once", "1–2 times a week", "3–4 times a week", "Almost every day"],
+            ["Don't know the rules", "Know a few rules", "Know and apply rules correctly", "Know the rules well and can explain them to others"],
+            ["Struggle with serving", "Can serve but not consistently", "Serve consistently with some strategy", "Can perform different types of serves effectively"],
+            ["Never played doubles", "Played doubles but communication is weak", "Communicate and coordinate fairly well", "Communicate and support each other with clear strategy"],
+            ["Move slowly, poor reaction", "Move decently but often out of position", "Move well and maintain good positioning", "Move quickly and control court areas effectively"],
+            ["Never", "Recreational or local events", "Participated in several recreational tournaments", "Participated in official tournaments (district level or higher)"]
+        ],
+        submit: "Submit Assessment",
+        errors: {
+            incomplete: "Please answer all questions (Question %s is not answered)"
+        },
+        results: {
+            thank: "Thank you for completing the assessment!",
+            experience: "Playing experience",
+            frequency: "Playing frequency",
+            rules: "Rules knowledge",
+            serve: "Serving ability",
+            doubles: "Doubles communication",
+            movement: "Court movement",
+            tournaments: "Tournament participation",
+            summary: "Your assessment results:"
+        },
+        role: {
+            question: "Please confirm your role:",
+            student: "I am a Student",
+            coach: "I am a Coach",
+            confirmed: "You have confirmed as %role%. Results have been recorded!"
+        }
+    }
+};
+
+// Biến lưu trữ kết quả
+let surveyResults = {};
+let currentLang = 'vi';
+
+// Chức năng chuyển đổi ngôn ngữ
+function changeLanguage(lang) {
+    currentLang = lang;
+    document.getElementById('surveyTitle').textContent = translations[lang].title;
+    
+    // Cập nhật câu hỏi
+    const questionTitles = document.querySelectorAll('.question-title');
+    questionTitles.forEach((title, index) => {
+        title.textContent = translations[lang].questions[index];
+    });
+    
+    // Cập nhật lựa chọn
+    const optionTexts = document.querySelectorAll('.options span');
+    let optionIndex = 0;
+    translations[lang].options.forEach(optionGroup => {
+        optionGroup.forEach(option => {
+            optionTexts[optionIndex].textContent = option;
+            optionIndex++;
+        });
+    });
+    
+    // Cập nhật nút submit
+    document.getElementById('submitBtn').textContent = translations[lang].submit;
+    
+    // Cập nhật class active cho nút ngôn ngữ
+    document.getElementById('langVi').classList.toggle('active', lang === 'vi');
+    document.getElementById('langEn').classList.toggle('active', lang === 'en');
+    
+    // Cập nhật phần xác nhận vai trò nếu đang hiển thị
+    if (document.getElementById('roleConfirmation').style.display === 'block') {
+        document.getElementById('roleQuestion').textContent = translations[lang].role.question;
+        document.getElementById('studentBtn').textContent = translations[lang].role.student;
+        document.getElementById('coachBtn').textContent = translations[lang].role.coach;
+    }
+    
+    // Cập nhật kết quả nếu đang hiển thị
+    if (document.getElementById('result').style.display === 'block' && Object.keys(surveyResults).length > 0) {
+        updateResults();
+    }
+}
+
+// Hàm cập nhật kết quả
+function updateResults() {
+    const resultDiv = document.getElementById('result');
+    const role = surveyResults.role;
+    
+    let resultHTML = `
+        <h3>${translations[currentLang].results.thank}</h3>
+        <p>${translations[currentLang].role.confirmed.replace('%role%', 
+            role === 'student' ? translations[currentLang].role.student : translations[currentLang].role.coach)}</p>
+        <p><strong>${translations[currentLang].results.summary}</strong></p>
+        <p><strong>${translations[currentLang].results.experience}:</strong> ${getAnswerText('experience', surveyResults.experience)}</p>
+        <p><strong>${translations[currentLang].results.frequency}:</strong> ${getAnswerText('frequency', surveyResults.frequency)}</p>
+        <p><strong>${translations[currentLang].results.rules}:</strong> ${getAnswerText('rules', surveyResults.rules)}</p>
+        <p><strong>${translations[currentLang].results.serve}:</strong> ${getAnswerText('serve', surveyResults.serve)}</p>
+        <p><strong>${translations[currentLang].results.doubles}:</strong> ${getAnswerText('doubles', surveyResults.doubles)}</p>
+        <p><strong>${translations[currentLang].results.movement}:</strong> ${getAnswerText('movement', surveyResults.movement)}</p>
+        <p><strong>${translations[currentLang].results.tournaments}:</strong> ${getAnswerText('tournaments', surveyResults.tournaments)}</p>
+        <p><strong>${translations[currentLang].role.question.split(':')[0]}:</strong> ${role === 'student' ? translations[currentLang].role.student : translations[currentLang].role.coach}</p>
+    `;
+    
+    resultDiv.innerHTML = resultHTML;
+}
+
+// Xử lý sự kiện gửi form
+document.getElementById('pickleballSurvey').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const formData = new FormData(this);
+    let allAnswered = true;
+    
+    // Kiểm tra tất cả câu hỏi đã được trả lời
+    const questionNames = ['experience', 'frequency', 'rules', 'serve', 'doubles', 'movement', 'tournaments'];
+    questionNames.forEach((name, index) => {
+        if (!formData.get(name)) {
+            allAnswered = false;
+            const errorMsg = translations[currentLang].errors.incomplete.replace('%s', index + 1);
+            document.getElementById('error').textContent = errorMsg;
+        }
+    });
+    
+    if (!allAnswered) return;
+    
+    document.getElementById('error').textContent = '';
+    
+    // Thu thập kết quả
+    surveyResults = {};
+    questionNames.forEach(name => {
+        surveyResults[name] = formData.get(name);
+    });
+    
+    // Ẩn form và hiển thị phần xác nhận vai trò
+    document.getElementById('pickleballSurvey').style.display = 'none';
+    document.getElementById('roleConfirmation').style.display = 'block';
+    document.getElementById('roleQuestion').textContent = translations[currentLang].role.question;
+    document.getElementById('studentBtn').textContent = translations[currentLang].role.student;
+    document.getElementById('coachBtn').textContent = translations[currentLang].role.coach;
+    
+    // Cuộn đến phần xác nhận vai trò
+    document.getElementById('roleConfirmation').scrollIntoView({ behavior: 'smooth' });
+});
+
+// Xử lý sự kiện xác nhận vai trò
+document.getElementById('studentBtn').addEventListener('click', function() {
+    confirmRole('student');
+});
+
+document.getElementById('coachBtn').addEventListener('click', function() {
+    confirmRole('coach');
+});
+
+function confirmRole(role) {
+    // Lưu vai trò vào kết quả
+    surveyResults.role = role;
+    
+    // Hiển thị kết quả hoàn chỉnh
+    const resultDiv = document.getElementById('result');
+    resultDiv.style.display = 'block';
+    
+    updateResults();
+    
+    // Ẩn phần xác nhận vai trò
+    document.getElementById('roleConfirmation').style.display = 'none';
+    
+    // Cuộn đến kết quả
+    resultDiv.scrollIntoView({ behavior: 'smooth' });
+    
+    // In kết quả ra console (có thể thay bằng gửi đến server)
+    console.log("Survey results:", surveyResults);
+}
+
+// Hàm lấy văn bản tương ứng với câu trả lời
+function getAnswerText(questionName, value) {
+    const questionIndex = {
+        experience: 0,
+        frequency: 1,
+        rules: 2,
+        serve: 3,
+        doubles: 4,
+        movement: 5,
+        tournaments: 6
+    }[questionName];
+    
+    const valueIndex = {
+        never: 0, beginner: 1, intermediate: 2, advanced: 3,
+        rarely: 0, sometimes: 1, often: 2, daily: 3,
+        dont_know: 0, few_rules: 1, apply_correctly: 2, explain_rules: 3,
+        struggle: 0, inconsistent: 1, consistent: 2, effective: 3,
+        never: 0, weak: 1, fair: 2, strong: 3,
+        slow: 0, decent: 1, good: 2, excellent: 3,
+        never: 0, local: 1, several: 2, official: 3
+    }[value];
+    
+    return translations[currentLang].options[questionIndex][valueIndex];
+}
+
+// Khởi tạo
+document.getElementById('langVi').addEventListener('click', () => changeLanguage('vi'));
+document.getElementById('langEn').addEventListener('click', () => changeLanguage('en'));
+    </script>
+</body>
+</html>
