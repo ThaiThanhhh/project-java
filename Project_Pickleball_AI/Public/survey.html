@@ -217,25 +217,24 @@
                 </div>
             </div>
             
-            <!-- Question 6 -->
+            <!-- Question 6 (updated) -->
             <div class="question">
-                <div class="question-title" id="q6">6. Bạn đánh giá khả năng di chuyển và bước chân trên sân của mình thế nào?</div>
+                <div class="question-title" id="q6">6. Phong cách học tập ưa thích của bạn là gì?</div>
                 <div class="options" id="o6">
-                    <label><input type="radio" name="movement" value="slow" required> <span>Di chuyển chậm, phản ứng kém</span></label>
-                    <label><input type="radio" name="movement" value="decent"> <span>Di chuyển khá nhưng thường sai vị trí</span></label>
-                    <label><input type="radio" name="movement" value="good"> <span>Di chuyển tốt và giữ vị trí hợp lý</span></label>
-                    <label><input type="radio" name="movement" value="excellent"> <span>Di chuyển nhanh và kiểm soát tốt các khu vực sân</span></label>
+                    <label><input type="radio" name="movement" value="practice_video" required> <span>Thực hành thực tế & Phân tích video</span></label>
+                    <label><input type="radio" name="movement" value="video_only"> <span>Chỉ phân tích video</span></label>
+                    <label><input type="radio" name="movement" value="one_on_one"> <span>Huấn luyện một kèm một</span></label>
+                    <label><input type="radio" name="movement" value="group_learning"> <span>Học theo nhóm</span></label>
                 </div>
             </div>
             
             <!-- Question 7 -->
             <div class="question">
-                <div class="question-title" id="q7">7. Bạn đã từng tham gia giải đấu Pickleball nào chưa?</div>
+                <div class="question-title" id="q7">7. Bạn đánh giá trình độ hiện tại của bạn ở mức nào?</div>
                 <div class="options" id="o7">
-                    <label><input type="radio" name="tournaments" value="never" required> <span>Chưa bao giờ</span></label>
-                    <label><input type="radio" name="tournaments" value="local"> <span>Sự kiện giải trí hoặc địa phương</span></label>
-                    <label><input type="radio" name="tournaments" value="several"> <span>Đã tham gia một số giải đấu giải trí</span></label>
-                    <label><input type="radio" name="tournaments" value="official"> <span>Đã tham gia giải đấu chính thức (cấp huyện trở lên)</span></label>
+                    <label><input type="radio" name="tournaments" value="never" required> <span>Người mới</span></label>
+                    <label><input type="radio" name="tournaments" value="local"> <span>Đã biết chơi</span></label>
+                    <label><input type="radio" name="tournaments" value="several"> <span>Chuyên nghiệp</span></label>
                 </div>
             </div>
             
@@ -245,7 +244,6 @@
         <div id="result" class="result"></div>
         <div id="error" class="error"></div>
         
-        <!-- Phần xác nhận vai trò mới thêm -->
         <div id="roleConfirmation" class="role-confirmation">
             <h3 id="roleQuestion">Vui lòng xác nhận vai trò của bạn:</h3>
             <div class="role-buttons">
@@ -256,7 +254,7 @@
     </div>
 
     <script>
-        // Dữ liệu ngôn ngữ (giữ nguyên như trong code gốc)
+        // Dữ liệu ngôn ngữ (updated for question 6)
 const translations = {
     vi: {
         title: "Đánh Giá Kỹ Năng Pickleball",
@@ -266,8 +264,8 @@ const translations = {
             "3. Bạn biết và áp dụng các luật cơ bản của Pickleball như thế nào?",
             "4. Bạn đánh giá khả năng giao bóng của mình thế nào?",
             "5. Bạn giao tiếp và phối hợp với đối tác trong đánh đôi như thế nào?",
-            "6. Bạn đánh giá khả năng di chuyển và bước chân trên sân của mình thế nào?",
-            "7. Bạn đã từng tham gia giải đấu Pickleball nào chưa?"
+            "6. Phong cách học tập ưa thích của bạn là gì?",
+            "7. Bạn đánh giá trình độ hiện tại của bạn ở mức nào?"
         ],
         options: [
             ["Chưa bao giờ chơi", "Dưới 3 tháng", "3 đến 12 tháng", "Hơn 1 năm"],
@@ -275,8 +273,8 @@ const translations = {
             ["Không biết luật", "Biết một vài luật", "Biết và áp dụng luật chính xác", "Hiểu rõ luật và có thể giải thích cho người khác"],
             ["Khó khăn khi giao bóng", "Có thể giao bóng nhưng không ổn định", "Giao bóng ổn định với một số chiến thuật", "Có thể thực hiện nhiều kiểu giao bóng hiệu quả"],
             ["Chưa bao giờ chơi đôi", "Đã chơi đôi nhưng giao tiếp kém", "Giao tiếp và phối hợp khá tốt", "Giao tiếp và hỗ trợ nhau với chiến thuật rõ ràng"],
-            ["Di chuyển chậm, phản ứng kém", "Di chuyển khá nhưng thường sai vị trí", "Di chuyển tốt và giữ vị trí hợp lý", "Di chuyển nhanh và kiểm soát tốt các khu vực sân"],
-            ["Chưa bao giờ", "Sự kiện giải trí hoặc địa phương", "Đã tham gia một số giải đấu giải trí", "Đã tham gia giải đấu chính thức (cấp huyện trở lên)"]
+            ["Thực hành thực tế & Phân tích video", "Chỉ phân tích video", "Huấn luyện một kèm một", "Học theo nhóm"],
+            ["Người mới", "Đã biết chơi", "Chuyên nghiệp"]
         ],
         submit: "Gửi Đánh Giá",
         errors: {
@@ -289,8 +287,8 @@ const translations = {
             rules: "Hiểu biết luật",
             serve: "Khả năng giao bóng",
             doubles: "Phối hợp đánh đôi",
-            movement: "Di chuyển trên sân",
-            tournaments: "Tham gia giải đấu",
+            movement: "Phong cách học tập",
+            tournaments: "Trình độ hiện tại",
             summary: "Kết quả đánh giá của bạn:"
         },
         role: {
@@ -308,8 +306,8 @@ const translations = {
             "3. How well do you know and follow the basic rules of Pickleball?",
             "4. How would you rate your serving ability?",
             "5. How well do you communicate and coordinate with your partner in doubles matches?",
-            "6. How would you rate your movement and footwork on the court?",
-            "7. Have you ever participated in any Pickleball tournaments?"
+            "6. What is your preferred learning style?",
+            "7. How would you rate your current skill level?"
         ],
         options: [
             ["Never played", "Less than 3 months", "3 to 12 months", "More than 1 year"],
@@ -317,8 +315,8 @@ const translations = {
             ["Don't know the rules", "Know a few rules", "Know and apply rules correctly", "Know the rules well and can explain them to others"],
             ["Struggle with serving", "Can serve but not consistently", "Serve consistently with some strategy", "Can perform different types of serves effectively"],
             ["Never played doubles", "Played doubles but communication is weak", "Communicate and coordinate fairly well", "Communicate and support each other with clear strategy"],
-            ["Move slowly, poor reaction", "Move decently but often out of position", "Move well and maintain good positioning", "Move quickly and control court areas effectively"],
-            ["Never", "Recreational or local events", "Participated in several recreational tournaments", "Participated in official tournaments (district level or higher)"]
+            ["Practical practice & Video analysis", "Video analysis only", "One-on-one coaching", "Group learning"],
+            ["Beginner", "Intermediate", "Professional"]
         ],
         submit: "Submit Assessment",
         errors: {
@@ -331,8 +329,8 @@ const translations = {
             rules: "Rules knowledge",
             serve: "Serving ability",
             doubles: "Doubles communication",
-            movement: "Court movement",
-            tournaments: "Tournament participation",
+            movement: "Learning style",
+            tournaments: "Current skill level",
             summary: "Your assessment results:"
         },
         role: {
@@ -497,7 +495,7 @@ function getAnswerText(questionName, value) {
         dont_know: 0, few_rules: 1, apply_correctly: 2, explain_rules: 3,
         struggle: 0, inconsistent: 1, consistent: 2, effective: 3,
         never: 0, weak: 1, fair: 2, strong: 3,
-        slow: 0, decent: 1, good: 2, excellent: 3,
+        practice_video: 0, video_only: 1, one_on_one: 2, group_learning: 3,
         never: 0, local: 1, several: 2, official: 3
     }[value];
     
