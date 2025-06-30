@@ -17,6 +17,7 @@ public interface IUserRepository extends JpaRepository<User, Long> {
     // You can add more methods as needed for your application
     // For example, to find a user by email:
      User findByEmail(String email);
+     
     
 
      

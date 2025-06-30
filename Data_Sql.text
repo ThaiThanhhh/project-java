@@ -68,3 +68,25 @@ INSERT INTO video_library (title, youtube_id, duration, category) VALUES
 ('Pickleball Championships', 'oReod5Ip2dY', '21:35', 'Tournament'),
 ('Quang Duong v Phuc Hyunh', 'dozPHU9cXU0', '21:58', 'Tournament'),
 ('Bright/Kawamoto vs Brascia/Brascia', 'Q2jsm-22xew', '01:34:44', 'Tournament');
+
+
+
+
+
+////survey
+question
+
+INSERT INTO question (question_key, conten) VALUES
+('experience', N'1. How long have you been playing Pickleball?'),
+('frequency', N'2. How often do you play Pickleball per week (on average)?'),
+('rules', N'3. How well do you know and follow the basic rules of Pickleball?'),
+('serve', N'4. How would you rate your serving ability?'),
+('doubles', N'5. How well do you communicate and coordinate with your partner in doubles matches?'),
+('movement', N'6. What is your preferred learning style?'),
+('tournaments',N'7. How would you rate your current skill level?');
+
+
+
+
+
+

@@ -3,9 +3,11 @@ package com.uth.pickleball.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Table;
 import jakarta.persistence.Column;
+import jakarta.persistence.CascadeType;
 @Entity
 @Table(name = "Users")
 public class User {
@@ -23,6 +25,9 @@ public class User {
     @Column(name = "role", length = 20)
     private String role;
 
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    private Survey survey;
+
     public User() {
     }
     public User(String fullName, String email, String password, String role) {
@@ -30,6 +35,7 @@ public class User {
         this.email = email;
         this.password = password;
         this.role = role;
+        
     }
 
      public void setId(Long id) {

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pickleball Skill Assessment | Đánh giá kỹ năng Pickleball</title>
+    <link rel="stylesheet" href="/pickleball/css/survey.css">
+    
+</head>
+<body>
+    <div class="survey-container">
+        <div class="language-switcher">
+            <button id="langVi" class="active">Tiếng Việt</button>
+            <button id="langEn">English</button>
+        </div>
+        
+        <h1 id="surveyTitle">Đánh Giá Kỹ Năng Pickleball</h1>
+        
+        <form id="pickleballSurvey" method="post" th:action="@{/survey}">
+            <div th:each="question, qStat : ${questions}" class="question">
+                <div class="question-title" th:text="${question.content}"></div>
+                <div class="options">
+                    <label th:each="option : ${question.options}">
+                        <input type="radio"
+                            th:name="${question.key}"
+                            th:value="${option.value}"
+                            th:attr="required=${qStat.index == 0}" />
+                        <span th:text="${option.content}"></span>
+                    </label>
+                </div>
+            </div>
+            <button type="submit" id="submitBtn">Gửi Đánh Giá</button>
+        </form>
+        
+        <div id="result" class="result"></div>
+        <div id="error" class="error"></div>
+        
+        <div id="roleConfirmation" class="role-confirmation">
+            <h3 id="roleQuestion">Vui lòng xác nhận vai trò của bạn:</h3>
+            <div class="role-buttons">
+                <button id="studentBtn" class="role-btn student">Tôi là Học viên</button>
+                <button id="coachBtn" class="role-btn coach">Tôi là Huấn luyện viên</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/pickleball/js/survey.js"></script>
+</body>
+</html>

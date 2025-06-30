@@ -27,7 +27,7 @@ public class LoginController {
     }
         return "public/login";
     }
-   
+    
     @PostMapping("/login")
     public String login(
             @RequestParam("email") String email,
@@ -57,7 +57,7 @@ public class LoginController {
             session.setMaxInactiveInterval(60 * 30); // 30 phút mặc định
         }
         // Đăng nhập thành công, chuyển hướng tới trang chủ hoặc dashboard
-        return "redirect:/home";
+        return "redirect:/survey"; // Hoặc trang nào bạn muốn chuyển hướng đến
     }
 
 }
