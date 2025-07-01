@@ -15,7 +15,7 @@ public class SurveyAnswer {
     @Column(name = "survey_answer_id")
     private Long id;
 
-      @ManyToOne
+    @ManyToOne
     @JoinColumn(name = "survey_id")
     private Survey survey;
 

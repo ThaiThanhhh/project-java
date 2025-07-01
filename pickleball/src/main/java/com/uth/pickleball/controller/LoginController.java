@@ -56,8 +56,12 @@ public class LoginController {
         } else {
             session.setMaxInactiveInterval(60 * 30); // 30 phút mặc định
         }
-        // Đăng nhập thành công, chuyển hướng tới trang chủ hoặc dashboard
-        return "redirect:/survey"; // Hoặc trang nào bạn muốn chuyển hướng đến
+         // Kiểm tra role: nếu chưa có thì chuyển sang survey, nếu có rồi thì về home
+    if (user.getRole() == null || user.getRole().isEmpty()) {
+        return "redirect:/survey";
+    } else {
+        return "redirect:/home"; // hoặc "/" hoặc dashboard tùy bạn
     }
+}
 
 }
