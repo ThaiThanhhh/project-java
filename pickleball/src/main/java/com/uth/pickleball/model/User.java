@@ -24,21 +24,25 @@ public class User {
     private String password;
     @Column(name = "phone", length = 15)
     private String phone;
+    @Column(name = "avatar_url", length = 255)
+    private String avatarUrl;
     @Column(name = "role", length = 20)
     private String role;
+    
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     private Survey survey;
 
     public User() {
     }
-    public User(String fullName, String email, String password, String phone, String role) {
+    public User(String fullName, String email, String password, String phone, String role, String avatarUrl) {
         this.fullName = fullName;
         this.email = email;
         this.password = password;
         this.phone = phone;
         this.role = role;
-        
+        this.avatarUrl = avatarUrl;
+       
     }
 
      public void setId(Long id) {
@@ -88,5 +92,12 @@ public class User {
    public void setSurvey(Survey survey) {
        this.survey = survey;
    }
+    public String getAvatarUrl() {
+          return avatarUrl;
+     }
+    
+     public void setAvatarUrl(String avatarUrl) {
+          this.avatarUrl = avatarUrl;
+     }
 
 }

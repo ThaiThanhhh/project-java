@@ -38,20 +38,20 @@ public class RegisterController {
 
         if (!password.equals(confirmPassword)) {
             model.addAttribute("error", "Passwords do not match!");
-            model.addAttribute("user", new User(fullName, email, "", phone, ""));
+            model.addAttribute("user", new User(fullName, email, "", phone, "", ""));
             return "public/register";
         }
             // Kiểm tra email đã tồn tại
         if (userService.existsByEmail(email)) {
             model.addAttribute("error", "Email already exists!");
-            model.addAttribute("user", new User(fullName, email, "", phone, ""));
+            model.addAttribute("user", new User(fullName, email, "", phone, "", ""));
             return "public/register";
         }
         // Hash password trước khi lưu
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         String hashedPassword = encoder.encode(password);
 
-        User user = new User(fullName, email, hashedPassword, phone, "");
+        User user = new User(fullName, email, hashedPassword, phone, "", "");
         userService.addUser(user);
         return "redirect:/login";
     }}
