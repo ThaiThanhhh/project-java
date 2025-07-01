@@ -89,7 +89,7 @@ public class SurveyController {
         }
         surveyAnswerRepository.saveAll(answers);
 
-        return "redirect:/home";
+        return "redirect:/profile"; // Chuyển hướng về trang profile sau khi lưu khảo sát
 }
 
 

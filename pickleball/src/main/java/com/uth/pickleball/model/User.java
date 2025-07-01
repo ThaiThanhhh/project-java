@@ -22,6 +22,8 @@ public class User {
     private String email;
     @Column(name = "password", nullable = false)
     private String password;
+    @Column(name = "phone", length = 15)
+    private String phone;
     @Column(name = "role", length = 20)
     private String role;
 
@@ -30,10 +32,11 @@ public class User {
 
     public User() {
     }
-    public User(String fullName, String email, String password, String role) {
+    public User(String fullName, String email, String password, String phone, String role) {
         this.fullName = fullName;
         this.email = email;
         this.password = password;
+        this.phone = phone;
         this.role = role;
         
     }
@@ -70,8 +73,20 @@ public class User {
     public void setRole(String role) {
         this.role = role;
     }
+    public String getPhone() {
+        return phone;
+    }
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
 
 
-   
+   public Survey getSurvey() {
+       return survey;
+   }
+
+   public void setSurvey(Survey survey) {
+       this.survey = survey;
+   }
 
 }
