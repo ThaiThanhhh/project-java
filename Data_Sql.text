@@ -90,3 +90,50 @@ INSERT INTO question (question_key, conten) VALUES
 
 
 
+-- Câu 1: experience
+INSERT INTO survey_option (question_id, value, content) VALUES
+(17, 'never', 'Never played'),
+(17, 'beginner', 'Less than 3 months'),
+(17, 'intermediate', '3 to 12 months'),
+(17, 'advanced', 'More than 1 year');
+
+-- Câu 2: frequency
+INSERT INTO survey_option (question_id, value, content) VALUES
+(18, 'rarely', 'Less than once'),
+(18, 'sometimes', '1–2 times a week'),
+(18, 'often', '3–4 times a week'),
+(18, 'daily', 'Almost every day');
+
+-- Câu 3: rules
+INSERT INTO survey_option (question_id, value, content) VALUES
+(19, 'dont_know', 'Don''t know the rules'),
+(19, 'few_rules', 'Know a few rules'),
+(19, 'apply_correctly', 'Know and apply rules correctly'),
+(19, 'explain_rules', 'Know the rules well and can explain them to others');
+
+-- Câu 4: serve
+INSERT INTO survey_option (question_id, value, content) VALUES
+(20, 'struggle', 'Struggle with serving'),
+(20, 'inconsistent', 'Can serve but not consistently'),
+(20, 'consistent', 'Serve consistently with some strategy'),
+(20, 'effective', 'Can perform different types of serves effectively');
+
+-- Câu 5: doubles
+INSERT INTO survey_option (question_id, value, content) VALUES
+(21, 'never', 'Never played doubles'),
+(21, 'weak', 'Played doubles but communication is weak'),
+(21, 'fair', 'Communicate and coordinate fairly well'),
+(21, 'strong', 'Communicate and support each other with clear strategy');
+
+-- Câu 6: movement
+INSERT INTO survey_option (question_id, value, content) VALUES
+(22, 'practice_video', 'Practical practice & Video analysis'),
+(22, 'video_only', 'Video analysis only'),
+(22, 'one_on_one', 'One-on-one coaching'),
+(22, 'group_learning', 'Group learning');
+
+-- Câu 7: tournaments
+INSERT INTO survey_option (question_id, value, content) VALUES
+(23, 'never', 'Beginner'),
+(23, 'local', 'Intermediate'),
+(23, 'several', 'Professional');

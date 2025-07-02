@@ -452,3 +452,13 @@
     gap: 50px;
     margin-bottom: 20px;
 }
+select, select option {
+    color: #fff;              /* Màu chữ trắng */
+    background: #222;         /* Màu nền tối */
+    border: 1px solid #ccc;
+}
+
+select:disabled {
+    color: #aaa;              /* Màu chữ khi disabled */
+    background: #333;         /* Nền khi disabled */
+}

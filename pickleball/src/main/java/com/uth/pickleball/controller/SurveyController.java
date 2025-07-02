@@ -15,13 +15,16 @@ import com.uth.pickleball.model.Survey;
 import com.uth.pickleball.model.SurveyAnswer;
 import com.uth.pickleball.model.User;
 import com.uth.pickleball.model.Question;
+import com.uth.pickleball.model.Student;
+import com.uth.pickleball.model.Option;
 import com.uth.pickleball.repositories.ISurveyAnswerRepository;
 import com.uth.pickleball.repositories.ISurveyRepository;
 import com.uth.pickleball.repositories.IUserRepository;
+import com.uth.pickleball.repositories.IStudentRepository;
+import com.uth.pickleball.repositories.IQuestionRepository;
+import com.uth.pickleball.service.OptionService;
 
 import jakarta.servlet.http.HttpSession;
-
-import com.uth.pickleball.repositories.IQuestionRepository;
 
 @Controller
 public class SurveyController {
@@ -33,12 +36,14 @@ public class SurveyController {
     private IUserRepository userRepository;
     @Autowired
     private IQuestionRepository questionRepository;
+    @Autowired
+    private IStudentRepository studentRepository;
+    @Autowired
+    private OptionService optionService;
 
     // Hiển thị form khảo sát, chỉ cho user chưa có role
     @GetMapping("/survey")
-    public String showSurveyForm(Model model,HttpSession session) {
-
-            // Kiểm tra đăng nhập
+    public String showSurveyForm(Model model, HttpSession session) {
         Long userId = (Long) session.getAttribute("userId");
         String role = (String) session.getAttribute("role");
 
@@ -49,38 +54,73 @@ public class SurveyController {
             return "redirect:/home";
         }
         List<Question> questions = questionRepository.findAllWithOptions();
-       model.addAttribute("questions", questions);
-        return "public/survey"; // Trả về view khảo sát
-      
+        model.addAttribute("questions", questions);
+        return "public/survey";
     }
+
     @PostMapping("/survey")
     public String submitSurvey(@RequestParam Map<String, String> params, HttpSession session, Model model) {
-    Long userId = (Long) session.getAttribute("userId");
-    if (userId == null) return "redirect:/login";
-    User user = userRepository.findById(userId).orElse(null);
-    if (user == null) return "redirect:/login";
+        Long userId = (Long) session.getAttribute("userId");
+        if (userId == null) return "redirect:/login";
+        User user = userRepository.findById(userId).orElse(null);
+        if (user == null) return "redirect:/login";
 
-    // Kiểm tra user đã có survey chưa
-    Survey survey = surveyRepository.findByUser(user);
-    if (survey == null) {
-        survey = new Survey();
-        survey.setUser(user);
-        survey = surveyRepository.save(survey);
-    }
+        // Kiểm tra user đã có survey chưa
+        Survey survey = surveyRepository.findByUser(user);
+        if (survey == null) {
+            survey = new Survey();
+            survey.setUser(user);
+            survey = surveyRepository.save(survey);
+        }
 
-    List<SurveyAnswer> answers = new ArrayList<>();
+        List<SurveyAnswer> answers = new ArrayList<>();
+        String roleValue = null;
+        String levelValue = null;
+        String levelContent = null;
+
+        // Lấy ID câu hỏi tournaments động từ DB
+        Question tournamentsQuestion = questionRepository.findByKey("tournaments");
+        Long tournamentsQuestionId = tournamentsQuestion != null ? tournamentsQuestion.getId() : null;
+
         for (Map.Entry<String, String> entry : params.entrySet()) {
             if (entry.getKey().equals("_csrf")) continue;
+
             // Nếu là câu hỏi role thì lưu vào user, không lưu vào SurveyAnswer
             if (entry.getKey().equals("role")) {
-                String roleValue = entry.getValue();
+                roleValue = entry.getValue();
                 if (user.getRole() == null || user.getRole().isEmpty()) {
                     user.setRole(roleValue);
                     userRepository.save(user);
                     session.setAttribute("role", roleValue);
+
+                    // Nếu là student thì sinh student_id
+                    if ("student".equals(roleValue)) {
+                        long count = studentRepository.count() + 1;
+                        String studentId = String.format("STU_%03d", count);
+
+                        Student student = new Student();
+                        student.setStudentId(studentId);
+                        student.setUser(user);
+                        // Gán level nếu đã có
+                        if (levelContent != null) {
+                            student.setLevel(levelContent);
+                        }
+                        studentRepository.save(student);
+                    }
                 }
                 continue;
             }
+
+            // Lấy đáp án câu 7 (question_key = "tournaments") để lấy level
+            if (entry.getKey().equals("tournaments") && tournamentsQuestionId != null) {
+                levelValue = entry.getValue();
+                // Lấy content từ OptionService
+                Option option = optionService.findOptionByQuestionIdAndValue(tournamentsQuestionId, levelValue);
+                if (option != null) {
+                    levelContent = option.getContent();
+                }
+            }
+
             SurveyAnswer answer = new SurveyAnswer();
             answer.setSurvey(survey);
             answer.setQuestionKey(entry.getKey());
@@ -89,11 +129,15 @@ public class SurveyController {
         }
         surveyAnswerRepository.saveAll(answers);
 
-        return "redirect:/profile"; // Chuyển hướng về trang profile sau khi lưu khảo sát
+        // Sau khi đã lưu student, cập nhật level nếu là student
+        if ("student".equals(roleValue) && levelContent != null) {
+            Student student = studentRepository.findByUser(user);
+            if (student != null) {
+                student.setLevel(levelContent);
+                studentRepository.save(student);
+            }
+        }
+
+        return "redirect:/profile";
+    }
 }
-
-
-        
-
-   
-} 

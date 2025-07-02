@@ -13,4 +13,5 @@ public interface IQuestionRepository extends JpaRepository<Question, Long> {
 
     // Nếu cần lấy theo key
     Question findByKey(String key);
+
 }
