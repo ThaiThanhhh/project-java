@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>King Pickleball</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/profile_student.css">
+    <link rel="stylesheet" href="/css/base.css">
+</head>
+<body>
+    <div th:replace="fragments/header :: header"></div>
+    <main class="profile-container">
+        <div class="profile-header">
+            <img src="../Assets/Img/hlv_DuongThienQuang.webp" alt="Student Avatar" class="profile-avatar">
+            <h1 class="profile-title">Student Profile</h1>
+        </div>
+        <form class="profile-form">
+            <div class="form-field">
+                <label>Name</label>
+                <input type="text" value="Vu Thanh Duong" required>
+            </div>
+            <div class="form-field">
+                <label>Phone Number</label>
+                <input type="tel" value="+1 (123) 456-7890" required>
+            </div>
+            <div class="form-field">
+                <label>Email</label>
+                <input type="email" value="vuthanhduong@gmail.com" required>
+            </div>
+            <div class="form-field">
+                <label>Student ID</label>
+                <input type="text" value="STU123456" readonly>
+            </div>
+            <div class="form-field">
+                <label>Level</label>
+                <input type="text" value="professional">
+            </div>
+            <div class="form-field">
+                <label>Preferred learning style</label>
+                <input type="text" value="Hands-on Practice & Video Analysis">
+            </div>
+            <div class="form-field">
+                <label>Profile Picture</label>
+                <input type="file" accept="image/*">
+            </div>
+            <div class="form-buttons">
+                <button type="submit" class="submit-button">Save Changes</button>
+                <button type="button" class="cancel-button">Cancel</button>
+            </div>
+        </form>
+    </main>
+    <div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

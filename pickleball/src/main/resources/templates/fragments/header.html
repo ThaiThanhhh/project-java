@@ -6,48 +6,46 @@
     <title>King Pickleball</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="/pickleball/css/main.css">
-    <link rel="stylesheet" href="/pickleball/css/base.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/base.css">
     
-    <script src="/pickleball/js/main.js" defer></script>
+    <script src="/js/main.js" defer></script>
 </head>
 <body>
     <!-- Header -->
-<div th:fragment="header">
-    < class="main-header">
-        <div class="container__header">
-            <nav class="container__header__nav">
-                <div class="container__header__nav--left">
-                    <div class="dropdown">
-                        <a href="#" class="dropdown-toggle">Features</a>
-                        <div class="dropdown-menu">
-                            <a th:href="@{/structured}">Structured Learning</a>
-                            <a th:href="@{/videolibrary}">Video Library</a>
-                            <a th:href="@{/ai}">AI Technique Analysis</a>
-                            <a th:href="@{/process}">Progress Dashboard</a>
-                            <a th:href="@{/achievementsbadges}">Achievements & Badges</a>
-                            <a href="#">Booking & Payment</a>
-                        </div>
+<header class="main-header">
+    <div class="container__header">
+        <nav class="container__header__nav">
+            <div class="container__header__nav--left">
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle">Features</a>
+                    <div class="dropdown-menu">
+                        <a th:href="@{/structured}">Structured Learning</a>
+                        <a th:href="@{/videolibrary}">Video Library</a>
+                        <a th:href="@{/ai}">AI Technique Analysis</a>
+                        <a th:href="@{/process}">Progress Dashboard</a>
+                        <a th:href="@{/achievementsbadges}">Achievements & Badges</a>
+                        <a href="#">Booking & Payment</a>
                     </div>
-                    <a th:href="@{/mylearning}">My learning</a>
-                    <a th:href="@{/forcoach}">For Coach</a>
                 </div>
-                <div class="container__header__nav--logo">
-                    <a th:href="@{/}"><img src="/pickleball/images/Logo app.png" alt="Logo King Pickleball"></a>
-                </div>
-                <div class="container__header__nav--right">
-                    <a th:href="@{/community}">Community</a>
-                    <a th:href="@{/blog}">Blog</a>
-                    <div class="dropdown">
-                        <a class="dropdown-toggle">About us</a>
-                        <div class="dropdown-menu">
-                            <a th:href="@{/aboutus}">About Us</a>
-                            <a th:href="@{/contactus}">Contact Us</a>
-                        </div>
+                <a th:href="@{/mylearning}">My Learning</a>
+                <a th:href="@{/forcoach}" style="color: #C7F300;">For Coach</a>
+            </div>
+            <div class="container__header__nav--logo">
+                <a th:href="@{/}"><img src="/images/Logo app.png" alt="Logo King Pickleball"></a>
+            </div>
+            <div class="container__header__nav--right">
+                <a th:href="@{/community}">Community</a>
+                <a th:href="@{/blog}">Blog</a>
+                <div class="dropdown">
+                    <a class="dropdown-toggle">About us</a>
+                    <div class="dropdown-menu">
+                        <a th:href="@{/aboutus}">About Us</a>
+                        <a th:href="@{/contactus}">Contact Us</a>
                     </div>
-                    <a th:href="@{/login}" class="container__header__nav--button">Login</a>
                 </div>
-            </nav>
-        </div>
-</div>
-    </header>
+                <a th:href="@{/login}" class="container__header__nav--button">Login</a>
+            </div>
+        </nav>
+    </div>
+</header>
