@@ -1,0 +1,34 @@
+<!-- frontend/index.html -->
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Hỏi AI về Pickleball</title>
+  <style>
+    body { font-family:sans-serif; max-width:600px; margin:2rem auto; }
+    textarea { width:100%; height:100px; }
+    button { padding:8px 16px; margin-top:8px; }
+    #answer { margin-top:16px; white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+  <h1>Hỏi về thiết bị Pickleball</h1>
+  <textarea id="question" placeholder="Bạn muốn biết gì về vợt, bóng, phụ kiện…?"></textarea><br>
+  <button id="send">Gửi câu hỏi</button>
+  <div id="answer"></div>
+
+  <script>
+    document.getElementById('send').onclick = async () => {
+      const q = document.getElementById('question').value.trim();
+      if (!q) return alert('Nhập câu hỏi trước nhé!');
+      const res = await fetch('/api/ask', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({ question: q, productId: 'pb1' })
+      });
+      const data = await res.json();
+      document.getElementById('answer').innerText = data.answer;
+    };
+  </script>
+</body>
+</html>
