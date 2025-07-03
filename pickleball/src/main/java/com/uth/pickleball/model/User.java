@@ -3,6 +3,7 @@ package com.uth.pickleball.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Table;
@@ -28,7 +29,7 @@ public class User {
     private String avatarUrl;
     @Column(name = "role", length = 20)
     private String role;
-    
+
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     private Survey survey;
@@ -42,7 +43,6 @@ public class User {
         this.phone = phone;
         this.role = role;
         this.avatarUrl = avatarUrl;
-       
     }
 
      public void setId(Long id) {
@@ -99,5 +99,6 @@ public class User {
      public void setAvatarUrl(String avatarUrl) {
           this.avatarUrl = avatarUrl;
      }
+ 
 
 }

@@ -15,14 +15,14 @@
  
     <main class="profile-container">
         <div class="profile-header">
-            <img src="/pickleball/images/hlv_DuongThienQuang.webp" alt="Student Avatar" class="profile-avatar">
+            <img th:src="${avatarUrl}" class="profile-avatar" id="avatarPreview" />
             <h1 class="profile-title">Student Profile</h1>
         </div>
-        <form class="profile-form" id="profileForm" th:action="@{/profile/student}" method="post">
-                <div class="form-field">
-            <label>Name</label>
-            <input type="text" th:value="${student.user.fullName}" name="fullName" required>
-        </div>
+        <form class="profile-form" id="profileForm" th:action="@{/profile/student}" method="post" enctype="multipart/form-data">
+            <div class="form-field">
+                <label>Name</label>
+                <input type="text" th:value="${student.user.fullName}" name="fullName" required>
+            </div>
             <div class="form-field">
                 <label>Phone Number</label>
                 <input type="tel" th:value="${student.user.phone}" name="phone" required>
@@ -45,11 +45,17 @@
             </div>
             <div class="form-field">
                 <label>Preferred learning style</label>
-                <input type="text" value="Hands-on Practice & Video Analysis">
+                <select name="PreferredLearningStyle" id="PreferredLearningStyleSelect">
+                    <option value="practice_video" selected>Practical practice & Video analysis</option>
+                    <option value="video_only">Video analysis only</option>
+                    <option value="one_on_one">One-on-one coaching</option>
+                    <option value="group_learning">Group learning</option>
+                </select>
             </div>
-            <div class="form-field">
+
+            <div class="form-field" id="profilePictureField" style="display:none;">
                 <label>Profile Picture</label>
-                <input type="file" accept="image/*">
+                <input type="file" name="avatar" accept="image/*" id="avatarInput">
             </div>
                     <div class="form-buttons">
                 <button type="button" id="editBtn" class="submit-button" style="margin-bottom:16px;">Edit</button>
