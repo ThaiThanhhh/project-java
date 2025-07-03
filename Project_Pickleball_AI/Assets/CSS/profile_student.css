@@ -364,6 +364,14 @@
                 gap: 10px;
             }
         }
+        select,
+select option {
+    background: #111;
+    color: #fff !important;
+    border: 1px solid #C7F300;
+}
+
+/* */
 /* footer */
 .container__footer {
     width: 100vw;
