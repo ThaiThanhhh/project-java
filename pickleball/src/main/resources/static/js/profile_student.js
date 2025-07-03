@@ -4,6 +4,8 @@ const cancelBtn = document.getElementById('cancelBtn');
 const form = document.getElementById('profileForm');
 const inputs = form.querySelectorAll('input:not([type="file"])');
 const levelSelect = document.getElementById('levelSelect');
+const learningStyleSelect = document.getElementById('PreferredLearningStyleSelect');
+
 const profilePictureField = document.getElementById('profilePictureField');
 
 function setEditMode(edit) {
@@ -15,6 +17,8 @@ function setEditMode(edit) {
         }
     });
     if (levelSelect) levelSelect.disabled = !edit;
+     if (learningStyleSelect) learningStyleSelect.disabled = !edit; // <-- Thêm dòng này
+
      // Ẩn/hiện trường upload ảnh
     if (profilePictureField) profilePictureField.style.display = edit ? 'block' : 'none';
     if(edit) {

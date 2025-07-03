@@ -45,11 +45,11 @@
             </div>
             <div class="form-field">
                 <label>Preferred learning style</label>
-                <select name="PreferredLearningStyle" id="PreferredLearningStyleSelect">
-                    <option value="practice_video" selected>Practical practice & Video analysis</option>
-                    <option value="video_only">Video analysis only</option>
-                    <option value="one_on_one">One-on-one coaching</option>
-                    <option value="group_learning">Group learning</option>
+                <select name="learningStyle" id="PreferredLearningStyleSelect">
+                    <option value="practice_video" th:selected="${student.learningStyle == 'practice_video'}">Practical practice & Video analysis</option>
+                    <option value="video_only" th:selected="${student.learningStyle == 'video_only'}">Video analysis only</option>
+                    <option value="one_on_one" th:selected="${student.learningStyle == 'one_on_one'}">One-on-one coaching</option>
+                    <option value="group_learning" th:selected="${student.learningStyle == 'group_learning'}">Group learning</option>
                 </select>
             </div>
 

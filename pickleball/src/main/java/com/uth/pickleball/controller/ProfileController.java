@@ -71,6 +71,7 @@ public String updateStudentProfile(
             @RequestParam String fullName,
             @RequestParam String phone,
             @RequestParam String level,
+            @RequestParam String learningStyle,
             @RequestParam(value = "avatar", required = false) MultipartFile avatarFile
     ) { 
         // Kiểm tra session để lấy userId      
@@ -102,10 +103,11 @@ public String updateStudentProfile(
         }
         userRepository.save(user);
 
-         // Cập nhật level cho student
+        // Cập nhật level và learningStyle cho student
         Student student = studentRepository.findByUser(user);
-        if (student != null && level != null) {
-            student.setLevel(level);
+        if (student != null) {
+            if (level != null) student.setLevel(level);
+            if (learningStyle != null) student.setLearningStyle(learningStyle);
             studentRepository.save(student);
         }
 
