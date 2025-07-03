@@ -160,12 +160,16 @@
 .container__background {
     padding-top: 90px;
 }
-.app__background img {
+/* .app__background img {
+    width: 100px;
+    height: 530px;
+    object-fit: cover;
+} */
+.background--header img{
     width: 100%;
     height: 530px;
     object-fit: cover;
 }
-
 .title h1 {
     color: #fff;
     font-size: 40px;

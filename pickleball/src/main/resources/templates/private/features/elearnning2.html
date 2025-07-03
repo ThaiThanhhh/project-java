@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elearning</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="../../Assets/CSS/base.css">
+    <link rel="stylesheet" href="../../Assets/CSS/elearnning.css">
+    <script src="../../Assets/js/elearning.js"></script>
+</head>
+<body>
+        <!-- Header -->
+        <!-- Header -->
+        <header class="main-header">
+            <div class="container__header">
+                <nav class="container__header__nav">
+                    <div class="container__header__nav--left">
+                        <div class="dropdown">
+                            <a href="#" class="dropdown-toggle" style="color: #C7F300;">Features</a>
+                            <div class="dropdown-menu">
+                                <a href="../Features/Structured.html">Structured Learning</a>
+                                <a href="../Features/Video Library.html">Video Library</a>
+                                <a href="../Features/ai.html">AI Technique Analysis</a>
+                                <a href="../Features/process.html">Progress Dashboard</a>
+                                <a href="../Features/Achievements & Badges.html">Achievements & Badges</a>
+                                <a href="#" style="background-color: #C7F300;">Booking & Payment</a>
+                            </div>
+                        </div>
+                        <a href="../my learning.html">My Learning</a>
+                        <a href="../for coach.html">For Coach</a>
+                    </div>
+                    <div class="container__header__nav--logo">
+                        <a href="../../Public/Index.html"><img src="../../Assets/Img/logo app.png" alt="Logo King Pickleball"></a>
+                    </div>
+                    <div class="container__header__nav--right">
+                        <a href="../../Public/community.html">Community</a>
+                        <a href="../../Public/blog.html">Blog</a>
+                        <div class="dropdown">
+                            <a href="#" class="dropdown-toggle">About us</a>
+                            <div class="dropdown-menu">
+                                <a href="../../Public/aboutus.html" >About Us</a>
+                                <a href="../../Public/contact us.html">Contact Us</a>
+                            </div>
+                        </div>
+                        <a href="../../Public/login.html" class="container__header__nav--login">Login</a>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <!-- Main Content -->
+        <main class="container">
+            <div class="container__background">
+                <div class="app__background">
+                    <img src="../../Assets/Img/backgroundelearning.png" alt="backgroundelearning" >
+                </div>
+                <div class="title">
+                    <h1>TRAINER | KING PICKLEBALL VN</h1>
+                    <p>Pickleball relates to Health & FitnessSports</p>
+                </div>
+            </div>
+            <div class="container__content">
+                <h3 style="font-size: 24px; font-weight: bold; margin-bottom: 16px;">Featured Coach</h3>
+                <div class="featured-coach-box">
+                    <div class="featured-coach-imgs">
+                        <img src="../../Assets/Img/course1.png" alt="Course 1">
+                    </div>
+                    <div class="featured-coach-info">
+                        <div class="hot-badge">HOT</div>
+                        <a href="../Features/course1.html"><h4>Basic Pickleball course with top coaches</h4></a>
+                        <p class="desc">A complete guide for new, beginner and intermediate pickleball players.</p>
+                        <div class="coach-meta">
+                            <span>By Coach Josh</span>
+                        </div>
+                        <div class="coach-details">
+                            <span>Updated April 2021</span>
+                            <span>21 lectures</span>
+                        </div>
+                        <div class="coach-rating">
+                            <span class="rating-number">5</span>
+                            <span class="rating-stars">
+                                <span style="color: #FFD600;">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                            </span>
+                            <span class="rating-count">(50)</span>
+                        </div>
+                        <div class="coach-price">
+                            <b>₫999,000</b>
+                        </div>
+                    </div>
+                </div>
+                <h3 style="font-size: 24px; font-weight: bold; margin-bottom: 16px; margin-top: 100px;">All Pickleball Coaches</h3>
+                <div class="content__notice">
+                    <img src="../../Assets/Img/notice.png" alt="notice" class="notice__img">
+                    <p>Not sure? All courses have a 30-day money-back guarantee</p>
+                </div>
+                <div class="results-count">
+                    <b>? results</b>
+                </div>
+                <div class="main-flex">
+                    <!-- Bộ lọc bên trái -->
+                    <div class="filter-controls">
+                        <div style="display: flex;">
+                            <button class="filter-btn" data-filter-type="all">Filter</button>
+                            <button class="filter-btn reset">Reset</button>
+                        </div>
+                        <div class="sort-box">
+                            <label for="sort-select">Sort by</label>
+                            <select id="sort-select">
+                                <option value="popular">Most Popular</option>
+                                <option value="highest-rated">Highest Rated</option>
+                                <option value="newest">Newest</option>
+                                <option value="price-low">Price: Low to High</option>
+                                <option value="price-high">Price: High to Low</option>
+                            </select>
+                        </div>
+                        <div class="filter-section">
+                            <div class="filter-title">Ratings</div>
+                            <div class="filter-radio">
+                                <label><input type="radio" name="rating" value="4.5" data-filter-type="rating" checked> <span class="star">★★★★☆</span> 4.5 & up <span class="count">(5)</span></label>
+                                <label><input type="radio" name="rating" value="4.0" data-filter-type="rating"> <span class="star">★★★★☆</span> 4.0 & up <span class="count">(7)</span></label>
+                                <label><input type="radio" name="rating" value="3.5" data-filter-type="rating"> <span class="star">★★★☆☆</span> 3.5 & up <span class="count">(7)</span></label>
+                                <label><input type="radio" name="rating" value="3.0" data-filter-type="rating"> <span class="star">★★★☆☆</span> 3.0 & up <span class="count">(7)</span></label>
+                            </div>
+                        </div>
+                        <div class="filter-section">
+                            <div class="filter-title">Price level</div>
+                            <div class="price-slider">
+                                <input type="range" min="100000" max="1200000" value="1200000" step="10000" data-filter-type="price">
+                                <div class="price-labels">
+                                    <span>100,000₫</span>
+                                    <span>1,200,000₫</span>
+                                </div>
+                                <div class="price-value">1,200,000₫</div>
+                            </div>
+                        </div>
+                        <div class="filter-section">
+                            <div class="filter-title">Level</div>
+                            <label><input type="checkbox" value="beginner" data-filter-type="level"> Beginner</label>
+                            <label><input type="checkbox" value="all" data-filter-type="level"> All Levels</label>
+                        </div>
+                        <div class="filter-section">
+                            <div class="filter-title">Pickleball Playstyle</div>
+                            <label><input type="checkbox" value="dinker" data-filter-type="playstyle"> The "Dinker" Playstyle</label>
+                            <label><input type="checkbox" value="power" data-filter-type="playstyle"> The "Power Hitter" Playstyle</label>
+                            <label><input type="checkbox" value="allcourt" data-filter-type="playstyle"> The "All-Court Player" Playstyle</label>
+                        </div>
+                    </div>
+                    <!-- Nội dung chính -->
+                    <div class="main-content">
+                        <div class="all-coach-box"
+                            data-rating="5"
+                            data-level="all"
+                            data-price="999000"
+                            data-playstyle="dinker,allcourt"
+                            data-popularity="210"
+                            data-date="2021-04-10">
+                            <div class="all-coach-imgs">
+                                <img src="../../Assets/Img/course6.png" alt="Course 6" style="height: 300px;">
+                            </div>
+                            <div class="all-coach-info">
+                                <div class="hot-badge">HOT</div>
+                                <a href="../Features/course6.html"><h4>Basic Pickleball course with Hong Thang coach</h4></a>
+                                <p class="desc">A complete guide for new, beginner and intermediate pickleball players.</p>
+                                <div class="coach-meta">
+                                    <span>Nguyen Thi Hong Thang</span>
+                                </div>
+                                <div class="coach-details">
+                                    <span>All level</span>
+                                    <span>21 lectures</span>
+                                </div>
+                                <div class="coach-rating">
+                                    <span class="rating-number">5</span>
+                                    <span class="rating-stars">
+                                        <span style="color: #FFD600;">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                                    </span>
+                                    <span class="rating-count">(50)</span>
+                                </div>
+                                <div class="coach-price">
+                                    <b>₫999,000</b>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="all-coach-box"
+                            data-rating="5"
+                            data-level="beginner"
+                            data-price="299000"
+                            data-playstyle="dinker,power,allcourt"
+                            data-popularity="200"
+                            data-date="2024-05-15">
+                            <div class="all-coach-imgs">
+                                <img src="../../Assets/Img/course7.png" alt="Course 7" style="height: 350px;">
+                            </div>
+                            <div class="all-coach-info">
+                                <div class="new-badge">NEW</div>
+                                <a href="../Features/course7.html"><h4>Basic Pickleball course with Ngoc Thanh coach</h4></a>
+                                <p class="desc">Learn the Basics of Pickleball by 21-Time National Pickleball Champion Scott Moore</p>
+                                <div class="coach-meta">
+                                    <span>Vu Ngoc Thanh</span>
+                                </div>
+                                <div class="coach-details">
+                                    <span>Beginner</span>
+                                    <span>6 lectures</span>
+                                </div>
+                                <div class="coach-rating">
+                                    <span class="rating-number">5</span>
+                                    <span class="rating-stars">
+                                        <span style="color: #FFD600;">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                                    </span>
+                                    <span class="rating-count">(50)</span>
+                                </div>
+                                <div class="coach-price">
+                                    <b>₫299,000</b>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="all-coach-box"
+                            data-rating="5"
+                            data-level="all"
+                            data-price="279000"
+                            data-playstyle="dinker"
+                            data-popularity="120"
+                            data-date="2023-06-01">
+                            <div class="all-coach-imgs">
+                                <img src="../../Assets/Img/hlv_DuongThienQuang.webp" alt="Course 8">
+                            </div>
+                            <div class="all-coach-info">
+                                <a href="../Features/course8.html"><h4>Learn Pickleball with Duong Thien Quang</h4></a>
+                                <p class="desc">Maximize your pickleball potential. Choose the right paddle for your playing style.  A simple step by step guide</p>
+                                <div class="coach-meta">
+                                    <span>Duong Thien Quang</span>
+                                </div>
+                                <div class="coach-details">
+                                    <span>All level</span>
+                                    <span>17 lectures</span>
+                                </div>
+                                <div class="coach-rating">
+                                    <span class="rating-number">5</span>
+                                    <span class="rating-stars">
+                                        <span style="color: #FFD600;">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                                    </span>
+                                    <span class="rating-count">(50)</span>
+                                </div>
+                                <div class="coach-price">
+                                    <b>₫279,000</b>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="all-coach-box"
+                            data-rating="5"
+                            data-level="beginner"
+                            data-price="279000"
+                            data-playstyle="power"
+                            data-popularity="180"
+                            data-date="2023-03-20">
+                            <div class="all-coach-imgs">
+                                <img src="../../Assets/Img/course9.png" alt="Course 9">
+                            </div>
+                            <div class="all-coach-info">
+                                <a href="../Features/course9.html"><h4>Tennis to Pickleball - Pickleball Bootcamp</h4></a>
+                                <p class="desc">A Fun pickleball journey - Learn the Fundamentals, Rules, Trick shots, & Discover the Global Community</p>
+                                <div class="coach-meta">
+                                    <span>Greg Hung</span>
+                                </div>
+                                <div class="coach-details">
+                                    <span>Beginner</span>
+                                    <span>27 lectures</span>
+                                </div>
+                                <div class="coach-rating">
+                                    <span class="rating-number">5</span>
+                                    <span class="rating-stars">
+                                        <span style="color: #FFD600;">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                                    </span>
+                                    <span class="rating-count">(50)</span>
+                                </div>
+                                <div class="coach-price">
+                                    <b>₫279,000</b>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="all-coach-box" style="border: none;"
+                            data-rating="4.5" 
+                            data-price="499000" 
+                            data-level="beginner" 
+                            data-playstyle="dinker,allcourt"
+                            data-popularity="150"
+                            data-date="2023-05-15">
+                            <div class="all-coach-imgs">
+                                <img src="../../Assets/Img/course10.png" alt="Course 10">
+                            </div>
+                            <div class="all-coach-info">
+                                <a href="../Features/course10.html"><h4>Pickleball 101: How to Play Pickleball</h4></a>
+                                <p class="desc">A Fun pickleball journey - Learn the Fundamentals, Rules, Trick shots, & Discover the Global Community</p>
+                                <div class="coach-meta">
+                                    <span>Larry G</span>
+                                </div>
+                                <div class="coach-details">
+                                    <span>Beginner</span>
+                                    <span>19 lectures</span>
+                                </div>
+                                <div class="coach-rating">
+                                    <span class="rating-number">4.5</span>
+                                    <span class="rating-stars">
+                                        <span style="color: #FFD600;">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                                    </span>
+                                    <span class="rating-count">(50)</span>
+                                </div>
+                                <div class="coach-price">
+                                    <b>₫499,000</b>
+                                </div>
+                            </div>
+                        </div>   
+                    </div>
+                </div>
+            </div>
+            <div class="pagination">
+                <a href="../Features/elearnning.html">
+                    <button class="page-btn prev">
+                    <span>&lt;</span>
+                </button>
+                </a>
+
+                <div class="page-numbers">
+                    <a href="../Features/elearnning.html"><span class="page-number">1</span></a>
+                    <a href="#"><span class="page-number active">2</span></a>
+                </div>
+
+                <button class="page-btn next" disabled>
+                    <span>&gt;</span>
+                </button>
+            
+            </div>
+            <img src="../../Assets/Img/elearningmainfinal.png" alt="elearningmainfinal" style="margin-top: 20px;" class="bottom-image">
+        </main>
+
+        <!-- footer -->
+        <footer>
+            <div class="container__footer">
+                <div class="footer__logo">
+                    <img src="../../Assets/Img/adidas.png" alt="Adidas Logo">
+                    <img src="../../Assets/Img/nike.png" alt="Nike Logo">
+                    <img src="../../Assets/Img/newbalance.png" alt="New Balance Logo" style="height: 200px;">
+                    <img src="../../Assets/Img/luisvuiton.png" alt="luisvuiton Logo" style="height: 200px; margin-bottom: 30px;">
+                    <img src="../../Assets/Img/puma.png" alt="Puma Logo">
+                </div>
+                <div class="footer__info">
+                    <img src="../../Assets/Img/logo app.png" alt="Logo King Pickleball" class="footer__logo-img">
+                    <div class="footer__socials">
+                        <a href="#"><img src="../../Assets/Img/fb2.png" alt="Facebook"></a>
+                        <a href="#"><img src="../../Assets/Img/youtube.png" alt="Youtube"></a>
+                        <a href="#"><img src="../../Assets/Img/instagram.png" alt="Instagram"></a>
+                        <a href="#"><img src="../../../Assets/Img/x.png" alt="X"></a>
+                    </div>
+                </div>    
+                <div class="footer__links">
+                    <div class="footer__links-column" style="border-right: 1px solid #FFFFFF;">
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">About us</a></li>
+                            <li><a href="#">Contact us</a></li>
+                            
+                        </ul>
+                    </div>
+                    <div class="footer__links-column" style="border-right: 1px solid #FFFFFF;">
+                        <ul>
+                            <li><a href="#">Features</a></li>
+                            <li><a href="#">Find a Coaches</a></li>
+                            <li><a href="#">For Coaches</a></li>
+                            
+                        </ul>
+                    </div>
+                    <div class="footer__links-column">
+                        <ul>
+                            <li><a href="#">Structured Learning</a></li>
+                            <li><a href="#">Video Library</a></li>
+                            <li><a href="#">AI Technique Analysis</a></li>
+                            
+                        </ul>
+                    </div>
+                </div>   
+                <div class="footer__contact">
+                    <p style="color: #837E7E; font-size: 17px; margin-top: 10px;">Copyright (C) 2025 Pickleball World | All Rights Reserved </p>
+                    <div class="footer__contact-info">
+                        <p>Terms of Service</p>
+                        <p>Privacy Policy</p>
+                        <p>Compliance</p>
+                        <p>Policy Media</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    
+</body>
+</html>

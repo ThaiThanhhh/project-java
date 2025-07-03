@@ -6,20 +6,20 @@
     <title>King Pickleball</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="/css/profile_coach.css">
-    <link rel="stylesheet" href="/css/base.css">
-    <script src="/js/profile_coach.js" defer></script>
+    <link rel="stylesheet" href="/pickleball/css/profile_coach.css">
+    <link rel="stylesheet" href="/pickleball/css/base.css">
+    <script src="/pickleball/js/profile_coach.js" defer></script>
 </head>
 <body>
-    <!-- Header -->
     <div th:replace="fragments/header :: header"></div>
+
     <!-- main -->
     <main  class="coach-dashboard">
         <!-- Profile Section -->
         <section class="profile-section">
             <div class="profile-header">
                 <div class="profile-avatar">
-                    <img  id="preview" src="../Assets/Img/hlv_DuongThienQuang.webp" alt="Coach Avatar" >
+                    <img  id="preview" src="/pickleball/images/hlv_DuongThienQuang.webp" alt="Coach Avatar" >
                     <button class="edit-button" id="triggerFileInput">
                         <i class="fas fa-camera"></i>
                     </button>
@@ -38,7 +38,7 @@
                         <span class="rating-number">5.0 (128 reviews)</span>
                     </div>
                 </div>
-                <a href="../Private/edit.html"><button class="edit-profile-button">Edit Profile</button></a>
+                <a href="#"><button class="edit-profile-button">Edit Profile</button></a>
             </div>
 
             <div class="profile-details">
@@ -58,7 +58,7 @@
                         </div>
                         
                     </div>
-                    <a href="../Private/Add certifications.html"><button class="add-button">Add Certification</button></a>
+                    <a href="#"><button class="add-button">Add Certification</button></a>
                 </div>
 
                 <div class="detail-card">
@@ -120,7 +120,8 @@
         </section>
     </main>
 
-    <!-- Footer -->
-    <div th:replace="fragments/footer :: footer"></div>
+
+        <!-- Footer -->
+        <div th:replace="fragments/footer :: footer"></div>
 </body>
 </html>

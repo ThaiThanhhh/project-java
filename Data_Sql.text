@@ -19,7 +19,7 @@ VALUES
 );
 (
     'Cultivating Community and Skill: How Paul Bateman''s Rockland County Program Thrives with Engage',
-    'In Rockland County, New York, a unique and highly successful pickleball program is making waves as the county’s only Adult Education offering for the sport...',
+    'In Rockland County, New York, a unique and highly successful pickleball program is making waves as the county's only Adult Education offering for the sport...',
     'https://cdn.shopify.com/s/files/1/0802/6445/files/IMG_5628.jpg?v=1747149501',
     'https://engagepickleball.com/blogs/news-product-highlights/paul-batemans-rockland-county-program',
     'Lean Eleonor Tuazon Feb 05, 2025',
@@ -58,7 +58,7 @@ INSERT INTO video_library (title, youtube_id, duration, category) VALUES
 ('Drive Backhand', 'jQ1r_JV1Zy4', '02:48', 'Advanced'),
 ('Serve', 'cQxpPphr-Zc', '01:32', 'Advanced'),
 ('Smash', 'zGRY1t2Jkbs', '01:52', 'Advanced'),
-('Pickleball’s 3rd and 5th Shots!', 'mIzddYkHV6Q', '02:48', 'Advanced'),
+('Pickleball's 3rd and 5th Shots!', 'mIzddYkHV6Q', '02:48', 'Advanced'),
 ('5 Common Mistakes Beginners Make', 'b7xmSY94nu4', '13:08', 'Advanced'),
 ('How to Hit Topspin Drive in Pickleball', 'odhhfqkQB-k', '01:52', 'Advanced'),
 ('Improve Your Pickleball Drop Shot', 'JDqs_vGQKsY', '23:40', 'Advanced'),
@@ -68,3 +68,7 @@ INSERT INTO video_library (title, youtube_id, duration, category) VALUES
 ('Pickleball Championships', 'oReod5Ip2dY', '21:35', 'Tournament'),
 ('Quang Duong v Phuc Hyunh', 'dozPHU9cXU0', '21:58', 'Tournament'),
 ('Bright/Kawamoto vs Brascia/Brascia', 'Q2jsm-22xew', '01:34:44', 'Tournament');
+
+#chay code
+cd pickleball
+   .\mvnw.cmd spring-boot:run
