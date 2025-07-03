@@ -17,9 +17,8 @@ import com.uth.pickleball.repositories.IStudentRepository;
 import com.uth.pickleball.repositories.IUserRepository;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.ui.Model;
-
-
-
+import com.uth.pickleball.repositories.ICoachRepository;
+import com.uth.pickleball.model.Coach;
 import com.uth.pickleball.model.Student;
 import com.uth.pickleball.model.User;
 import java.util.UUID;
@@ -29,6 +28,8 @@ public class ProfileController {
     private IUserRepository userRepository;
     @Autowired
     private IStudentRepository studentRepository;
+    @Autowired
+    private ICoachRepository coachRepository;
 
   @GetMapping("/profile")
     public String showProfile(HttpSession session, Model model) {
@@ -40,33 +41,28 @@ public class ProfileController {
         if (user == null) {
             return "redirect:/login";
         }
-        String role = user.getRole();
+         String role = user.getRole();
+        String avatarUrl = user.getAvatarUrl();
+        if (avatarUrl == null || avatarUrl.isEmpty()) {
+            avatarUrl = "/pickleball/images/avatar.jpg";
+        }
+        model.addAttribute("avatarUrl", avatarUrl);
+
         if ("student".equalsIgnoreCase(role)) {
             Student student = studentRepository.findByUser(user);
             model.addAttribute("student", student);
-            //    // Xử lý avatar base64
-            // String avatarBase64 = null;
-            // if (user.getAvatarData() != null) {
-            //     avatarBase64 = Base64.getEncoder().encodeToString(user.getAvatarData());
-            // }
-            // model.addAttribute("avatarBase64", avatarBase64);
-
-             // Lấy đường dẫn ảnh đại diện
-            String avatarUrl = user.getAvatarUrl();
-            if (avatarUrl == null || avatarUrl.isEmpty()) {
-                avatarUrl = "/pickleball/images/avatar.jpg";
-            }
-            model.addAttribute("avatarUrl", avatarUrl);
             return "public/profile/student";
         } else if ("coach".equalsIgnoreCase(role)) {
-            // Nếu có trang coach profile thì truyền dữ liệu tương tự
+            Coach coach = coachRepository.findByUser(user);
+            
+            model.addAttribute("coach", coach);
             return "public/profile/coach";
         } else {
             return "redirect:/home";
         }
     }
     @PostMapping("/profile/student")
-public String updateStudentProfile(
+    public String updateStudentProfile(
             HttpSession session,
             @RequestParam String fullName,
             @RequestParam String phone,
@@ -113,5 +109,44 @@ public String updateStudentProfile(
 
         return "redirect:/profile";
     }
+    @PostMapping("/profile/coach")
+        public String updateCoachProfile(
+                HttpSession session,
+                @RequestParam String fullName,
+                @RequestParam(value = "avatar", required = false) MultipartFile avatarFile
+        ) {
+            Long userId = (Long) session.getAttribute("userId");
+            if (userId == null) {
+                return "redirect:/login";
+            }
+            User user = userRepository.findById(userId).orElse(null);
+            if (user == null) {
+                return "redirect:/login";
+            }
+
+            // Cập nhật tên
+            user.setFullName(fullName);
+
+            // Cập nhật avatar nếu có
+            if (avatarFile != null && !avatarFile.isEmpty()) {
+                try {
+                    String uploadDir = "src/main/resources/static/uploads/";
+                    String fileName = UUID.randomUUID() + "_" + avatarFile.getOriginalFilename();
+                    Path uploadPath = Paths.get(uploadDir);
+                    if (!Files.exists(uploadPath)) {
+                        Files.createDirectories(uploadPath);
+                    }
+                    Files.copy(avatarFile.getInputStream(), uploadPath.resolve(fileName), StandardCopyOption.REPLACE_EXISTING);
+                    user.setAvatarUrl("/pickleball/uploads/" + fileName);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            userRepository.save(user);
+
+    // Nếu có bảng Coach riêng, có thể cập nhật thêm thông tin coach ở đây
+
+            return "redirect:/profile";
+        }
 
 }

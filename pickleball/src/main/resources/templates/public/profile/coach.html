@@ -19,7 +19,7 @@
         <section class="profile-section">
             <div class="profile-header">
                 <div class="profile-avatar">
-                    <img  id="preview" src="/pickleball/images/hlv_DuongThienQuang.webp" alt="Coach Avatar" >
+                    <img  id="preview" th:src="${avatarUrl}" alt="Coach Avatar" >
                     <button class="edit-button" id="triggerFileInput">
                         <i class="fas fa-camera"></i>
                     </button>
@@ -29,7 +29,7 @@
                     
                 </div>
                 <div class="profile-info">
-                    <h2>Duong Thien Quang</h2>
+                    <h2 th:text="${coach.user.fullName}"></h2>
                     <div class="verification-badge">
                         <i class="fas fa-check-circle"></i> Verified Coach
                     </div>
@@ -69,9 +69,9 @@
                 <div class="detail-card">
                         <h3>Teacher Information</h3>
                         <div class="teacher-info">
-                            <p><strong>Email:</strong> duongthienquang@hlvpickleball.com</p>
-                            <p><strong>Phone:</strong> +84 123 456 789</p>
-                            <p><strong>Teacher ID:</strong> COACH12345</p>
+                            <p><strong>Email:</strong> <span th:text="${coach.user.email}"></span></p>
+                            <p><strong>Phone:</strong> <span th:text="${coach.user.phone}"></span></p>
+                            <p><strong>Teacher ID:</strong> <span th:text="${coach.coachId}"></span></p>
                         </div>
                     </div>
                     <div class="detail-card">

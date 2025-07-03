@@ -16,12 +16,14 @@ import com.uth.pickleball.model.SurveyAnswer;
 import com.uth.pickleball.model.User;
 import com.uth.pickleball.model.Question;
 import com.uth.pickleball.model.Student;
+import com.uth.pickleball.model.Coach;
 import com.uth.pickleball.model.Option;
 import com.uth.pickleball.repositories.ISurveyAnswerRepository;
 import com.uth.pickleball.repositories.ISurveyRepository;
 import com.uth.pickleball.repositories.IUserRepository;
 import com.uth.pickleball.repositories.IStudentRepository;
 import com.uth.pickleball.repositories.IQuestionRepository;
+import com.uth.pickleball.repositories.ICoachRepository;
 import com.uth.pickleball.service.OptionService;
 
 import jakarta.servlet.http.HttpSession;
@@ -40,6 +42,8 @@ public class SurveyController {
     private IStudentRepository studentRepository;
     @Autowired
     private OptionService optionService;
+    @Autowired
+    private ICoachRepository coachRepository;
 
     // Hiển thị form khảo sát, chỉ cho user chưa có role
     @GetMapping("/survey")
@@ -106,6 +110,16 @@ public class SurveyController {
                             student.setLevel(levelContent);
                         }
                         studentRepository.save(student);
+                    }
+                    // Nếu là coach thì sinh coach_id
+                    if ("coach".equals(roleValue)) {
+                        long count = coachRepository.count() + 1;
+                        String coachId = String.format("COACH_%03d", count);
+
+                        Coach coach = new Coach();
+                        coach.setCoachId(coachId);
+                        coach.setUser(user);
+                        coachRepository.save(coach);
                     }
                 }
                 continue;
