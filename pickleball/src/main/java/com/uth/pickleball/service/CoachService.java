@@ -17,4 +17,7 @@ public class CoachService {
     public Coach findByUser(User user) {
         return coachRepository.findByUser(user);
     }
+    public Coach save(Coach coach) {
+    return coachRepository.save(coach);
+}
 }

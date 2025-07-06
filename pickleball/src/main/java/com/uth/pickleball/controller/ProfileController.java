@@ -113,6 +113,8 @@ public class ProfileController {
         public String updateCoachProfile(
                 HttpSession session,
                 @RequestParam String fullName,
+                @RequestParam String phone,
+                @RequestParam String address,
                 @RequestParam(value = "avatar", required = false) MultipartFile avatarFile
         ) {
             Long userId = (Long) session.getAttribute("userId");
@@ -126,8 +128,8 @@ public class ProfileController {
 
             // Cập nhật tên
             user.setFullName(fullName);
-
-            // Cập nhật avatar nếu có
+            user.setPhone(phone);
+            // Lưu file ảnh lên server và cập nhật đường dẫn
             if (avatarFile != null && !avatarFile.isEmpty()) {
                 try {
                     String uploadDir = "src/main/resources/static/uploads/";
@@ -144,7 +146,12 @@ public class ProfileController {
             }
             userRepository.save(user);
 
-    // Nếu có bảng Coach riêng, có thể cập nhật thêm thông tin coach ở đây
+            // Cập nhật địa chỉ cho coach
+            Coach coach = coachRepository.findByUser(user);
+            if (coach != null) {
+                coach.setAddress(address);
+                coachRepository.save(coach);
+            }
 
             return "redirect:/profile";
         }

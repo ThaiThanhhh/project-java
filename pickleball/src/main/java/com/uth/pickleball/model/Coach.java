@@ -16,6 +16,8 @@ public class Coach {
 
      @Column(name = "verified")
     private boolean verified;
+    @Column(name = "address", length = 255)
+    private String address;
 
 
 
@@ -26,9 +28,10 @@ public class Coach {
     public Coach() {
     }
     // Parameterized constructor
-    public Coach(String coachId, boolean verified, User user) {
+    public Coach(String coachId, boolean verified, String address, User user) {
         this.coachId = coachId;
         this.verified = verified;
+        this.address = address;
         this.user = user;
     }
 
@@ -54,6 +57,13 @@ public class Coach {
     public void setUser(User user) {
         this.user = user;
     }
+    public String getAddress() {
+        return address;
+    }
+    public void setAddress(String address) {
+        this.address = address;
+    }
+    
 
 
 }
