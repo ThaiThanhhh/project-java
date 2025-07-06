@@ -98,4 +98,33 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     }
+      const toggleBtn = document.getElementById('toggleBookingList');
+    const bookingList = document.getElementById('bookingListContainer');
+    let isShown = false;
+    if (toggleBtn && bookingList) {
+        toggleBtn.onclick = function() {
+            isShown = !isShown;
+            bookingList.style.display = isShown ? 'block' : 'none';
+            toggleBtn.textContent = isShown ? 'Hide Booking List' : 'Show Booking List';
+        };
+    }
+
+    // Sửa nội dung booking (ví dụ đơn giản)
+    document.querySelectorAll('.edit-booking-btn').forEach(btn => {
+        btn.onclick = function() {
+            alert('Chức năng sửa booking! (Bạn có thể mở form edit ở đây)');
+            // Ở đây bạn có thể mở modal hoặc form để sửa booking
+        };
+    });
+    document.querySelectorAll('.toggle-visibility-btn').forEach(btn => {
+    btn.onclick = function() {
+        if (btn.textContent === "Hide") {
+            btn.textContent = "Show";
+            // Gọi API hoặc xử lý ẩn booking ở trang khác tại đây
+        } else {
+            btn.textContent = "Hide";
+            // Gọi API hoặc xử lý hiện booking ở trang khác tại đây
+        }
+    };
+});
 });

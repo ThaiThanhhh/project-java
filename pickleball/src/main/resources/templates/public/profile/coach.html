@@ -55,34 +55,52 @@
                         
                     </div>
                         <div id="addCertBlock" style="display:none;">
-        <a href="#"><button class="add-button" id="showAddCertBtn" type="button">Add Certification</button></a>
-        <!-- Form ẩn để thêm chứng chỉ -->
-        <form id="addCertForm" style="display:none; margin-top:16px;">
-            <div class="form-group">
-                <label for="certification__Name">Certification Name:</label>
-                <input type="text" id="certification__Name" name="certificationName" required>
-            </div>
-            <div class="form-group">
-                <label for="certification__img">Certification image:</label>
-                <input type="file" id="certification__img" accept="image/*" name="certification__img" required>
-            </div>
-            <div class="form-group">
-                <label for="certification__ID">Certification ID:</label>
-                <input type="number" id="certification__ID" name="certificationID" required>
-            </div>
-            <div class="submit--btn">
-                <button type="submit" id="submitBtn">Submit</button>
-                <button type="button" id="cancelAddCertBtn">Cancel</button>
-            </div>
-        </form>
-    </div>
+                    <a href="#"><button class="add-button" id="showAddCertBtn" type="button">Add Certification</button></a>
+                            <!-- Form ẩn để thêm chứng chỉ -->
+                            <form id="addCertForm" style="display:none; margin-top:16px;">
+                                <div class="form-group">
+                                    <label for="certification__Name">Certification Name:</label>
+                                    <input type="text" id="certification__Name" name="certificationName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="certification__img">Certification image:</label>
+                                    <input type="file" id="certification__img" accept="image/*" name="certification__img" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="certification__ID">Certification ID:</label>
+                                    <input type="number" id="certification__ID" name="certificationID" required>
+                                </div>
+                                <div class="submit--btn">
+                                    <button type="submit" id="submitBtn">Submit</button>
+                                    <button type="button" id="cancelAddCertBtn">Cancel</button>
+                                </div>
+                            </form>
+                        </div>
                 </div>
 
-                <!-- <div class="detail-card">
-                    <h3>Teaching Methods</h3>
-                    <textarea class="teaching-methods" placeholder="Describe your teaching philosophy and methods..."></textarea>
-                    <button class="save-button">Save</button>
-                </div> -->
+                <div class="detail-card">
+                    <h3>Booking</h3>
+                    <a th:href="@{/booking}">
+                        <button class="book-button" type="button">Create Booking</button>
+                    </a>
+                        <button class="book-button" id="toggleBookingList" type="button">Show Booking List</button>
+                <div id="bookingListContainer" style="display:none; margin-top:16px;">
+                    <!-- Danh sách booking sẽ render ở đây -->
+                    <div class="booking-list-item">
+                <div>
+                <strong> Pickleball course with  ...</strong>
+                <p>Description</p>
+                <span>By Coach Josh</span><br>
+                <span>Time: 10:00 AM - 11:00 AM</span><br>  
+                <span>price</span>
+            </div>
+            <button class="edit-booking-btn">Edit</button>
+            <button class="toggle-visibility-btn" type="button">Hide</button>
+
+        </div>
+        <!-- Thêm các booking khác ở đây -->
+    </div>
+                </div>
                 <div class="detail-card">
                 <h3>Teacher Information</h3>
                 <div class="teacher-info" id="teacherInfoView">  
@@ -116,46 +134,8 @@
                 <button class="save-profile-button" id="saveBtn" type="submit">Save</button>
                 <button class="cancel-profile-button" id="cancelBtn" type="button">Cancel</button>
             </form>
-                            <!-- <div class="detail-card">
-                        <h3>Address</h3>
-                        <div class="locations-list">
-                            <div class="location-item">
-                                <span>Ho Chi Minh City - District 7 Sports Complex</span>
-                            </div>
-                          
-                        </div>
-                    </div> -->
-                    <!-- <div class="detail-card">
-                        <h3>Pricing</h3>
-                        <div class="pricing-list">
-                            <div class="pricing-item">
-                                <span>Private Lesson (1 hour):</span>
-                                <span>200.000 VND</span>
-                            </div>
-                            <div class="pricing-item">
-                                <span>Group Lesson (2 hours):</span>
-                                <span>450.000 VND</span>
-                            </div>
-                        </div>
-                        <button class="add-button">Add Pricing</button>
-                    </div> -->
-                    <!-- <div class="detail-card">
-                        <h3>Teaching Schedule</h3>
-                        <div class="schedule-list">
-                            <div class="schedule-item">
-                                <span>Monday: 9:00 AM - 12:00 PM</span>
-                            </div>
-                            <div class="schedule-item">
-                                <span>Wednesday: 2:00 PM - 5:00 PM</span>
-                            </div>
-                            <div class="schedule-item">
-                                <span>Friday: 3:00 PM - 6:00 PM</span>
-                            </div>
-                        </div>
-                        <button class="add-button">Add Schedule</button>
-                    </div>
-                </div> -->
             
+                            
         </section>
     </main>
 

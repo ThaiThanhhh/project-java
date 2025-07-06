@@ -45,7 +45,7 @@
             </div>
             <div class="form-field">
                 <label>Preferred learning style</label>
-                <select name="learningStyle" id="PreferredLearningStyleSelect">
+                <select name="learningStyle" id="PreferredLearningStyleSelect" disabled>
                     <option value="practice_video" th:selected="${student.learningStyle == 'practice_video'}">Practical practice & Video analysis</option>
                     <option value="video_only" th:selected="${student.learningStyle == 'video_only'}">Video analysis only</option>
                     <option value="one_on_one" th:selected="${student.learningStyle == 'one_on_one'}">One-on-one coaching</option>

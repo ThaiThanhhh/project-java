@@ -1,0 +1,174 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f8f9fa;
+}
+.booking-container {
+    max-width: 900px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 32px 40px;
+}
+h2 {
+    margin-bottom: 24px;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+}
+.booking-form {
+    width: 100%;
+}
+.booking-row {
+    display: flex;
+    gap: 32px;
+    margin-bottom: 32px;
+}
+.booking-avatar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 140px;
+}
+.booking-avatar img {
+    width: 120px;
+    height: 120px;
+    border-radius: 12px;
+    object-fit: cover;
+    margin-bottom: 8px;
+    border: 1px solid #ccc;
+}
+.avatar-label {
+    background: #007bff;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 4px;
+    font-size: 0.95rem;
+}
+.booking-avatar input[type="file"] {
+    display: none;
+}
+.booking-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.label-bold {
+    font-weight: bold;
+    margin-top: 8px;
+}
+.booking-section {
+    display: flex;
+    gap: 32px;
+    margin-bottom: 32px;
+}
+.booking-col {
+    flex: 1;
+}
+.section-title {
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+.booking-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 12px;
+    background: #f3f6fa;
+    padding: 12px;
+    border-radius: 8px;
+}
+.booking-group input {
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.add-btn, .delete-btn, .change-btn, .create-btn {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 4px;
+    font-size: 0.95rem;
+}
+.delete-btn {
+    background: #dc3545;
+    margin-left: 8px;
+}
+.change-btn {
+    background: #ffc107;
+    color: #333;
+    margin-left: 4px;
+}
+.booking-list {
+    background: #f8f9fa;
+    border-radius: 8px;
+    min-height: 40px;
+    padding: 8px;
+    margin-bottom: 8px;
+}
+.booking-list-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px 0;
+}
+.booking-actions {
+    text-align: center;
+    margin-top: 24px;
+}
+.create-btn {
+    font-size: 1.1rem;
+    padding: 10px 32px;
+    background: #28a745;
+}
+.weekly-selection {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 cột, có thể đổi thành 7 nếu muốn 1 hàng */
+    gap: 16px;
+    margin-bottom: 14px;
+    align-items: center;
+    /* justify-content: center; */
+    background: #f3f6fa;
+    border-radius: 8px;
+    padding: 10px 0 4px 0;
+}
+
+.weekly-selection p {
+    flex-basis: 100%;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-size: 1rem;
+    color: #007bff;
+}
+
+.weekly-selection label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    padding: 4px 10px;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-size: 15px;
+}
+
+.weekly-selection label:hover {
+    background: #e6f0ff;
+}
+
+.weekly-selection input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #007bff;
+    margin-right: 4px;
+} 

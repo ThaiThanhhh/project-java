@@ -82,9 +82,15 @@ public class SurveyController {
         String levelValue = null;
         String levelContent = null;
 
+        String learningStyleValue = null;
+        String learningStyleContent = null;
         // Lấy ID câu hỏi tournaments động từ DB
         Question tournamentsQuestion = questionRepository.findByKey("tournaments");
         Long tournamentsQuestionId = tournamentsQuestion != null ? tournamentsQuestion.getId() : null;
+
+        // Lấy ID câu hỏi movement động từ DB
+        Question movementQuestion = questionRepository.findByKey("movement");
+        Long movementQuestionId = movementQuestion != null ? movementQuestion.getId() : null;
 
         for (Map.Entry<String, String> entry : params.entrySet()) {
             if (entry.getKey().equals("_csrf")) continue;
@@ -134,6 +140,14 @@ public class SurveyController {
                     levelContent = option.getContent();
                 }
             }
+            // Lấy đáp án câu movement để lấy learningStyle
+            if (entry.getKey().equals("movement") && movementQuestionId != null) {
+                learningStyleValue = entry.getValue();
+                Option option = optionService.findOptionByQuestionIdAndValue(movementQuestionId, learningStyleValue);
+                if (option != null) {
+                    learningStyleContent = learningStyleValue; // Lưu key
+                }
+            }
 
             SurveyAnswer answer = new SurveyAnswer();
             answer.setSurvey(survey);
@@ -147,7 +161,8 @@ public class SurveyController {
         if ("student".equals(roleValue) && levelContent != null) {
             Student student = studentRepository.findByUser(user);
             if (student != null) {
-                student.setLevel(levelContent);
+                    if (levelContent != null) student.setLevel(levelContent);
+                    if (learningStyleContent != null) student.setLearningStyle(learningStyleContent);
                 studentRepository.save(student);
             }
         }
