@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Pickleball Technique Analysis</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .video-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        #videoPreview {
+            width: 100%;
+        }
+        .analysis-card {
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .error-card {
+            border-left: 5px solid #dc3545;
+        }
+        .technique-image {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+        .error-item {
+            padding: 10px;
+            margin-bottom: 10px;
+            background: #f8d7da;
+            border-radius: 5px;
+        }
+        .stats-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .score-excellent {
+            color: #28a745;
+            font-weight: bold;
+        }
+        .score-good {
+            color: #ffc107;
+            font-weight: bold;
+        }
+        .score-poor {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        .drill-card {
+            border-left: 4px solid #17a2b8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container py-5">
+        <h1 class="text-center mb-5">Advanced Pickleball Technique Analysis</h1>
+        
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Upload Practice Video</h5>
+                <p class="text-muted">Video should be under 30 seconds, showing full body</p>
+                <input type="file" id="videoInput" accept="video/*" class="form-control mb-3">
+                <button id="analyzeBtn" class="btn btn-primary">
+                    <i class="bi bi-play-circle"></i> Analyze Video
+                </button>
+            </div>
+        </div>
+        
+        <div id="loadingIndicator" class="text-center my-4" style="display: none;">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <p>Analyzing video...</p>
+            <p class="text-muted">This may take a few minutes depending on video length</p>
+        </div>
+        
+        <div id="resultsContainer">
+            <!-- Results will be displayed here -->
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('analyzeBtn').addEventListener('click', async function() {
+            const fileInput = document.getElementById('videoInput');
+            if (!fileInput.files.length) {
+                alert('Please select a video before analyzing');
+                return;
+            }
+            
+            const loading = document.getElementById('loadingIndicator');
+            const resultsContainer = document.getElementById('resultsContainer');
+            loading.style.display = 'block';
+            resultsContainer.innerHTML = '';
+            
+            try {
+                const formData = new FormData();
+                formData.append('video', fileInput.files[0]);
+                
+                const response = await fetch('/analyze', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                if (!response.ok) {
+                    throw new Error('Error analyzing video');
+                }
+                
+                const data = await response.json();
+                
+                if (data.error) {
+                    throw new Error(data.error);
+                }
+                
+                displayResults(data);
+                
+            } catch (error) {
+                resultsContainer.innerHTML = `
+                    <div class="alert alert-danger">
+                        <h4>Error analyzing video</h4>
+                        <p>${error.message}</p>
+                        <p>Please try again with a different video.</p>
+                    </div>
+                `;
+            } finally {
+                loading.style.display = 'none';
+            }
+        });
+        
+        function getScoreClass(score) {
+            if (score >= 80) return 'score-excellent';
+            if (score >= 50) return 'score-good';
+            return 'score-poor';
+        }
+        
+        function getScoreFeedback(score) {
+            if (score >= 80) return 'Great technique! Keep it up';
+            if (score >= 50) return 'Some areas need improvement';
+            return 'Focus on fixing basic technique issues';
+        }
+        
+        function getWeightDistributionFeedback(weight) {
+            const diff = Math.abs(weight.left - weight.right);
+            if (diff < 10) return 'Good balance';
+            if (diff < 20) return 'Slightly leaning to one side';
+            return 'Significant weight imbalance';
+        }
+        
+        function getBalanceClass(balance) {
+            if (balance < 0.1) return 'text-success';
+            if (balance < 0.2) return 'text-warning';
+            return 'text-danger';
+        }
+        
+        function getBalanceFeedback(balance) {
+            if (balance < 0.1) return 'Excellent balance';
+            if (balance < 0.2) return 'Average balance';
+            return 'Significant balance issues';
+        }
+        
+        function renderTechniqueChart(data) {
+            const ctx = document.getElementById('techniqueChart').getContext('2d');
+            
+            // Prepare chart data
+            const labels = Object.keys(data.technique_stats);
+            const counts = Object.values(data.technique_stats);
+            const backgroundColors = [
+                'rgba(255, 99, 132, 0.7)',
+                'rgba(54, 162, 235, 0.7)',
+                'rgba(255, 206, 86, 0.7)',
+                'rgba(75, 192, 192, 0.7)',
+                'rgba(153, 102, 255, 0.7)'
+            ];
+            
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Frame count',
+                        data: counts,
+                        backgroundColor: backgroundColors,
+                        borderColor: backgroundColors.map(c => c.replace('0.7', '1')),
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Frame count'
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Technique'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        
+        function renderPerformanceChart(performanceData) {
+            const ctx = document.getElementById('performanceChart').getContext('2d');
+            
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: performanceData.map((_, i) => `${i * 5} frame`),
+                    datasets: [{
+                        label: 'Performance score',
+                        data: performanceData,
+                        fill: false,
+                        borderColor: 'rgb(75, 192, 192)',
+                        tension: 0.1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            min: 0,
+                            max: 100,
+                            title: {
+                                display: true,
+                                text: 'Performance score'
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Time'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        
+        function displayResults(data) {
+            const container = document.getElementById('resultsContainer');
+            
+            if (data.error) {
+                container.innerHTML = `
+                    <div class="alert alert-danger">
+                        <h4>Analysis Error</h4>
+                        <p>${data.error}</p>
+                        <p>Please try again with a different video.</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            // Display advanced overview statistics
+            container.innerHTML = `
+                <div class="stats-card">
+                    <h3>Advanced Analysis Results</h3>
+                    
+                    <div class="row mb-4">
+                        <div class="col-md-4">
+                            <div class="card h-100">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">Overall Score</h5>
+                                    <div class="display-3 ${getScoreClass(data.average_performance)}">
+                                        ${data.average_performance.toFixed(0)}/100
+                                    </div>
+                                    <p>${getScoreFeedback(data.average_performance)}</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">Average Weight Distribution</h5>
+                                    <div class="progress" style="height: 30px; font-size: 1.2em;">
+                                        <div class="progress-bar bg-success" style="width: ${data.incorrect_frames.reduce((acc, f) => acc + f.analysis.weight_distribution.left, 0) / data.incorrect_frames.length}%">
+                                            Left: ${(data.incorrect_frames.reduce((acc, f) => acc + f.analysis.weight_distribution.left, 0) / data.incorrect_frames.length).toFixed(1)}%
+                                        </div>
+                                        <div class="progress-bar bg-info" style="width: ${data.incorrect_frames.reduce((acc, f) => acc + f.analysis.weight_distribution.right, 0) / data.incorrect_frames.length}%">
+                                            Right: ${(data.incorrect_frames.reduce((acc, f) => acc + f.analysis.weight_distribution.right, 0) / data.incorrect_frames.length).toFixed(1)}%
+                                        </div>
+                                    </div>
+                                    <p class="mt-2 text-center">${getWeightDistributionFeedback({
+                                        left: data.incorrect_frames.reduce((acc, f) => acc + f.analysis.weight_distribution.left, 0) / data.incorrect_frames.length,
+                                        right: data.incorrect_frames.reduce((acc, f) => acc + f.analysis.weight_distribution.right, 0) / data.incorrect_frames.length
+                                    })}</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <div class="card h-100">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">Average Balance</h5>
+                                    <div class="display-3 ${getBalanceClass(data.incorrect_frames.reduce((acc, f) => acc + f.analysis.balance, 0) / data.incorrect_frames.length)}">
+                                        ${(data.incorrect_frames.reduce((acc, f) => acc + f.analysis.balance, 0) / data.incorrect_frames.length).toFixed(2)}
+                                    </div>
+                                    <p>${getBalanceFeedback(data.incorrect_frames.reduce((acc, f) => acc + f.analysis.balance, 0) / data.incorrect_frames.length)}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Technique Statistics</h5>
+                                    <canvas id="techniqueChart" height="200"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Performance Over Time</h5>
+                                    <canvas id="performanceChart" height="200"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <h2 class="mt-5">Detected Technique Errors</h2>
+                <div class="alert alert-info">
+                    <i class="bi bi-info-circle"></i> The frames below show moments where technique errors were detected
+                </div>
+            `;
+            
+            // Draw charts
+            renderTechniqueChart(data);
+            if (data.performance_over_time) {
+                renderPerformanceChart(data.performance_over_time);
+            }
+            
+            // Display each error frame
+            if (data.incorrect_frames.length === 0) {
+                container.innerHTML += `
+                    <div class="alert alert-success">
+                        <i class="bi bi-check-circle"></i> No technique errors detected in the video!
+                    </div>
+                `;
+            } else {
+                data.incorrect_frames.forEach(frame => {
+                    const frameDiv = document.createElement('div');
+                    frameDiv.className = 'card analysis-card mb-4';
+                    frameDiv.innerHTML = `
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <div>
+                                <h5 class="mb-0">Time: ${frame.time.toFixed(1)}s</h5>
+                                <span class="badge bg-primary">${frame.analysis.technique}</span>
+                            </div>
+                            <div class="text-end">
+                                <span class="badge ${frame.analysis.errors.some(e => e.severity === 'high') ? 'bg-danger' : 'bg-warning'}">
+                                    ${frame.analysis.errors.length} errors
+                                </span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <img src="${frame.image}" class="img-fluid rounded">
+                                    <div class="mt-3">
+                                        <h5>Technical Parameters</h5>
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item d-flex justify-content-between">
+                                                <span>Left elbow angle:</span>
+                                                <span>${frame.analysis.angles.elbow_left}°</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between">
+                                                <span>Right elbow angle:</span>
+                                                <span>${frame.analysis.angles.elbow_right}°</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between">
+                                                <span>Left knee angle:</span>
+                                                <span>${frame.analysis.angles.knee_left}°</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between">
+                                                <span>Right knee angle:</span>
+                                                <span>${frame.analysis.angles.knee_right}°</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between">
+                                                <span>Weight distribution:</span>
+                                                <span>${frame.analysis.weight_distribution.left.toFixed(1)}% left / ${frame.analysis.weight_distribution.right.toFixed(1)}% right</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <h5 class="mb-3">Detected Errors</h5>
+                                    ${frame.analysis.errors.map(error => `
+                                        <div class="card mb-3 ${error.severity === 'high' ? 'border-danger' : error.severity === 'medium' ? 'border-warning' : 'border-secondary'}">
+                                            <div class="card-body">
+                                                <h5 class="card-title">${error.description}</h5>
+                                                <div class="alert alert-danger">
+                                                    <p><strong>Harm:</strong> ${error.harm}</p>
+                                                </div>
+                                                <div class="alert alert-success">
+                                                    <p><strong>Correction:</strong> ${error.correction}</p>
+                                                </div>
+                                                ${error.drills ? `
+                                                    <div class="card drill-card mt-2">
+                                                        <div class="card-body">
+                                                            <h6><i class="bi bi-lightbulb"></i> Corrective Drills</h6>
+                                                            <ul>
+                                                                ${error.drills.map(drill => `<li>${drill}</li>`).join('')}
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                ` : ''}
+                                            </div>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    container.appendChild(frameDiv);
+                });
+            }
+            
+            // Display dynamic analysis if available
+            if (data.dynamic_analysis) {
+                container.innerHTML += `
+                    <div class="card mt-4">
+                        <div class="card-header bg-info text-white">
+                            <h4><i class="bi bi-graph-up"></i> Movement Analysis</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                ${data.dynamic_analysis.improvement_suggestions.map(suggestion => `
+                                    <div class="col-md-6 mb-3">
+                                        <div class="card h-100">
+                                            <div class="card-header bg-light">
+                                                <h5>${suggestion.title}</h5>
+                                            </div>
+                                            <div class="card-body">
+                                                <p>${suggestion.description}</p>
+                                                <div class="card bg-light mt-2">
+                                                    <div class="card-body">
+                                                        <h6><i class="bi bi-trophy"></i> Corrective Drill</h6>
+                                                        <p>${suggestion.drill}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>
