@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	
+	<!-- My CSS -->
+	<link rel="stylesheet" href="../assets/css/advideo.css">
+
+	<title>AdminHub</title>
+</head>
+<body>
+
+
+	<!-- SIDEBAR -->
+	<section id="sidebar">
+		<a href="#" class="brand">
+			<div class="smile"><img src="../assets/img/smile.png" alt="admin" ></div>
+			<span class="text">AdminHub</span>
+		</a>
+		<ul class="side-menu top">
+			<li class="active">
+				<a href="./dashboard.html">
+					<img src="../assets/img/dashboard.png" alt="Dashboard" style="height: 30px; ">
+					<span class="text">Dashboard</span>
+				</a>
+			</li>
+			<li>
+				<a href="./customer.html">
+					<img src="../assets/img/customer.png" alt="Customer" style="height: 30px;">
+					<span class="text">	Customer</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<img src="../assets/img/play.png" alt="Video" style="height: 30px;">
+					<span class="text">	Video</span>
+				</a>
+			</li>
+			<li>
+				<a href="./contactus.html">
+					<img src="../assets/img/contact.png" alt="Order" style="height: 30px;">
+					<span class="text"> Contact</span>
+				</a>
+			</li>
+			<li>
+				<a href="./adblogs.html">
+					<img src="../assets/img/blogging.png" alt="Blogs" style="height: 30px;">
+					<span class="text"> Blogs</span>
+				</a>
+			</li>
+			
+		</ul>
+		<ul class="side-menu">
+			<li>
+				<a href="#" class="logout">
+					<img src="../assets/img/logout.png" alt="Logout" style="width: 40px;" >
+					<span class="text">Logout</span>
+				</a>
+			</li>
+		</ul>
+	</section>
+	<!-- SIDEBAR -->
+
+
+
+	<!-- CONTENT -->
+	<section id="content">
+		<!-- NAVBAR -->
+		<nav>
+			<div class="menu"><img src="../assets/img/menuadmin.png" alt="menu" style="width: 20px;"></div>
+			<a href="#" class="nav-link">Categories</a>
+			
+			<a href="#" class="profile">
+				<img src="../assets/img/customer.png">
+			</a>
+		</nav>
+		<!-- NAVBAR -->
+
+        <!--MAIN-->
+        <div id="container">
+        <div class="head">
+            <h3>Manage Videos</h3>
+            <div class="head__title">
+                <p>Video List</p>
+                <a href="./addvideo.html" class="insert__btn">Add Video</a>
+            </div>
+            
+        </div>
+        <div id="table__user">
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Category</th>
+                        <th>Duration</th>
+                        <th>Title</th>
+                        <th>Youtube ID</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>7</td>
+                        <td>Basic course</td>
+                        <td>2:47</td>
+                        <td>How to play gay</td>
+                        <td>HDSFUIFUI</td>
+                        <td class="action__btn">
+                            <button class="edit__btn"><a href="./editvideo.html" style="color: white;">Edit</a></button>
+                            <button class="delete__btn">Delete</button>
+                        </td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+        </div>
+    </section>
+    <script src="../assets/js/dashboard.js"></script>
+</body>
+</html>
