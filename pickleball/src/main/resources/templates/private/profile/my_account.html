@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>King Pickleball</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" th:href="@{/css/base.css}">
+    <link rel="stylesheet" th:href="@{/css/Pr.css}">
+    <script th:src="@{/js/Pr.js}" defer></script>
+</head>
+<body>
+    <!-- Header -->
+    <div th:replace="~{fragments/header :: header}"></div>
+
+    <div class="background"></div>
+
+    <button class="logout-btn" onclick="logout()">
+        <i class="fas fa-sign-out-alt"></i>
+        <span>Đăng xuất</span>
+    </button>
+
+    <div class="profile-container">
+        <div class="avatar-section">
+            <label for="upload-avatar" class="avatar">
+                <img id="avatarImage" th:src="@{/images/hlv_DuongThienQuang.webp}" alt="Avatar" />
+            </label>
+            <div class="avatar-text" id="avatarText">Upload avatar</div>
+            <input type="file" id="upload-avatar" accept="image/*" hidden />
+        </div>
+
+        <div class="info">
+            <div class="info-row">
+                <p>Full Name: Trung Hieu</p>
+            </div>
+            <div class="info-row">
+                <p>Id: 012345</p>
+            </div>
+            <div class="info-row">
+                <p>Email: hieult4655@ut.edu.vn</p>
+            </div>
+            <div class="info-row">
+                <p>Phone: 0816349419</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html> 

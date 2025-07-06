@@ -177,16 +177,12 @@
     height:100%;
 }
 
-
-
-
 /* ...existing code... */
 .container__header__nav{
     display: flex;
     justify-content: space-between;
     object-fit: cover;
 }
-
 
 .financial-details-section {
     max-width: 1200px;
@@ -248,16 +244,15 @@
 
 .earnings-table th, .earnings-table td,
 .student-payment-table th, .student-payment-table td {
-    border: 1px solid var(--border-color);
     padding: 12px;
     text-align: left;
-    font-size: 0.9rem;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .earnings-table th, .student-payment-table th {
-    background-color: var(--button-color);
-    color: var(--black-color);
+    background-color: var(--background-color);
     font-weight: bold;
+    color: var(--black-color);
 }
 
 .earnings-table tr:nth-child(even),
@@ -280,35 +275,36 @@
 
 .schedule-item p {
     margin: 8px 0;
-    font-size: 0.9rem;
+    color: var(--black-color);
 }
 
 .schedule-item p strong {
-    color: var(--black-color);
-    font-weight: bold;
+    color: var(--button-color);
 }
 
 .view-details-button {
     background-color: var(--button-color);
+    color: var(--black-color);
     border: none;
-    padding: 10px 20px;
-    border-radius: 20px;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease-in-out;
     display: block;
-    margin: 20px auto;
-    text-align: center;
-    color: var(--black-color);
+    margin: 0 auto;
 }
 
 .view-details-button:hover {
-    background-color: #B0D900;
+    background-color: var(--black-color);
+    color: var(--button-color);
+    transform: translateY(-2px);
 }
 
 @media (max-width: 768px) {
     .financial-details-section {
-        margin: 100px auto 30px;
+        margin: 100px 20px 30px;
         padding: 20px;
     }
 
@@ -317,7 +313,7 @@
     }
 
     .earnings-table, .student-payment-table {
-        font-size: 0.8rem;
+        font-size: 0.9rem;
     }
 
     .earnings-table th, .earnings-table td,
@@ -326,91 +322,70 @@
     }
 }
 
-/* footer */
 .container__footer {
-    width: 100vw;
-    height: 100%;
     background-color: var(--black-color);
     color: var(--white-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 50px;
+    padding: 40px 0;
+    margin-top: 60px;
 }
+
 .footer__logo {
     display: flex;
-    flex-direction: row;   /* mặc định là row, có thể bỏ */
     justify-content: center;
     align-items: center;
-    gap: 100px; 
-    background-color: #1E1E1E;     
-    width: 100%;  
-    height: 100px;     /* khoảng cách giữa các logo */
+    gap: 40px;
+    margin-bottom: 40px;
 }
 
 .footer__logo img {
-    height: 80px;          /* hoặc kích thước bạn muốn */
-    width: auto;
-    display: block;
+    height: 60px;
+    object-fit: contain;
 }
 
 .footer__logo-img {
-    width: 80px;
     height: 80px;
-    margin-left: 100px;
-    margin-top: 20px;
+    margin-bottom: 20px;
 }
+
 .footer__socials {
     display: flex;
     justify-content: center;
-    align-items: center;
-    gap: 50px;
-    margin-top: 30px;
-    margin-bottom: 50px;
+    gap: 20px;
+    margin-bottom: 30px;
 }
+
 .footer__socials img {
-    width: 40px;
-    height: 40px;
-    object-fit: cover;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
     transition: transform 0.3s ease-in-out;
 }
+
 .footer__links {
     display: flex;
     justify-content: center;
-    align-items: center;
-    gap: 50px;
-    margin-left: 30px;
-    margin-top: 20px;
-    margin-bottom: 80px;
+    gap: 60px;
+    margin-bottom: 30px;
 }
+
 .footer__links-column {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 160px; /* Đặt chiều rộng cố định cho mỗi cột */
-    
-}
-.footer__links-column ul{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    list-style-type: none;
-}
-.footer__contact {
-    gap: 50px;
-    margin-top: 30px;
-    background-color: #1E1E1E;
-    width: 100%;
-    height: 80px;
     text-align: center;
-    align-items: center;
+}
+
+.footer__links-column ul{
+    list-style: none;
+    padding: 0;
+}
+
+.footer__contact {
+    text-align: center;
+    border-top: 1px solid #333;
+    padding-top: 20px;
 }
 
 .footer__contact-info {
     display: flex;
     justify-content: center;
-    align-items: center;
-    gap: 50px;
-    margin-bottom: 20px;
+    gap: 30px;
+    margin-top: 15px;
 }

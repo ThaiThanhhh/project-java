@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Course - King Pickleball</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" th:href="@{/pickleball/css/base.css}">
+    <link rel="stylesheet" th:href="@{/pickleball/css/course1.css}">
+    <script th:src="@{/pickleball/js/course1.js}" defer></script>
+</head>
+<body>
+    <!-- Header -->
+    <div th:replace="~{fragments/header :: header}"></div>
+
+    <!-- Main Content -->
+    <div class="container__main">
+        <div class="course__container">
+            <div class="course__video-section">
+                <div class="video-card">
+                    <div class="video-header">
+                        <h2 class="video-title">Basic Pickleball Course</h2>
+                        <div class="video-actions">
+                            <button class="action-btn"><i class="fas fa-bookmark"></i> Save</button>
+                            <button class="action-btn"><i class="fas fa-share-alt"></i> Share</button>
+                        </div>
+                    </div>
+                    <iframe id="main-video" width="100%" height="450" src="https://youtu.be/C1FXJDRpWn4?si=ETB1k2a8DQQDm9yr" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <div class="video-meta">
+                        <span class="meta-item"><i class="fas fa-calendar-alt"></i> Updated: June 19, 2025</span>
+                    </div>
+                </div>
+            </div>
+            <div class="course__sidebar">
+                <h3><i class="fas fa-list-ol"></i> Course Content</h3>
+                <ul class="lesson__list">
+                    <li class="lesson__item">
+                        <div class="lesson-header" data-video="C1FXJDRpWn4">
+                            <div class="lesson-info">
+                                <i class="fas fa-chevron-right"></i>
+                                <div>
+                                    <h4>1. Introduction to Pickleball</h4>
+                                    <span class="lesson-meta">3 videos • 15 min</span>
+                                </div>
+                            </div>
+                            <span class="lesson-duration">02:30</span>
+                        </div>
+                        <div class="video-list">
+                            <div class="video-item" data-video="C1FXJDRpWn4">
+                                <i class="fas fa-play-circle"></i>
+                                <span>Introduction to Pickleball</span>
+                                <span class="video-duration">19:51</span>
+                            </div>
+                            <div class="video-item" data-video="QsTOhR6aeoU">
+                                <i class="fas fa-play-circle"></i>
+                                <span>Pickleball rules</span>
+                                <span class="video-duration">06:15</span>
+                            </div>
+                            <div class="video-item" data-video="gp6N_DhvacM">
+                                <i class="fas fa-play-circle"></i>
+                                <span>Basic pickleball grip</span>
+                                <span class="video-duration">01:12</span>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="lesson__item">
+                        <div class="lesson-header" data-video="lDHwpTJQ1xQ">
+                            <div class="lesson-info">
+                                <i class="fas fa-chevron-right"></i>
+                                <div>
+                                    <h4>2. How to score in Pickleball</h4>
+                                    <span class="lesson-meta">1 videos • 15 min</span>
+                                </div>
+                            </div>
+                            <span class="lesson-duration">01:58</span>
+                        </div>
+                        <div class="video-list">
+                            <div class="video-item" data-video="lDHwpTJQ1xQ">
+                                <i class="fas fa-play-circle"></i>
+                                <span>Easy way to calculate pickleball</span>
+                                <span class="video-duration">1:58</span>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="lesson__item">
+                        <div class="lesson-header" data-video="-GaiEA1rCQc">
+                            <div class="lesson-info">
+                                <i class="fas fa-chevron-right"></i>
+                                <div>
+                                    <h4>3. Basic Pickleball Technique</h4>
+                                    <span class="lesson-meta">3 videos • 15 min</span>
+                                </div>
+                            </div>
+                            <span class="lesson-duration">02:30</span>
+                        </div>
+                        <div class="video-list">
+                            <div class="video-item" data-video="-GaiEA1rCQc">
+                                <i class="fas fa-play-circle"></i>
+                                <span>Dink Forehand </span>
+                                <span class="video-duration">02:48</span>
+                            </div>
+                            <div class="video-item" data-video="IUSxXvgpWMs">
+                                <i class="fas fa-play-circle"></i>
+                                <span>Dink Backhand</span>
+                                <span class="video-duration">01:59</span>
+                            </div>
+                            <div class="video-item" data-video="vWnVnG0qQAU">
+                                <i class="fas fa-play-circle"></i>
+                                <span>Drop Forehand</span>
+                                <span class="video-duration">02:22</span>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="lesson__item">
+                        <div class="lesson-header" data-video="GcBZTA0zR6Q">
+                            <div class="lesson-info">
+                                <i class="fas fa-chevron-right"></i>
+                                <div>
+                                    <h4>4. 5 mistakes of beginners</h4>
+                                    <span class="lesson-meta">3 videos • 15 min</span>
+                                </div>
+                            </div>
+                            <span class="lesson-duration">07:07</span>
+                        </div>
+                        <div class="video-list">
+                            <div class="video-item" data-video="GcBZTA0zR6Q">
+                                <i class="fas fa-play-circle"></i>
+                                <span>Easy way to calculate pickleball</span>
+                                <span class="video-duration">7:07</span>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="lesson__item">
+                        <div class="lesson-header" data-video="IOayLsAhOv4">
+                            <div class="lesson-info">
+                                <i class="fas fa-chevron-right"></i>
+                                <div>
+                                    <h4>5. Quick Reflexes in Pickleball</h4>
+                                    <span class="lesson-meta">1 videos • 3 min</span>
+                                </div>
+                            </div>
+                            <span class="lesson-duration">03:19</span>
+                        </div>
+                        <div class="video-list">
+                            <div class="video-item" data-video="IOayLsAhOv4">
+                                <i class="fas fa-play-circle"></i>
+                                <span>E5 tips for quick reflexes</span>
+                                <span class="video-duration">3:19</span>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="lesson__item">
+                        <div class="lesson-header" data-video="KCAjD1oS7jQ">
+                            <div class="lesson-info">
+                                <i class="fas fa-chevron-right"></i>
+                                <div>
+                                    <h4>6. Lob Ball Timing in Pickleball</h4>
+                                    <span class="lesson-meta">1 videos • 3 min</span>
+                                </div>
+                            </div>
+                            <span class="lesson-duration">03:57</span>
+                        </div>
+                        <div class="video-list">
+                            <div class="video-item" data-video="KCAjD1oS7jQ">
+                                <i class="fas fa-play-circle"></i>
+                                <span>E5 tips for quick reflexes</span>
+                                <span class="video-duration">3:57</span>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="lesson__item">
+                        <div class="lesson-header" data-video="pt3HWfs7YCs">
+                            <div class="lesson-info">
+                                <i class="fas fa-chevron-right"></i>
+                                <div>
+                                    <h4>7. How to Hit the Backhand Roll</h4>
+                                    <span class="lesson-meta">1 videos • 8 min</span>
+                                </div>
+                            </div>
+                            <span class="lesson-duration">08:15</span>
+                        </div>
+                        <div class="video-list">
+                            <div class="video-item" data-video="pt3HWfs7YCs">
+                                <i class="fas fa-play-circle"></i>
+                                <span>Backhand Roll</span>
+                                <span class="video-duration">8:15</span>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="lesson__item">
+                        <div class="lesson-header" data-video="odhhfqkQB-k">
+                            <div class="lesson-info">
+                                <i class="fas fa-chevron-right"></i>
+                                <div>
+                                    <h4>8. How to Hit Topspin Drive</h4>
+                                    <span class="lesson-meta">1 videos • 14 min</span>
+                                </div>
+                            </div>
+                            <span class="lesson-duration">14:38</span>
+                        </div>
+                        <div class="video-list">
+                            <div class="video-item" data-video="odhhfqkQB-k">
+                                <i class="fas fa-play-circle"></i>
+                                <span>Topspin Drive</span>
+                                <span class="video-duration">14:38</span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html> 

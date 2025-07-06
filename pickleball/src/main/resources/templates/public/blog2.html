@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" th:href="@{/css/base.css}">
+    <link rel="stylesheet" th:href="@{/css/blog.css}">
+</head>
+<body>
+    <!-- Header -->
+    <div th:replace="~{fragments/header :: header}"></div>
+
+    <div class="container">
+        <div class="container__background">
+            <img th:src="@{/images/backgroundAboutus.png}" alt="background">
+        </div>
+        <div class="container__content">
+                <h1>BLOG | KING PICKLEBALL VN</h1>
+        </div>
+
+        <div class="container__blog">
+            <div class="container__blog--row">
+                <div class="blog--row--img "><img th:src="@{/images/Ponte_Vedre-2_600x600.webp}" alt="tintuc"></div>
+                <div class="blog--row-content">
+                    <h1>PPA Masters Pickleball Tournament: A Beginner's Guide</h1>
+                    <p style="font-size: 14px; font-weight:lighter; padding-bottom: 10px; ">Lean Eleonor Tuazon Feb 05, 2025</p>
+                    <p>
+Pickleball is taking the world by storm, and there's no better place to witness its electrifying energy than at the PPA Masters Tournament! Held in sunny Rancho Mirage, California from January 6th to 12th,...</p>
+                    <a href="https://engagepickleball.com/blogs/news-product-highlights/ppa-masters-pickleball-tournament-a-beginners-guide"><button>READ MORE</button></a>
+                </div>
+            </div>
+
+            <div class="container__blog--row">
+                <div class="blog--row--img "><img th:src="@{/images/81971431e26c301cc325c03f507477f1.jpg}" alt="tintuc"></div>
+                <div class="blog--row-content">
+                    <h1>Learn about Pickleball, a popular sport among young people in Vietnam</h1>
+                    <p style="font-size: 14px; font-weight:lighter; padding-bottom: 10px; ">Lean Eleonor Tuazon Feb 05, 2025</p>
+                    <p>Get an overview of the popular sport Pickleball Pickleball is a sport that combines elements of tennis, badminton and...</p>
+                    <a href="https://pickleball.vn/tin-tuc/tim-hieu-ve-pickleball-bo-mon-gioi-tre-dang-yeu-thich-tai-viet-nam.html"><button>READ MORE</button></a>
+                </div>
+            </div>
+
+            <div class="container__blog--row">
+                <div class="blog--row--img "><img th:src="@{/images/agassi-joola.webp}" alt="tintuc"></div>
+                <div class="blog--row-content">
+                    <h1>Andre Agassi and Joola announce partnership to elevate pickleball<h1>
+                    <p style="font-size: 14px; font-weight:lighter; padding-bottom: 10px; ">Lean Eleonor Tuazon Feb 05, 2025</p>
+                    <p style="font-weight: lighter;">New York City, NY – August 19, 2024 – In a partnership set to reshape the sports landscape, tennis legend Andre....</p>
+                    <a href="https://pickleball.vn/tin-tuc/andre-agassi-va-joola-cong-bo-quan-he-doi-tac-de-nang-tam-pickleball.html" style="position: relative;bottom: 20px;font-weight: lighter;"><button>READ MORE</button></a>
+                </div>
+            </div>
+
+            <div class="container__blog--row">
+                <div class="blog--row--img "><img th:src="@{/images/0fb6b76c8707f0dafc72cbbdfd9d25a2.jpg}" alt="tintuc"></div>
+                <div class="blog--row-content">
+                    <h1>Learn about the outstanding features only available on Pickleball Rackets</h1>
+                    <p style="font-size: 14px; font-weight:lighter; padding-bottom: 10px; ">Lean Eleonor Tuazon Feb 05, 2025</p>
+                    <p>Learn about Pickleball rackets and popular Pickleball racket models Pickleball is a racket sport played between two or four people, using rackets and balls...</p>
+                    <a href="https://pickleball.vn/tin-tuc/tim-hieu-nhung-dac-trung-noi-bat-chi-co-tren-vot-pickleball.html" style="position: relative;bottom: 20px;"><button>READ MORE</button></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="pagination">
+            <a th:href="@{/blog}">
+                <button class="page-btn prev">
+                <span>&lt;</span>
+            </button>
+            </a>
+
+            <div class="page-numbers">
+                <a th:href="@{/blog}"><span class="page-number">1</span></a>
+                <a href="#"><span class="page-number active">2</span></a>
+            </div>
+
+            <button class="page-btn next" disabled>
+                <span>&gt;</span>
+            </button>
+        
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html> 

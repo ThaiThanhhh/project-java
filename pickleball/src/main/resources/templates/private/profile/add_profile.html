@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>King Pickleball</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" th:href="@{/css/base.css}">
+    <link rel="stylesheet" th:href="@{/css/add_profile.css}">
+    <script th:src="@{/js/add_profile.js}"></script>
+</head>
+<body>
+    <!-- Header -->
+    <div th:replace="~{fragments/header :: header}"></div>
+
+    <div class="container__background">
+            <div class="background--header">
+                <img th:src="@{/images/background edit.jpg}" alt="backgroundAboutus" >
+            </div>
+            <div class="title">
+                <h1>ADD | KING PICKLEBALL VN</h1>
+            </div>
+    </div>
+    <div class="container"> 
+        
+        <div class="title--header"><h1>Add Your Profile</h1></div>
+    
+        <div class="section">
+            <h2>Add Photo</h2>
+            <div id="photoList">
+                <div class="entry">
+                    <input type="file" class="skillName" placeholder="Skill Name">
+                </div>
+            </div>                
+        </div>
+
+        <div class="section">
+            <h2>Title</h2>
+            <div id="titleList">
+                <div class="entry">
+                    <input type="text" class="titleName" placeholder="Title Name">
+                </div>
+            </div>                
+        </div>
+
+        <div class="section">
+            <h2>Describe</h2>
+            <div id="describeList">
+                <div class="entry">
+                    <input type="text" class="describeName" placeholder="Describe">
+                </div>
+            </div>                
+        </div>
+
+        <div class="section">
+            <h2>Coach Name</h2>
+            <div id="coachList">
+                <div class="entry">
+                    <input type="text" class="coachName" placeholder="Coach Name">
+                </div>
+            </div>                
+        </div>
+
+        <div class="section">
+            <h2>Update</h2>
+            <div id="updateList">
+                <div class="entry">
+                    <input type="date" class="calDate">
+                </div>
+            </div>                
+        </div>
+
+        <div class="section">
+            <h2>Number of lectures</h2>
+            <div id="numberoflecturesList">
+                <div class="entry">
+                    <input type="number" class="numberoflectures" placeholder="Number of lectures">
+                </div>
+            </div>                
+        </div>
+
+        <div class="section">
+            <h2>Teaching Methods</h2>
+            <div id="describeList">
+                <div class="entry">
+                    <textarea class="describeDesc" placeholder="Description"></textarea>
+                </div>
+            </div>                
+        </div>
+        
+        <div class="section">
+            <h2>Price</h2>
+            <div id="priceList">
+                <div class="entry">
+                    <input type="number" class="priceNumber" placeholder="Enter the price of a lesson">
+                    <button class="edit--btn" onclick="editEntry(this)">Edit</button>
+                </div>
+            </div>
+        </div>
+        <div class="form-actions"><button class="save--btn" onclick="saveChanges()">Save Changes</button>   </div>
+        
+    </div>
+
+    <!-- Footer -->
+    <div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html> 

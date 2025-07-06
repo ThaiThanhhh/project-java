@@ -1,0 +1,276 @@
+:root{
+    --white-color: #fff; 
+    --black-color: #000;
+    --button-color:#C7F300; 
+}
+
+.container__header__nav{
+    display: flex;
+    justify-content: space-between;
+    object-fit: cover;
+    
+}
+
+.container__header__nav--left{
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+    position: relative;
+    left: 50px;
+    font-size: 18px;
+    font-weight: 900;
+}
+.container__header__nav--right{
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+    position: relative;
+    right: 50px;
+    font-size: 18px;
+    font-weight: 900;
+    
+}
+
+.container__header__nav--right :hover{
+    color: var(--button-color);
+    cursor:pointer; 
+    transition: all 0.3s ease-in-out;
+}
+
+.container__header__nav--left :hover{
+     color: var(--button-color);
+    cursor:pointer; 
+    transition: all 0.3s ease-in-out;
+}
+
+/* Dropdown Styling */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-toggle {
+    text-decoration: none;
+    color: var(--white-color);
+    font-size: 18px;
+    font-weight: 900;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 3px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    min-width: 270px;
+    z-index: 1001;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px 10px;
+    color: var(--black-color);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.dropdown-menu a:hover {
+    background-color: var(--button-color);
+    color: var(--black-color);
+    transition: all 0.6s ease-in-out;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Ensure dropdown integrates with existing nav hover effects */
+.container__header__nav--left .dropdown-toggle:hover,
+.container__header__nav--right .dropdown-toggle:hover {
+    color: var(--button-color);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Accessibility: Focus state for dropdown toggle */
+.dropdown-toggle:focus {
+    outline: 2px solid var(--button-color);
+    outline-offset: 2px;
+}
+
+/* Fix for header nav alignment */
+.container__header__nav--left,
+.container__header__nav--right {
+    display: flex;
+    align-items: center;
+}
+.container__header__nav--login{
+    padding: 7px 15px;
+    border: 2px solid var(--button-color); 
+    background-color: var(--button-color);
+    border-radius: 100px;
+    color: var(--black-color);
+    font-weight:bolder; 
+    font-size: 17px;
+}
+
+.container__header__nav--login:hover{
+    background-color: var(--black-color);
+    color: var(--button-color);
+    border: 2px solid var(--black-color);
+    cursor: pointer;
+    font-size: 17px;
+    transition: all 0.4s ease-in-out;
+    
+}
+
+.container__header__nav--logo img{
+    width: 80px;
+    height: 80px;
+}
+
+.container__header {
+    position: fixed;
+    top:0; 
+    left:0;
+    right:0;
+    width: 100vw;
+    height: 100px;
+    z-index: 1000;
+    color: var(--white-color);
+    background-color: var(--black-color);
+    box-shadow: none;
+    padding: 10px 0; /* Thêm padding để đẹp hơn */
+    box-sizing: border-box;
+}
+
+
+/* ...existing code... */
+.container__header__nav{
+    display: flex;
+    justify-content: space-between;
+    object-fit: cover;
+}
+
+/* main */
+.container {
+    margin-top: 100px; /* Adjusted to account for fixed header */
+}
+.gradient-bg {
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+        }
+        .chat-container {
+            height: calc(100vh - 180px);
+        }
+        .message-animation {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .model-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .model-card {
+            transition: all 0.3s ease;
+        }
+
+
+/* footer */
+.container__footer {
+    width: 100vw;
+    height: 100%;
+    background-color: var(--black-color);
+    color: var(--white-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: auto;
+}
+.footer__logo {
+    display: flex;
+    flex-direction: row;   /* mặc định là row, có thể bỏ */
+    justify-content: center;
+    align-items: center;
+    gap: 100px; 
+    background-color: #1E1E1E;     
+    width: 100%;  
+    height: 100px;     /* khoảng cách giữa các logo */
+}
+
+.footer__logo img {
+    height: 80px;          /* hoặc kích thước bạn muốn */
+    width: auto;
+    display: block;
+}
+
+.footer__logo-img {
+    width: 80px;
+    height: 80px;
+    margin-left: 100px;
+    margin-top: 20px;
+}
+.footer__socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+.footer__socials img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+}
+.footer__links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    margin-left: 30px;
+    margin-top: 20px;
+    margin-bottom: 80px;
+}
+.footer__links-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 160px; /* Đặt chiều rộng cố định cho mỗi cột */
+    
+}
+.footer__links-column ul{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    list-style-type: none;
+}
+.footer__contact {
+    gap: 50px;
+    margin-top: 30px;
+    background-color: #1E1E1E;
+    width: 100%;
+    height: 80px;
+    text-align: center;
+    align-items: center;
+}
+
+.footer__contact-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    margin-bottom: 20px;
+}

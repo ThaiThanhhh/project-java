@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Competitive Course - King Pickleball</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" th:href="@{/pickleball/css/base.css}">
+    <link rel="stylesheet" th:href="@{/pickleball/css/course1.css}">
+    <script th:src="@{/pickleball/js/course1.js}" defer></script>
+</head>
+<body>
+    <!-- Header -->
+    <div th:replace="~{fragments/header :: header}"></div>
+
+    <!-- Main Content -->
+    <div class="container__main">
+        <div class="course__container">
+            <div class="course__video-section">
+                <div class="video-card">
+                    <div class="video-header">
+                        <h2 class="video-title">Competitive Pickleball Course</h2>
+                        <div class="video-actions">
+                            <button class="action-btn"><i class="fas fa-bookmark"></i> Save</button>
+                            <button class="action-btn"><i class="fas fa-share-alt"></i> Share</button>
+                        </div>
+                    </div>
+                    <iframe id="main-video" width="100%" height="450" src="https://youtu.be/uUny6iWNPwM?si=Wh3OUVi39UNR6Yoz" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <div class="video-meta">
+                        <span class="meta-item"><i class="fas fa-calendar-alt"></i> Updated: June 19, 2025</span>
+                    </div>
+                </div>
+            </div>
+            <div class="course__sidebar">
+                <h3><i class="fas fa-list-ol"></i> Course Content</h3>
+                <ul class="lesson__list">
+                    <li class="lesson__item">
+                        <div class="lesson-header" data-video="uUny6iWNPwM">
+                            <div class="lesson-info">
+                                <i class="fas fa-chevron-right"></i>
+                                <div>
+                                    <h4>1. The Perfect Strategy To WIN Your First Ever Pickleball Tournament</h4>
+                                    <span class="lesson-meta">1 videos • 19 min</span>
+                                </div>
+                            </div>
+                            <span class="lesson-duration">02:30</span>
+                        </div>
+                        <div class="video-list">
+                            <div class="video-item" data-video="uUny6iWNPwM">
+                                <i class="fas fa-play-circle"></i>
+                                <span>The Perfect Strategy To WIN </span>
+                                <span class="video-duration">19:51</span>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="lesson__item">
+                        <div class="lesson-header" data-video="JGMLn68RZS8">
+                            <div class="lesson-info">
+                                <i class="fas fa-chevron-right"></i>
+                                <div>
+                                    <h4>2. Pickleball Doubles Strategies New Players MUST Know</h4>
+                                    <span class="lesson-meta">1 videos • 15 min</span>
+                                </div>
+                            </div>
+                            <span class="lesson-duration">10:44</span>
+                        </div>
+                        <div class="video-list">
+                            <div class="video-item" data-video="JGMLn68RZS8">
+                                <i class="fas fa-play-circle"></i>
+                                <span>Strategies New Players MUST Know</span>
+                                <span class="video-duration">10:44</span>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="lesson__item">
+                        <div class="lesson-header" data-video="owZaWcOAOQg">
+                            <div class="lesson-info">
+                                <i class="fas fa-chevron-right"></i>
+                                <div>
+                                    <h4>3. Unlock Your Full Potential</h4>
+                                    <span class="lesson-meta">1 videos • 5 min</span>
+                                </div>
+                            </div>
+                            <span class="lesson-duration">05:53</span>
+                        </div>
+                        <div class="video-list">
+                            <div class="video-item" data-video="owZaWcOAOQg">
+                                <i class="fas fa-play-circle"></i>
+                                <span> Master The Mental Game in Pickleball</span>
+                                <span class="video-duration">02:48</span>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="lesson__item">
+                        <div class="lesson-header" data-video="aZoEAzFAOUo">
+                            <div class="lesson-info">
+                                <i class="fas fa-chevron-right"></i>
+                                <div>
+                                    <h4>4. Improve your pickleball skills</h4>
+                                    <span class="lesson-meta">1 videos • 8 min</span>
+                                </div>
+                            </div>
+                            <span class="lesson-duration">08:6</span>
+                        </div>
+                        <div class="video-list">
+                            <div class="video-item" data-video="aZoEAzFAOUo">
+                                <i class="fas fa-play-circle"></i>
+                                <span>E5 tips for quick reflexes</span>
+                                <span class="video-duration">8:06</span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html> 

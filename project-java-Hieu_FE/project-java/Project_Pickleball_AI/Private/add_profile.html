@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>King Pickleball</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="../Assets/CSS/base.css">
+    <link rel="stylesheet" href="../Assets/CSS/add_profile.css">
+    <script src="../Assets/js/add_profile.js"></script>
+</head>
+<body>
+        <!-- Header -->
+        <header class="main-header">
+            <div class="container__header">
+                <nav class="container__header__nav">
+                    <div class="container__header__nav--left">
+                        <div class="dropdown">
+                            <a href="#" class="dropdown-toggle">Features</a>
+                            <div class="dropdown-menu">
+                                <a href="../Private/Features/Structured.html">Structured Learning</a>
+                                <a href="../Private/Features/Video Library.html">Video Library</a>
+                                <a href="../Private/Features/ai.html">AI Technique Analysis</a>
+                                <a href="../Private/Features/process.html">Progress Dashboard</a>
+                                <a href="../Private/Features/Achievements & Badges.html">Achievements & Badges</a>
+                                <a href="../Private/Features/elearnning.html">Booking & Payment</a>
+                            </div>
+                        </div>
+                        <a href="../Private/my learning.html">My Learning</a>
+                        <a href="../Private/for coach.html" style="color: #C7F300;">For Coach</a>
+                    </div>
+                    <div class="container__header__nav--logo">
+                        <a href="../Public/Index.html"><img src="../Assets/Img/logo app.png" alt="Logo King Pickleball"></a>
+                    </div>
+                    <div class="container__header__nav--right">
+                        <a href="../Public/community.html">Community</a>
+                        <a href="../Public/blog.html">Blog</a>
+                        <div class="dropdown">
+                            <a href="#" class="dropdown-toggle">About us</a>
+                            <div class="dropdown-menu">
+                                <a href="../Public/aboutus.html" >About Us</a>
+                                <a href="../Public/contact us.html">Contact Us</a>
+                            </div>
+                        </div>
+                        <a href="../Public/login.html" class="container__header__nav--login">Login</a>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <div class="container__background">
+                <div class="background--header">
+                    <img src="../Assets/Img/background edit.jpg" alt="backgroundAboutus" >
+                </div>
+                <div class="title">
+                    <h1>ADD | KING PICKLEBALL VN</h1>
+                </div>
+        </div>
+        <div class="container"> 
+            
+            <div class="title--header"><h1>Add Your Profile</h1></div>
+        
+            <div class="section">
+                <h2>Add Photo</h2>
+                <div id="photoList">
+                    <div class="entry">
+                        <input type="file" class="skillName" placeholder="Skill Name">
+                    </div>
+                </div>                
+            </div>
+
+            <div class="section">
+                <h2>Title</h2>
+                <div id="titleList">
+                    <div class="entry">
+                        <input type="text" class="titleName" placeholder="Title Name">
+                    </div>
+                </div>                
+            </div>
+
+            <div class="section">
+                <h2>Describe</h2>
+                <div id="describeList">
+                    <div class="entry">
+                        <input type="text" class="describeName" placeholder="Describe">
+                    </div>
+                </div>                
+            </div>
+
+            <div class="section">
+                <h2>Coach Name</h2>
+                <div id="coachList">
+                    <div class="entry">
+                        <input type="text" class="coachName" placeholder="Coach Name">
+                    </div>
+                </div>                
+            </div>
+
+            <div class="section">
+                <h2>Update</h2>
+                <div id="updateList">
+                    <div class="entry">
+                        <input type="date" class="calDate">
+                    </div>
+                </div>                
+            </div>
+
+            <div class="section">
+                <h2>Number of lectures</h2>
+                <div id="numberoflecturesList">
+                    <div class="entry">
+                        <input type="number" class="numberoflectures" placeholder="Number of lectures">
+                    </div>
+                </div>                
+            </div>
+
+            <div class="section">
+                <h2>Teaching Methods</h2>
+                <div id="describeList">
+                    <div class="entry">
+                        <textarea class="describeDesc" placeholder="Description"></textarea>
+                    </div>
+                </div>                
+            </div>
+            
+            <div class="section">
+                <h2>Price</h2>
+                <div id="priceList">
+                    <div class="entry">
+                        <input type="number" class="priceNumber" placeholder="Enter the price of a lesson">
+                        <button class="edit--btn" onclick="editEntry(this)">Edit</button>
+                    </div>
+                </div>
+            </div>
+            <div class="form-actions"><button class="save--btn" onclick="saveChanges()">Save Changes</button>   </div>
+            
+        </div>
+
+
+
+     <!-- footer -->
+        <footer>
+            <div class="container__footer">
+                <div class="footer__logo">
+                    <img src="../Assets/Img/adidas.png" alt="Adidas Logo">
+                    <img src="../Assets/Img/nike.png" alt="Nike Logo">
+                    <img src="../Assets/Img/newbalance.png" alt="New Balance Logo" style="height: 200px;">
+                    <img src="../Assets/Img/luisvuiton.png" alt="luisvuiton Logo" style="height: 200px; margin-bottom: 30px;">
+                    <img src="../Assets/Img/puma.png" alt="Puma Logo">
+                </div>
+                <div class="footer__info">
+                    <img src="../Assets/Img/logo app.png" alt="Logo King Pickleball" class="footer__logo-img">
+                    <div class="footer__socials">
+                        <a href="#"><img src="../Assets/Img/fb2.png" alt="Facebook"></a>
+                        <a href="#"><img src="../Assets/Img/youtube.png" alt="Youtube"></a>
+                        <a href="#"><img src="../Assets/Img/instagram.png" alt="Instagram"></a>
+                        <a href="#"><img src="../Assets/Img/x.png" alt="X"></a>
+                    </div>
+                </div>    
+                <div class="footer__links">
+                    <div class="footer__links-column" style="border-right: 1px solid #FFFFFF;">
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">About us</a></li>
+                            <li><a href="#">Contact us</a></li>
+                            
+                        </ul>
+                    </div>
+                    <div class="footer__links-column" style="border-right: 1px solid #FFFFFF;">
+                        <ul>
+                            <li><a href="#">Features</a></li>
+                            <li><a href="#">Find a Coaches</a></li>
+                            <li><a href="#">For Coaches</a></li>
+                            
+                        </ul>
+                    </div>
+                    <div class="footer__links-column">
+                        <ul>
+                            <li><a href="#">Structured Learning</a></li>
+                            <li><a href="#">Video Library</a></li>
+                            <li><a href="#">AI Technique Analysis</a></li>
+                            
+                        </ul>
+                    </div>
+                </div>   
+                <div class="footer__contact">
+                    <p style="color: #837E7E; font-size: 17px; margin-top: 10px;">Copyright (C) 2025 Pickleball World | All Rights Reserved </p>
+                    <div class="footer__contact-info">
+                        <p>Terms of Service</p>
+                        <p>Privacy Policy</p>
+                        <p>Compliance</p>
+                        <p>Policy Media</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    
+</body>
+</html>
