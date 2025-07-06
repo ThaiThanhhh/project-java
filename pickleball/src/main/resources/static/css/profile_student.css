@@ -115,6 +115,59 @@
     outline: 2px solid var(--button-color);
     outline-offset: 2px;
 }
+
+/* Fix for header nav alignment */
+.container__header__nav--left,
+.container__header__nav--right {
+    display: flex;
+    align-items: center;
+}
+.container__header__nav--login{
+    padding: 7px 15px;
+    border: 2px solid var(--button-color); 
+    background-color: var(--button-color);
+    border-radius: 100px;
+    color: var(--black-color);
+    font-weight:bolder; 
+    font-size: 17px;
+}
+
+.container__header__nav--login:hover{
+    background-color: var(--black-color);
+    color: var(--button-color);
+    border: 2px solid var(--black-color);
+    cursor: pointer;
+    font-size: 17px;
+    transition: all 0.4s ease-in-out;
+    
+}
+
+.container__header__nav--logo img{
+    width: 80px;
+    height: 80px;
+}
+
+.container__header {
+    position: fixed;
+    top:0; 
+    left:0;
+    right:0;
+    width: 100vw;
+    height: 100px;
+    z-index: 1000;
+    color: var(--white-color);
+    background-color: var(--black-color);
+    box-shadow: none;
+    padding: 10px 0; /* Thêm padding để đẹp hơn */
+    box-sizing: border-box;
+}
+.dropdown-toggle {
+    text-decoration: none;
+    color: var(--white-color);
+    font-size: 18px;
+    font-weight: 900;
+}
+
 .dropdown-menu--pr{
      display: none;
     position: absolute;
@@ -143,6 +196,26 @@
 .container__header__nav--right {
     display: flex;
     align-items: center;
+}
+
+.container__header__nav--buttonlogin {
+    padding: 7px 15px;
+    border: 2px solid #C7F300; 
+    background-color: #C7F300;
+    border-radius: 100px;
+    color: var(--black-color);
+    font-weight: bolder; 
+    font-size: 17px;
+}
+
+.container__header__nav--buttonlogin:hover{
+    background-color: var(--black-color);
+    color: var(--button-color);
+    border: 2px solid var(--black-color);
+    cursor: pointer;
+    font-size: 17px;
+    transition: all 0.4s ease-in-out;
+    
 }
 /* Avatar/Profile Dropdown - Đẹp và hiện đại */
 .container__header__nav--button {
@@ -182,34 +255,12 @@
 }
 
 
-.container__header__nav--logo img{
-    width: 80px;
-    height: 80px;
-}
-
-.container__header {
-    position: fixed;
-    top:0; 
-    left:0;
-    right:0;
-    width: 100vw;
-    height: 100px;
-    z-index: 1000;
-    color: var(--white-color);
-    background-color: var(--black-color);
-    box-shadow: none;
-    padding: 10px 0; /* Thêm padding để đẹp hơn */
-    box-sizing: border-box;
-}
-
-
 /* ...existing code... */
 .container__header__nav{
     display: flex;
     justify-content: space-between;
     object-fit: cover;
 }
-
 /* main */
    .profile-container {
             max-width: 700px;

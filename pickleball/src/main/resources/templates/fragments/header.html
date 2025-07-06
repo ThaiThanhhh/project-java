@@ -7,23 +7,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="/pickleball/css/header.css">
-    <link rel="stylesheet" href="/pickleball/css/main.css">
     <link rel="stylesheet" href="/pickleball/css/base.css">
-
-    
     <script src="/pickleball/js/main.js" defer></script>
 </head>
 <body>
-    <!-- Header -->
+<!-- Header Fragment -->
 <div th:fragment="header">
     <header class="main-header">
         <div class="container__header">
             <nav class="container__header__nav">
                 <div class="container__header__nav--left">
-                    <!-- //chỉ có thể hiện khi session.role là STUDENT -->
-                    <!-- <div class="dropdown" th:if="${session.role == 'STUDENT'}"> -->
-                    <div class="dropdown" >
-
+                    <div class="dropdown">
                         <a href="#" class="dropdown-toggle">Features</a>
                         <div class="dropdown-menu">
                             <a th:href="@{/structured}">Structured Learning</a>
@@ -34,12 +28,8 @@
                             <a href="#">Booking & Payment</a>
                         </div>
                     </div>
-                     <a th:href="@{/mylearning}">My Learning</a>
+                    <a th:href="@{/mylearning}">My Learning</a>
                     <a th:href="@{/forcoach}">For Coach</a>
-                    <!-- Lấy ra session.role để hiển thị các tính năng khác nhau -->
-                        <!-- <a th:if="${session.role == 'STUDENT'}" th:href="@{/mylearning}">My learning</a>
-                        <a th:if="${session.role == 'COACH'}" th:href="@{/forcoach}">For Coach</a> -->
-                        
                 </div>
                 <div class="container__header__nav--logo">
                     <a th:href="@{/}"><img src="/pickleball/images/Logo app.png" alt="Logo King Pickleball"></a>
@@ -54,23 +44,22 @@
                             <a th:href="@{/contactus}">Contact Us</a>
                         </div>
                     </div>
-                    <!-- <a th:if="${session.role == null}" th:href="@{/login}" class="container__header__nav--button">Login</a> -->
-                    <!-- <a th:if="${session.role != null}" th:href="@{/logout}" class="container__header__nav--button">Logout</a> -->
-                     <div class="dropdown">
+                    <!-- Nút Login ngoài cùng nếu chưa đăng nhập -->
+                    <a th:if="${session.role == null}" th:href="@{/login}" class="container__header__nav--buttonlogin">Login</a>
+                    <!-- Dropdown avatar/profile -->
+                    <div class="dropdown" th:if="${session.role != null}">
                         <a class="container__header__nav--button dropdown-toggle">
-                            <!-- <img src="/pickleball/images/hlv_DuongThienQuang.webp" alt="Ảnh đại diện profile">                          -->
-                             <img th:src="${avatarUrl}" alt="Ảnh đại diện profile" class="profile-avatar" id="avatarPreview">
-                            <!-- Có thể thêm <i class="fa fa-caret-down"></i> nếu muốn hiện mũi tên -->
-                             <!-- <img th:src="${avatarUrl}" alt="Ảnh đại diện profile" class="profile-avatar" id="avatarPreview" > -->
+                            <img th:src="${avatarUrl}" alt="Ảnh đại diện profile" class="profile-avatar" id="avatarPreview">
                         </a>
-                        <div class="dropdown-menu dropdown-menu--pr" >
+                        <div class="dropdown-menu dropdown-menu--pr">
                             <a th:href="@{/profile}">Profile</a>
                             <a th:href="@{/logout}">Logout</a>
                         </div>
                     </div>
-
                 </div>
             </nav>
         </div>
-</div>
     </header>
+</div>
+</body>
+</html>
