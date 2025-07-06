@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="/pickleball/css/base.css">
+    <link rel="stylesheet" href="/pickleball/css/community.css">
+</head>
+<body><div th:replace="fragments/header :: header"></div>
+     <main class="container">
+            <div class="container__background1" >
+                <div class="title1">
+                    <p>COMMUNITY | KING PICKLEBALL VN</p>
+                </div>
+            </div>
+            <div class="container__content">
+                <div class="content__first">
+                    <h3>Groups & Forums</h3>
+                    <p>Engage in discussions, ask questions, and share tips with our vibrant community of learners and coaches.</p>
+                </div>
+                <div class="content__group">
+                    <div class="group--item">
+                        <div class="gruop--item__header">
+                            <img src="/pickleball/images/logogroup1.png" alt="Group 1">
+                            <h4> Beginner Fitness Group</h4>
+                        </div>
+                        <p>A supportive community for those starting their fitness journey. Share tips and ask questions!</p>
+                        <p style="font-size: 15px; color: #ADA9A5;">1,234 members</p>
+                        <a href="https://www.facebook.com/share/g/166ZYzRA5d/" class="gruop__btn">Join Group</a>
+                    </div>
+                    <div class="group--item">
+                        <div class="gruop--item__header">
+                            <img src="/pickleball/images/logogroup2.png" alt="Group 2">
+                            <h4>Techniques & Tips Group</h4>
+                        </div>
+                        <p>Discuss techniques and tips when playing</p>
+                        <p style="font-size: 15px; color: #ADA9A5; margin-top: 47px;">892 members</p>
+                        <a href="https://www.facebook.com/share/g/1B4UGEa6ZN/" class="gruop__btn">Join Group</a>
+                    </div>
+                    <div class="group--item">
+                        <div class="gruop--item__header">
+                            <img src="/pickleball/images/logogruop3.png" alt="Group 3">
+                            <h4>AI Learning Hub</h4>
+                        </div>
+                        <p>Explore how to maximize AI video feedback for your skill development.</p>
+                        <p style="font-size: 15px; color: #ADA9A5;">567 members</p>
+                        <a href="https://www.facebook.com/share/g/1AaTSPmpjo/" class="gruop__btn">Join Group</a>
+                    </div>
+                </div>
+                <h3 style="text-align: center; font-size: 30px; margin-top: 50px;">Recent Forum Discussions</h3>
+                <div class="content__forum">
+                    <div class="forum__discussion">
+                        <div class="forum__discussion__header">
+                            <h4>Best warm-up routines for beginners?</h4>
+                            <p>I'm new to fitness and looking for effective warm-up routines to avoid injuries. Any tips?</p>
+                        </div>
+                        <div class="forum__discussion__name">
+                            <p >1,234 members</p>
+                            <p>June 5, 2025 • 12 replies</p>
+                        </div>
+                        <a href="#" class="discussion__readmore">Read More</a>
+                    </div>
+                    <div class="forum__discussion">
+                        <div class="forum__discussion__header">
+                            <h4>How to improve guitar strumming with AI feedback</h4>
+                            <p>I uploaded my strumming video and got great AI feedback. Any additional tips to refine my technique?</p>
+                        </div>
+                        <div class="forum__discussion__name">
+                            <p>1,234 members</p>
+                            <p>June 3, 2025 • 8 replies</p>
+                        </div>
+                        <a href="#" class="discussion__readmore">Read More</a>
+                    </div>
+                    
+                </div>
+                <a href="#" class="discussion__btn">Start a Discussion</a>
+                <div class="content__socials">
+                    <h3 style="font-size: 30px;">Connect on Social Media</h3>
+                    <p style="font-size: 19px; margin-top: 20px;">Join our <strong>Facebook</strong>  group and chat with us on <strong>Messenger</strong>  or join the <strong>Zalo</strong>  group to connect and interact with the community in real time.</p>
+                    <div class="socials__icons">
+                        <a href="#"><img src="/pickleball/images/fb.png" alt="Facebook"></a>
+                        <a href="#"><img src="/pickleball/images/mes.png" alt="Messenger"></a>
+                        <a href="#"><img src="/pickleball/images/zalo.png" alt="Zalo"></a>
+                    </div>
+                </div>
+                <div class="content__conversation">
+                    <h3 style="font-size: 30px;">Be Part of the Conversation</h3>
+                    <p style="font-size: 19px; margin-top: 20px;">Sign up to join discussions, connect with others, and share your expertise in our forums.</p>
+                    <a th:href="@{/login}" class="gruop__btn">Join Now</a>
+                </div>
+            </div>
+ 
+        </main> <div th:replace="fragments/footer :: footer"></div>
+</body>   
+
+</html>

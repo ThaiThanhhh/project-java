@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>King Pickleball</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="/pickleball/css/profile_student.css">
+    <link rel="stylesheet" href="/pickleball/css/base.css">
+</head>
+<body>
+    <!-- Header -->
+    <div th:replace="fragments/header :: header"></div>
+ 
+    <main class="profile-container">
+        <div class="profile-header">
+            <img th:src="${avatarUrl}" class="profile-avatar" id="avatarPreview" />
+            <h1 class="profile-title">Student Profile</h1>
+        </div>
+        <form class="profile-form" id="profileForm" th:action="@{/profile/student}" method="post" enctype="multipart/form-data">
+            <div class="form-field">
+                <label>Name</label>
+                <input type="text" th:value="${student.user.fullName}" name="fullName" required>
+            </div>
+            <div class="form-field">
+                <label>Phone Number</label>
+                <input type="tel" th:value="${student.user.phone}" name="phone" required>
+            </div>
+             <div class="form-field">
+            <label>Email</label>
+            <input type="email" th:value="${student.user.email}" name="email"  >
+        </div>
+            <div class="form-field">
+                <label>Student ID</label>
+                <input type="text" th:value="${student.studentId}"  data-always-readonly tabindex="-1">
+            </div>
+            <div class="form-field">
+                <label>Level</label>
+                <select name="level" id="levelSelect" disabled>
+                    <option value="Beginner" th:selected="${student.level == 'Beginner'}">Beginner</option>
+                    <option value="Intermediate" th:selected="${student.level == 'Intermediate'}">Intermediate</option>
+                    <option value="Professional" th:selected="${student.level == 'Professional'}">Professional</option>
+                </select>
+            </div>
+            <div class="form-field">
+                <label>Preferred learning style</label>
+                <select name="learningStyle" id="PreferredLearningStyleSelect">
+                    <option value="practice_video" th:selected="${student.learningStyle == 'practice_video'}">Practical practice & Video analysis</option>
+                    <option value="video_only" th:selected="${student.learningStyle == 'video_only'}">Video analysis only</option>
+                    <option value="one_on_one" th:selected="${student.learningStyle == 'one_on_one'}">One-on-one coaching</option>
+                    <option value="group_learning" th:selected="${student.learningStyle == 'group_learning'}">Group learning</option>
+                </select>
+            </div>
+
+            <div class="form-field" id="profilePictureField" style="display:none;">
+                <label>Profile Picture</label>
+                <input type="file" name="avatar" accept="image/*" id="avatarInput">
+            </div>
+                    <div class="form-buttons">
+                <button type="button" id="editBtn" class="submit-button" style="margin-bottom:16px;">Edit</button>
+                <button type="submit" class="submit-button" id="saveBtn" style="display:none;">Save Changes</button>
+                <button type="button" class="cancel-button" id="cancelBtn" style="display:none;">Cancel</button>
+            </div>
+        </form>
+       
+
+    </main>
+    <div th:replace="fragments/footer :: footer"></div>
+    <script src="/pickleball/js/profile_student.js"></script>
+    
+   
+</body>
+</html>

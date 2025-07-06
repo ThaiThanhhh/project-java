@@ -90,19 +90,30 @@
             </div>
 
             <div class="section">
-                <h2>Calendar</h2>
-                <div id="calendarList">
-                    <div class="entry">
-                        <input type="date" class="calDate">
-                        <input type="time" class="calTime" value="08:00" placeholder="Time">
-                        <input type="time" class="calEndTime" value="12:00" placeholder="End Time">
-                        <button class="edit--btn" onclick="editEntry(this)">Edit</button>
-                        <button class="delete--btn"onclick="deleteEntry(this)">Delete</button>
-                    </div>
-                </div>
-                <button class="add--btn" onclick="addCalendar()">Add Calendar Entry</button>
+    <h2>Calendar</h2>
+    <div id="calendarList">
+        <div class="entry">
+            <select name="weekday" class="weekdaySelect">
+                <option value="Monday">Monday</option>
+                <option value="Tuesday">Tuesday</option>
+                <option value="Wednesday">Wednesday</option>
+                <option value="Thursday">Thursday</option>
+                <option value="Friday">Friday</option>
+                <option value="Saturday">Saturday</option>
+                <option value="Sunday">Sunday</option>
+            </select>
 
-            </div>
+            <input type="time" class="calTime" value="08:00" placeholder="Start Time">
+            <input type="time" class="calEndTime" value="12:00" placeholder="End Time">
+
+            <button class="edit--btn" onclick="editEntry(this)">Edit</button>
+            <button class="delete--btn" onclick="deleteEntry(this)">Delete</button>
+        </div>
+    </div>
+    <button class="add--btn" onclick="addCalendar()">Add Calendar Entry</button>
+</div>
+
+
 
             <div class="section">
                 <h2>Price</h2>

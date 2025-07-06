@@ -1,0 +1,651 @@
+:root{
+    --white-color: #fff; 
+    --black-color: #000;
+    --button-color:#C7F300; 
+}
+
+.container__header__nav{
+    display: flex;
+    justify-content: space-between;
+    object-fit: cover;
+    
+}
+
+.container__header__nav--left{
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+    position: relative;
+    left: 50px;
+    font-size: 18px;
+    font-weight: 900;
+}
+.container__header__nav--right{
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+    position: relative;
+    right: 50px;
+    font-size: 18px;
+    font-weight: 900;
+    
+}
+
+.container__header__nav--right :hover{
+    color: var(--button-color);
+    cursor:pointer; 
+    transition: all 0.3s ease-in-out;
+}
+
+.container__header__nav--left :hover{
+    color: var(--button-color);
+    cursor:pointer; 
+    transition: all 0.3s ease-in-out;
+}
+.container__header__nav--button{
+    padding: 7px 15px;
+    border: 2px solid var(--button-color); 
+    background-color: var(--button-color);
+    border-radius: 100px;
+    color: var(--black-color);
+    font-weight:bolder; 
+    font-size: 17px;
+}
+.container__header__nav--button:hover{
+    background-color: var(--black-color);
+    color: var(--button-color);
+    border:1px solid var(--button-color);
+}
+
+/* Dropdown Styling */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-toggle {
+    text-decoration: none;
+    color: var(--white-color);
+    font-size: 18px;
+    font-weight: 900;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 3px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    min-width: 270px;
+    z-index: 1001;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px 10px;
+    color: var(--black-color);
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.dropdown-menu a:hover {
+    background-color: var(--button-color);
+    color: var(--black-color);
+    transition: all 0.6s ease-in-out;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Ensure dropdown integrates with existing nav hover effects */
+.container__header__nav--left .dropdown-toggle:hover,
+.container__header__nav--right .dropdown-toggle:hover {
+    color: var(--button-color);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Accessibility: Focus state for dropdown toggle */
+.dropdown-toggle:focus {
+    outline: 2px solid var(--button-color);
+    outline-offset: 2px;
+}
+
+/* Fix for header nav alignment */
+.container__header__nav--left,
+.container__header__nav--right {
+    display: flex;
+    align-items: center;
+}
+.container__header__nav--login{
+    padding: 7px 15px;
+    border: 2px solid var(--button-color); 
+    background-color: var(--button-color);
+    border-radius: 100px;
+    color: var(--black-color);
+    font-weight:bolder; 
+    font-size: 17px;
+}
+
+.container__header__nav--login:hover{
+    background-color: var(--black-color);
+    color: var(--button-color);
+    border: 2px solid var(--black-color);
+    cursor: pointer;
+    font-size: 17px;
+    transition: all 0.4s ease-in-out;
+    
+}
+
+.container__header__nav--logo img{
+    width: 80px;
+    height: 80px;
+}
+
+.container__header {
+    position: fixed;
+    top:0; 
+    left:0;
+    right:0;
+    width: 100vw;
+    height: 100px;
+    z-index: 1000;
+    color: var(--white-color);
+    background-color: var(--black-color);
+    box-shadow: none;
+    padding: 10px 0; /* Thêm padding để đẹp hơn */
+    box-sizing: border-box;
+}
+.dropdown-toggle {
+    text-decoration: none;
+    color: var(--white-color);
+    font-size: 18px;
+    font-weight: 900;
+}
+
+.dropdown-menu--pr{
+     display: none;
+    position: absolute;
+    top: 100%;
+    left: auto;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 3px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    min-width: 130px;
+    z-index: 1001;
+}
+
+.dropdown-menu--pr a{
+    display: block;
+    padding: 10px 10px;
+    color: var(--black-color);
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+/* Fix for header nav alignment */
+.container__header__nav--left,
+.container__header__nav--right {
+    display: flex;
+    align-items: center;
+}
+
+.container__header__nav--buttonlogin {
+    padding: 7px 15px;
+    border: 2px solid #C7F300; 
+    background-color: #C7F300;
+    border-radius: 100px;
+    color: var(--black-color);
+    font-weight: bolder; 
+    font-size: 17px;
+}
+
+.container__header__nav--buttonlogin:hover{
+    background-color: var(--black-color);
+    color: var(--button-color);
+    border: 2px solid var(--black-color);
+    cursor: pointer;
+    font-size: 17px;
+    transition: all 0.4s ease-in-out;
+    
+}
+/* Avatar/Profile Dropdown - Đẹp và hiện đại */
+.container__header__nav--button {
+    border-radius: 50%;
+    padding: 0;
+    border: 2px solid var(--button-color);
+    background: var(--black-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    width: 38px;
+    margin-bottom: 8px;
+    height: 38px;
+    position: relative;
+}
+
+.container__header__nav--button img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #000;
+    background: #fff;
+    transition: transform 0.2s;
+}
+
+.container__header__nav--button:hover,
+.container__header__nav--button:focus {
+    border: 2px solid var(--button-color);
+    box-shadow: 0 4px 16px rgba(199,243,0,0.15);
+}
+
+.container__header__nav--button img:hover {
+    transform: scale(1.08);
+}
+
+
+/* ...existing code... */
+.container__header__nav{
+    display: flex;
+    justify-content: space-between;
+    object-fit: cover;
+}
+.container__background{
+    width: 100%;
+    height:530px; 
+    filter: brightness(0.4);
+}
+
+.container__background img{
+    width: 100%;
+    height:100%;
+}
+
+
+
+
+/* ...existing code... */
+.container__header__nav{
+    display: flex;
+    justify-content: space-between;
+    object-fit: cover;
+}
+
+.container__content h1{
+    color: #fff;
+    font-size: 40px;
+    font-weight: 900;
+    text-align: center;
+    transform: translate(-10%, -400%);
+}
+
+.container__learning--btn{
+    position: relative;
+    top: -80px;
+    left:40px;
+    display: flex;
+    gap:20px; 
+}
+
+.learning--btn {
+    padding: 10px 20px;
+    border: 2px solid var(--black-color);
+    background-color: var(--white-color);
+    border-radius: 10px;
+    color: var(--black-color);
+    font-weight: bolder;
+    font-size: 17px;
+    text-decoration: none;
+    cursor:pointer; 
+}
+
+.course__header{
+    border: 1px solid var(--black-color);
+    background-color: var(--white-color);
+    border-radius: 10px;
+    display: flex;
+    justify-content:  space-between;
+    margin-left: 40px;
+    height:150px;
+    width: 90%;
+}
+
+.course__title h2 {
+    color: var(--black-color);
+    font-size: 30px;
+    font-weight: 900;
+    margin-left: 20px;
+    margin-top: 30px;
+}
+
+.course__title p {
+    color: var(--black-color);
+    font-size: 16px;
+    font-weight: lighter;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+.course__streak{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 50px;
+    gap:20px;
+}
+
+.icon--fire {
+    font-size: 40px;
+    color: #ccc;
+}
+.streak__text p{
+    color: var(--black-color);
+    font-size: 16px;
+    font-weight: lighter;
+}
+
+.container__allcourse {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 50px;
+}
+
+.course__title--description h2{
+    color: var(--black-color);
+    font-size: 26px;
+    margin-left: 40px;
+    margin-top: 20px;
+}
+
+.course__title--description p{
+    color: var(--black-color);
+    font-size: 16px;
+    margin-left: 40px;
+    margin-top: 10px;
+}
+
+.course__list {
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.course__title--description {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.course__list{
+    margin-top: 10px;
+}
+
+.course__item--row{
+    border: 1px solid  #ccc; 
+    padding: 10px 10px; 
+    border-radius: 10px;
+    width: 1180px;
+    height: auto;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.item--row--content h3{
+    font-size: 18px;
+}
+
+.item--row--content ul{
+    font-size: 16px;
+    color: #666;
+    margin-left:  20px;
+
+}
+
+.item--row--button button {
+    padding: 5px 10px;
+    border: 1px solid var(--button-color);
+    background-color: var(--button-color);
+    border-radius: 10px;
+    color: var(--black-color);
+    font-size: 18px;
+    width: 100px;
+    font-weight: 600;
+    cursor:pointer;
+    margin-top: 20px;
+    margin-right: 20px;
+
+}
+
+.item--row--button button:hover {
+    background-color: var(--black-color);
+    color: var(--button-color);
+    border: 1px solid var(--black-color);
+    cursor: pointer;
+    font-size: 18px;
+    transition: all 0.4s ease-in-out;
+}
+
+.container--history {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    top:-50px;
+}
+
+.container--history h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.filter-search {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.filter-search input, .filter-search select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.filter-search input:focus, .filter-search select:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+@media (min-width: 768px) {
+    .filter-search {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .filter-search input {
+        width: 33%;
+    }
+}
+
+.table-container {
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.table-container table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-container thead {
+    background-color: #e9ecef;
+}
+
+.table-container th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.table-container th {
+    font-weight: bold;
+    color: #333;
+}
+
+.status {
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+
+.status-in-progress {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.status-completed {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.status-paused {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.action-btn {
+    background: none;
+    border: none;
+    color: #007bff;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.action-btn:hover {
+    color: #0056b3;
+}
+
+#history-section {
+    display: none;
+}
+
+.learning--btn.active {
+    background-color: var(--button-color);
+    color: var(--black-color);
+    border: 2px solid var(--button-color);
+    box-shadow: 0 2px 8px rgba(199,243,0,0.15);
+    transition: all 0.2s;
+}
+
+/* footer */
+.container__footer {
+    width: 100vw;
+    height: 100%;
+    background-color: var(--black-color);
+    color: var(--white-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+}
+.footer__logo {
+    display: flex;
+    flex-direction: row;   /* mặc định là row, có thể bỏ */
+    justify-content: center;
+    align-items: center;
+    gap: 100px; 
+    background-color: #1E1E1E;     
+    width: 100%;  
+    height: 100px;     /* khoảng cách giữa các logo */
+}
+
+.footer__logo img {
+    height: 80px;          /* hoặc kích thước bạn muốn */
+    width: auto;
+    display: block;
+}
+
+.footer__logo-img {
+    width: 80px;
+    height: 80px;
+    margin-left: 100px;
+    margin-top: 20px;
+}
+.footer__socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+.footer__socials img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+}
+.footer__links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    margin-left: 30px;
+    margin-top: 20px;
+    margin-bottom: 80px;
+}
+.footer__links-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 160px; /* Đặt chiều rộng cố định cho mỗi cột */
+    
+}
+.footer__links-column ul{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    list-style-type: none;
+}
+.footer__contact {
+    gap: 50px;
+    margin-top: 30px;
+    background-color: #1E1E1E;
+    width: 100%;
+    height: 80px;
+    text-align: center;
+    align-items: center;
+}
+
+.footer__contact-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    margin-bottom: 20px;
+}

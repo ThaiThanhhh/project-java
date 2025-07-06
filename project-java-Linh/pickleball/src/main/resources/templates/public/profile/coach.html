@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>King Pickleball</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="/pickleball/css/profile_coach.css">
+    <link rel="stylesheet" href="/pickleball/css/base.css">
+    <script src="/pickleball/js/profile_coach.js" defer></script>
+</head>
+<body>
+    <div th:replace="fragments/header :: header"></div>
+
+    <!-- main -->
+    <main  class="coach-dashboard">
+        <!-- Profile Section -->
+        <section class="profile-section">
+            <div class="profile-header">
+                <div class="profile-avatar">
+                    <img  id="avatarPreview" th:src="${avatarUrl}" alt="Coach Avatar" >
+                    <button class="edit-button" id="triggerFileInput">
+                        <i class="fas fa-camera"></i>
+                    </button>
+
+                    <!-- Input file ẩn -->
+                    <input type="file" id="fileInput" accept="image/*" style="display: none;">
+                    
+                </div>
+                <div class="profile-info">
+                <h2 id="fullNameView" th:text="${coach.user.fullName}"></h2>
+                    <div class="verification-badge">
+                        <i class="fas fa-check-circle"></i> Verified Coach
+                    </div>
+                    <!-- <div class="rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-number">5.0 (128 reviews)</span>
+                    </div> -->
+                </div>
+                <a href="#"><button class="edit-profile-button" id="editBtn" type="button">Edit Profile</button></a>
+                <!-- <button class="save-profile-button" id="saveBtn" type="button" style="display:none;">Save</button>
+                <button class="cancel-profile-button" id="cancelBtn" type="button" style="display:none;">Cancel</button>        -->
+                    </div>
+
+            <div class="profile-details">
+                <div class="detail-card">
+                    <h3>Certifications</h3>
+                    <div class="certifications-list">
+                        <div class="certification-item">
+                            <i class="fas fa-certificate"></i>
+                            <span>USAPA Level 2 Certified</span>
+                            <button class="verify-button">Verified</button>
+                        </div>
+                        
+                    </div>
+                        <div id="addCertBlock" style="display:none;">
+        <a href="#"><button class="add-button" id="showAddCertBtn" type="button">Add Certification</button></a>
+        <!-- Form ẩn để thêm chứng chỉ -->
+        <form id="addCertForm" style="display:none; margin-top:16px;">
+            <div class="form-group">
+                <label for="certification__Name">Certification Name:</label>
+                <input type="text" id="certification__Name" name="certificationName" required>
+            </div>
+            <div class="form-group">
+                <label for="certification__img">Certification image:</label>
+                <input type="file" id="certification__img" accept="image/*" name="certification__img" required>
+            </div>
+            <div class="form-group">
+                <label for="certification__ID">Certification ID:</label>
+                <input type="number" id="certification__ID" name="certificationID" required>
+            </div>
+            <div class="submit--btn">
+                <button type="submit" id="submitBtn">Submit</button>
+                <button type="button" id="cancelAddCertBtn">Cancel</button>
+            </div>
+        </form>
+    </div>
+                </div>
+
+                <!-- <div class="detail-card">
+                    <h3>Teaching Methods</h3>
+                    <textarea class="teaching-methods" placeholder="Describe your teaching philosophy and methods..."></textarea>
+                    <button class="save-button">Save</button>
+                </div> -->
+                <div class="detail-card">
+                <h3>Teacher Information</h3>
+                <div class="teacher-info" id="teacherInfoView">  
+                    <p><strong>Fullname:</strong> <span th:text="${coach.user.fullName}" id="fullNameView"></span></p>             
+                    <p><strong>Teacher ID:</strong> <span th:text="${coach.coachId}" id="teacherIdView"></span></p>
+                    <p><strong>Email:</strong> <span th:text="${coach.user.email}" id="emailView"></span></p>
+                    <p><strong>Phone:</strong> <span th:text="${coach.user.phone}" id="phoneView"></span></p>
+                    <p><strong>Address:</strong> <span id="addressView" th:text="${coach.address}"></span></p> 
+                
+                </div>
+                <form th:action="@{/profile/coach}" method="post" enctype="multipart/form-data" class="teacher-info" id="teacherInfoEdit" style="display:none;">
+                     <p><strong>Fullname:</strong>
+                        <input type="text" th:value="${coach.user.fullName}" id="fullNameEdit" name="fullName">
+                    </p>
+                <p><strong>Email:</strong>
+                    <input type="email" th:value="${coach.user.email}" id="emailEdit" name="email" readonly>
+                </p>
+                <p><strong>Phone:</strong>
+                    <input type="text" th:value="${coach.user.phone}" id="phoneEdit" name="phone">
+                </p>
+                <p><strong>Teacher ID:</strong>
+                    <input type="text" th:value="${coach.coachId}" id="teacherIdEdit" name="teacherId" readonly>
+                </p>
+                <p><strong>Address:</strong>
+                    <input type="text" th:value="${coach.address}" id="addressEdit" name="address">
+                </p>
+                <p><strong>Profile Picture:</strong>
+                    <input type="file" name="avatar" accept="image/*" id="avatarInput">
+                </p>
+                
+                <button class="save-profile-button" id="saveBtn" type="submit">Save</button>
+                <button class="cancel-profile-button" id="cancelBtn" type="button">Cancel</button>
+            </form>
+                            <!-- <div class="detail-card">
+                        <h3>Address</h3>
+                        <div class="locations-list">
+                            <div class="location-item">
+                                <span>Ho Chi Minh City - District 7 Sports Complex</span>
+                            </div>
+                          
+                        </div>
+                    </div> -->
+                    <!-- <div class="detail-card">
+                        <h3>Pricing</h3>
+                        <div class="pricing-list">
+                            <div class="pricing-item">
+                                <span>Private Lesson (1 hour):</span>
+                                <span>200.000 VND</span>
+                            </div>
+                            <div class="pricing-item">
+                                <span>Group Lesson (2 hours):</span>
+                                <span>450.000 VND</span>
+                            </div>
+                        </div>
+                        <button class="add-button">Add Pricing</button>
+                    </div> -->
+                    <!-- <div class="detail-card">
+                        <h3>Teaching Schedule</h3>
+                        <div class="schedule-list">
+                            <div class="schedule-item">
+                                <span>Monday: 9:00 AM - 12:00 PM</span>
+                            </div>
+                            <div class="schedule-item">
+                                <span>Wednesday: 2:00 PM - 5:00 PM</span>
+                            </div>
+                            <div class="schedule-item">
+                                <span>Friday: 3:00 PM - 6:00 PM</span>
+                            </div>
+                        </div>
+                        <button class="add-button">Add Schedule</button>
+                    </div>
+                </div> -->
+            
+        </section>
+    </main>
+
+
+        <!-- Footer -->
+        <div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>
