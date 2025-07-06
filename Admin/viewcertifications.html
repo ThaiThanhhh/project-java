@@ -6,9 +6,9 @@
 
 	
 	<!-- My CSS -->
-	<link rel="stylesheet" href="../assets/css/advideo.css">
+	<link rel="stylesheet" href="../assets/css/viewcertifications.css">
 
-	<title>AdminHub</title>
+	<title>Customer</title>
 </head>
 <body>
 
@@ -27,13 +27,13 @@
 				</a>
 			</li>
 			<li>
-				<a href="./customer.html">
+				<a href="#">
 					<img src="../assets/img/customer.png" alt="Customer" style="height: 30px;">
 					<span class="text">	Customer</span>
 				</a>
 			</li>
 			<li>
-				<a href="#">
+				<a href="./advideo.html">
 					<img src="../assets/img/play.png" alt="Video" style="height: 30px;">
 					<span class="text">	Video</span>
 				</a>
@@ -44,13 +44,13 @@
 					<span class="text"> Contact</span>
 				</a>
 			</li>
-			<li>
+            <li>
 				<a href="./adblogs.html">
 					<img src="../assets/img/blogging.png" alt="Blogs" style="height: 30px;">
 					<span class="text"> Blogs</span>
 				</a>
 			</li>
-			<li>
+            <li>
 				<a href="./achievements.html">
 					<img src="../assets/img/trophy.png" alt="achievements" style="height: 30px;">
 					<span class="text"> achievements</span>
@@ -59,6 +59,7 @@
 			
 		</ul>
 		<ul class="side-menu">
+			
 			<li>
 				<a href="#" class="logout">
 					<img src="../assets/img/logout.png" alt="Logout" style="width: 40px;" >
@@ -85,41 +86,48 @@
 		<!-- NAVBAR -->
 
         <!--MAIN-->
-        <div id="container">
-        <div class="head">
-            <h3>Manage Videos</h3>
-            <div class="head__title">
-                <p>Video List</p>
-                <a href="./addvideo.html" class="insert__btn">Add Video</a>
-            </div>
-            
+    <div id="container">
+        
+        <div class="head1">
+            <h3>Manage Coachs</h3>
+            <p>Coach List</p>
         </div>
-        <div id="table__user">
+        <div id="table__coach">
             
             <table>
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Category</th>
-                        <th>Duration</th>
-                        <th>Title</th>
-                        <th>Youtube ID</th>
-                        <th>Action</th>
+                        <th>Fullname</th>
+                        <th>Certification Name</th>
+                        <th>Certification Img</th>
+                        <th>Certification ID</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>7</td>
-                        <td>Basic course</td>
-                        <td>2:47</td>
-                        <td>How to play gay</td>
-                        <td>HDSFUIFUI</td>
+                        <td>linh</td>
+                        <td>Bằng mặt mà không bằng lòng</td>
+                        <td><img src="../Assets/Img/co vietnam.png" alt="bang"></td>
+                        <td>257</td>
                         <td class="action__btn">
-                            <button class="edit__btn"><a href="./editvideo.html" style="color: white;">Edit</a></button>
-                            <button class="delete__btn">Delete</button>
+                            <button class="refuse__btn" >Refuse</button>
+                            <button class="accept__btn" >Accept</button>
                         </td>
                     </tr>
-                    
+                    <tr>
+                        <td>25</td>
+                        <td>quyet</td>
+                        <td>Bằng bằng bằng</td>
+                        <td><img src="../Assets/Img/co tay ban nha.png" alt="bang"></td>
+                        <td>001</td>
+                        <td class="action__btn">
+                            <button class="refuse__btn" >Refuse</button>
+                            <button class="accept__btn" >Accept</button>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
         </div>

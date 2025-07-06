@@ -6,7 +6,7 @@
 
 	
 	<!-- My CSS -->
-	<link rel="stylesheet" href="../assets/css/customer.css">
+	<link rel="stylesheet" href="../assets/css/achievements.css">
 
 	<title>Customer</title>
 </head>
@@ -27,7 +27,7 @@
 				</a>
 			</li>
 			<li>
-				<a href="#">
+				<a href="./customer.html">
 					<img src="../assets/img/customer.png" alt="Customer" style="height: 30px;">
 					<span class="text">	Customer</span>
 				</a>
@@ -51,7 +51,7 @@
 				</a>
 			</li>
             <li>
-				<a href="./achievements.html">
+				<a href="#">
 					<img src="../assets/img/trophy.png" alt="achievements" style="height: 30px;">
 					<span class="text"> achievements</span>
 				</a>
@@ -88,36 +88,39 @@
         <!--MAIN-->
         <div id="container">
         <div class="head">
-            <h3>Manage Users</h3>
-            <p>User List</p>
+            <h3>Recognized Achievements</h3>
+            <div class="head__title">
+                <p>Achievements List</p>
+                <a href="./addachievements.html" class="insert__btn">Add achievements</a>
+            </div>
         </div>
-        <div id="table__user">
+        <div id="table__achievements">
             
             <table>
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Fullname</th>
-                        <th>Email</th>
+                        <th>Img</th>
+                        <th>Achievements</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>7</td>
-                        <td>linh</td>
-                        <td>linh@gmail.com</td>
+                        <td><img src="../Assets/Img/sieunhando.png" alt="sieunhando"></td>
+                        <td>Dũng cảm đó</td>
                         <td class="action__btn">
-                            
+                            <button class="edit__btn"><a href="./editachievements.html" style="color: white;">Edit</a></button>
                             <button class="delete__btn">Delete</button>
                         </td>
                     </tr>
                     <tr>
                         <td>25</td>
-                        <td>quyet</td>
-                        <td>quyet@gmail.com</td>
+                        <td><img src="../Assets/Img/sieunhanhong.png" alt="sieunhanhong"></td>
+                        <td>mạnh mẻ đó</td>
                         <td class="action__btn">
-                            
+                            <button class="edit__btn"><a href="./editachievements.html" style="color: white;">Edit</a></button>
                             <button class="delete__btn">Delete</button>
                         </td>
                     </tr>
@@ -128,50 +131,40 @@
     </div>
     <div id="container">
         
-        <div class="head1">
-            <h3>Manage Coachs</h3>
+        <div class="head">
+            <h3>Badge achieved</h3>
             <div class="head__title">
-                <p>Coach List</p>
-                <a href="./viewcertifications.html" class="view__btn"> View Certification</a>
+                <p>Achievements List</p>
+                <a href="./addachievements1.html" class="insert__btn">Add achievements</a>
             </div>
         </div>
-        <div id="table__coach">
+        <div id="table__achievements">
             
             <table>
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Profile picture</th>
-                        <th>Fullname</th>
-                        <th>Email</th>
-                        <th>Phone Number</th>
-                        <th>Teacher ID</th>
-                        <th>Address</th>
+                        <th>Img</th>
+                        <th>Achievements</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>7</td>
-                        <td><img src="../Assets/Img/course1.png" alt="Coach 1"></td>
-                        <td>linh</td>
-                        <td>linh@gmail.com</td>
-                        <td>01239127123</td>
-                        <td>UHJHUASD</td>
-                        <td>123 Street, City</td>
+                        <td><img src="../Assets/Img/sieunhanxanh.png" alt="sieunhanxanh"></td>
+                        <td>đẹp đó</td>
                         <td class="action__btn">
+                            <button class="edit__btn"><a href="./editachievements1.html" style="color: white;">Edit</a></button>
                             <button class="delete__btn">Delete</button>
                         </td>
                     </tr>
                     <tr>
                         <td>25</td>
-                        <td><img src="../Assets/Img/course2.png" alt="Coach 2"></td>
-                        <td>quyet</td>
-                        <td>quyet@gmail.com</td>
-                        <td>0127163761</td>
-                        <td>GAYDAK</td>
-                        <td>hcm</td>
+                        <td><img src="../Assets/Img/sieunhanxanhla.png" alt="sieunhanxanhla"></td>
+                        <td>Ok đó</td>
                         <td class="action__btn">
+                            <button class="edit__btn"><a href="./editachievements1.html" style="color: white;">Edit</a></button>
                             <button class="delete__btn">Delete</button>
                         </td>
                     </tr>
