@@ -343,7 +343,16 @@ tr:hover {
     font-size: 20px;
     font-weight: 700;
 }
-
+.head__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+#table__coach table img {
+	max-width: 100px;
+	height: 100px;
+}
 
 #table__coach table th,
 #table__coach table td {
@@ -359,8 +368,9 @@ tr:hover {
 
 
 .action__btn {
-    display: flex;
-    gap: 10px;
+	gap: 10px;
+    justify-content: center;
+    align-items: center;
 }
 
 .action__btn button {
@@ -371,9 +381,14 @@ tr:hover {
     font-size: 14px;
 }
 
-.edit__btn {
+.view__btn {
     background-color: #3498db;
     color: white;
+	padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
 }
 
 .delete__btn {
