@@ -14,7 +14,7 @@ public class Coach {
     @Column(name = "coach_id", length = 10)
     private String coachId;
 
-     @Column(name = "verified")
+    @Column(name = "verified")
     private boolean verified;
     @Column(name = "address", length = 255)
     private String address;

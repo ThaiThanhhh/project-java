@@ -30,8 +30,13 @@
                 </div>
                 <div class="profile-info">
                 <h2 id="fullNameView" th:text="${coach.user.fullName}"></h2>
-                    <div class="verification-badge">
+                    <div class="verification-badge" 
+                        th:if="${coach.verified}">
                         <i class="fas fa-check-circle"></i> Verified Coach
+                    </div>
+                    <div class="verification-badge not-verified"
+                        th:if="${!coach.verified}">
+                        <i class="fas fa-times-circle"></i> Not Verified
                     </div>
                     <!-- <div class="rating">
                         <span class="stars">★★★★★</span>
@@ -46,35 +51,45 @@
             <div class="profile-details">
                 <div class="detail-card">
                     <h3>Certifications</h3>
+                    <!-- hien thi certification -->
                     <div class="certifications-list">
+                    <th:block th:each="cert : ${certifications}">
                         <div class="certification-item">
                             <i class="fas fa-certificate"></i>
-                            <span>USAPA Level 2 Certified</span>
-                            <button class="verify-button">Verified</button>
-                        </div>
-                        
-                    </div>
+                            <span th:text="${cert.certificationName}"></span>
+                            <!-- <img th:if="${cert.imgUrl}" th:src="${cert.imgUrl}" alt="cert image" style="height:32px;"> -->
+                            <!-- <span>ID: <span th:text="${cert.idNumber}"></span></span> -->
+                            <button class="verify-button"
+                                                th:classappend="${cert.verify} ? ' verified' : ' not-verified'">
+                                            <span th:text="${cert.verify} ? 'Verified' : 'Not Verified'"></span>
+                            </button>                        </div>
+                    </th:block>
+                </div>
                         <div id="addCertBlock" style="display:none;">
-                    <a href="#"><button class="add-button" id="showAddCertBtn" type="button">Add Certification</button></a>
+                            <a href="#"><button class="add-button" id="showAddCertBtn" type="button">Add Certification</button></a>
                             <!-- Form ẩn để thêm chứng chỉ -->
-                            <form id="addCertForm" style="display:none; margin-top:16px;">
-                                <div class="form-group">
-                                    <label for="certification__Name">Certification Name:</label>
-                                    <input type="text" id="certification__Name" name="certificationName" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="certification__img">Certification image:</label>
-                                    <input type="file" id="certification__img" accept="image/*" name="certification__img" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="certification__ID">Certification ID:</label>
-                                    <input type="number" id="certification__ID" name="certificationID" required>
-                                </div>
-                                <div class="submit--btn">
-                                    <button type="submit" id="submitBtn">Submit</button>
-                                    <button type="button" id="cancelAddCertBtn">Cancel</button>
-                                </div>
-                            </form>
+                           <form id="addCertForm"
+                            th:action="@{/profile/coach/certification}"
+                            method="post"
+                            enctype="multipart/form-data"
+                            style="display:none; margin-top:16px;">
+                            <div class="form-group">
+                                <label for="certification__Name">Certification Name:</label>
+                                <input type="text" id="certification__Name" name="certificationName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="certification__img">Certification image:</label>
+                                <input type="file" id="certification__img" accept="image/*" name="certification__img" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="certification__ID">Certification ID:</label>
+                                <input type="number" id="certification__ID" name="certificationID" required>
+                            </div>
+                            <div class="submit--btn">
+                                <button type="submit" id="submitBtn">Submit</button>
+                                <button type="button" id="cancelAddCertBtn">Cancel</button>
+                            </div>
+                        </form>
                         </div>
                 </div>
 
