@@ -9,7 +9,7 @@ import logging
 from werkzeug.utils import secure_filename
 
 # Configure logging
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.DEBUG)  # Đặt mức log là DEBUG để ghi chi tiết
 logger = logging.getLogger(__name__)
 
 app = Flask(__name__, template_folder='templates', static_folder='static')
@@ -31,37 +31,41 @@ def check_video_duration(video_path):
     
     if fps > 0:
         duration = frame_count / fps
+        logger.debug(f"Thời lượng video: {duration} giây, FPS: {fps}, Số khung hình: {frame_count}")
         return duration <= MAX_VIDEO_DURATION
+    logger.error("Không thể xác định FPS của video")
     return False
 
 @app.route('/')
 def home():
+    logger.info("Truy cập trang chủ")
     return render_template('index.html')
 
 @app.route('/analyze', methods=['POST'])
 def analyze():
+    logger.info("Nhận được yêu cầu phân tích video")
     if 'video' not in request.files:
-        logger.error('No video file uploaded')
+        logger.error('Không có file video trong request')
         return jsonify({"error": "Please select a video to analyze"}), 400
     
     video_file = request.files['video']
     
     # Check if file exists
     if video_file.filename == '':
-        logger.error('Empty video file')
+        logger.error('File video rỗng')
         return jsonify({"error": "No video file selected"}), 400
     
     # Check file format
     if not allowed_file(video_file.filename):
-        logger.error(f'Invalid file format: {video_file.filename}')
+        logger.error(f'Định dạng file không được hỗ trợ: {video_file.filename}')
         return jsonify({
             "error": "Unsupported video format",
             "supported_formats": list(ALLOWED_EXTENSIONS)
         }), 400
     
     # Check file size
-    if video_file.content_length > MAX_VIDEO_SIZE:
-        logger.error(f'File too large: {video_file.content_length} bytes')
+    if video_file.content_length and video_file.content_length > MAX_VIDEO_SIZE:
+        logger.error(f'File quá lớn: {video_file.content_length} bytes')
         return jsonify({
             "error": "Video file too large",
             "max_size": f"{MAX_VIDEO_SIZE // (1024*1024)}MB"
@@ -72,11 +76,11 @@ def analyze():
         temp_dir = tempfile.mkdtemp()
         temp_path = os.path.join(temp_dir, secure_filename(video_file.filename))
         video_file.save(temp_path)
-        logger.info(f'Temporary video saved at: {temp_path}')
+        logger.info(f"Lưu video tạm thời tại: {temp_path}")
         
         # Check video duration
         if not check_video_duration(temp_path):
-            logger.error(f'Video too long (more than {MAX_VIDEO_DURATION} seconds)')
+            logger.error(f'Video quá dài (hơn {MAX_VIDEO_DURATION} giây)')
             return jsonify({
                 "error": f"Video too long (max {MAX_VIDEO_DURATION} seconds)"
             }), 400
@@ -84,17 +88,17 @@ def analyze():
         # Check if video is readable
         cap = cv2.VideoCapture(temp_path)
         if not cap.isOpened():
-            logger.error('Could not open video for reading')
+            logger.error('Không thể mở video để đọc')
             return jsonify({"error": "Could not read video. File may be corrupted."}), 400
         cap.release()
         
         # Analyze video
-        logger.info('Starting video analysis...')
+        logger.info('Bắt đầu phân tích video...')
         analysis_result = analyze_video(temp_path)
-        logger.info('Video analysis completed')
+        logger.info('Hoàn tất phân tích video')
         
         if 'error' in analysis_result:
-            logger.error(f'Analysis error: {analysis_result["error"]}')
+            logger.error(f'Lỗi phân tích: {analysis_result["error"]}')
             return jsonify({"error": analysis_result["error"]}), 400
         
         # Convert images to base64
@@ -102,8 +106,9 @@ def analyze():
             try:
                 _, buffer = cv2.imencode('.jpg', frame['image'])
                 frame['image'] = f"data:image/jpeg;base64,{base64.b64encode(buffer).decode('utf-8')}"
+                logger.debug("Đã chuyển đổi khung hình sang base64")
             except Exception as e:
-                logger.error(f'Error processing frame: {str(e)}')
+                logger.error(f'Lỗi khi chuyển đổi khung hình sang base64: {str(e)}')
                 continue
         
         # Add video info to result
@@ -113,10 +118,11 @@ def analyze():
             "duration": analysis_result.get('video_info', {}).get('duration', 0)
         }
         
+        logger.info("Trả về kết quả phân tích")
         return jsonify(analysis_result)
         
     except Exception as e:
-        logger.error(f'Critical error processing video: {str(e)}', exc_info=True)
+        logger.error(f'Lỗi nghiêm trọng khi xử lý video: {str(e)}', exc_info=True)
         return jsonify({
             "error": "An error occurred while processing the video",
             "details": str(e)
@@ -127,17 +133,18 @@ def analyze():
         try:
             if 'temp_path' in locals() and os.path.exists(temp_path):
                 os.remove(temp_path)
-                logger.info(f'Deleted temp file: {temp_path}')
+                logger.info(f'Đã xóa file tạm: {temp_path}')
             if 'temp_dir' in locals() and os.path.exists(temp_dir):
                 os.rmdir(temp_dir)
-                logger.info(f'Deleted temp directory: {temp_dir}')
+                logger.info(f'Đã xóa thư mục tạm: {temp_dir}')
         except Exception as e:
-            logger.error(f'Error cleaning up temp files: {str(e)}')
+            logger.error(f'Lỗi khi dọn dẹp file tạm: {str(e)}')
 
 @app.route('/static/<path:filename>')
 def static_files(filename):
+    logger.info(f"Phục vụ file tĩnh: {filename}")
     return send_from_directory(app.static_folder, filename)
 
 if __name__ == '__main__':
     os.makedirs('static', exist_ok=True)
-    app.run(debug=True, port=5000)
+    app.run(debug=True, host='0.0.0.0', port=5000)  # Thay đổi host để cho phép kết nối từ ngoài

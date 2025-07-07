@@ -262,32 +262,6 @@
     object-fit: cover;
 }
 
-/* main */
-.container {
-    margin-top: 100px; /* Adjusted to account for fixed header */
-}
-.gradient-bg {
-            background: linear-gradient(135deg, #6e8efb, #a777e3);
-        }
-        .chat-container {
-            height: calc(100vh - 180px);
-        }
-        .message-animation {
-            animation: fadeIn 0.3s ease-in-out;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .model-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-        .model-card {
-            transition: all 0.3s ease;
-        }
-
-
 /* footer */
 .container__footer {
     width: 100vw;
