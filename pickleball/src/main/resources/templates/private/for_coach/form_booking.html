@@ -5,11 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Booking Form</title>
     <link rel="stylesheet" href="/pickleball/css/form_booking.css">
+           <script th:inline="javascript">
+/*<![CDATA[*/
+    let skills = /*[[${skills}]]*/ [];
+    if (!Array.isArray(skills)) skills = [];
+    let experiences = /*[[${experiences}]]*/ [];
+    if (!Array.isArray(experiences)) experiences = [];
+/*]]>*/
+</script>
+<script src="/pickleball/js/form_booking.js"></script>
 </head>
 <body>
-    <div class="booking-container">
-        <h2>Booking</h2>
-        <form class="booking-form" enctype="multipart/form-data">
+        <div class="booking-container">
+        <h2 th:text="${isEdit} ? 'Edit Booking' : 'Create Booking'"></h2>
+        <form class="booking-form"
+              th:action="${isEdit} ? @{'/booking/edit/' + ${booking.bookingId}} : @{/booking}"
+              method="post"
+              enctype="multipart/form-data">
             <div class="booking-row">
                 <div class="booking-avatar">
                     <img id="avatarPreview" src="/pickleball/images/avatar.jpg" alt="Avatar Booking">
@@ -18,43 +30,40 @@
                 </div>
                 <div class="booking-info">
                     <label class="label-bold" for="describe">Describe</label>
-                    <input type="text" id="describe" name="describe">
-                   <label class="label-bold" for="price">Price (USD)</label>
-<input type="number" id="price" name="price" min="0" step="0.01">
+                    <input type="text" id="describe" name="describe"
+                           th:value="${booking != null} ? ${booking.describe} : ''" required>
+                    <label class="label-bold" for="price">Price (USD)</label>
+                    <input type="number" id="price" name="price" min="0" step="0.01"
+                           th:value="${booking != null} ? ${booking.amount} : ''" required>
                 </div>
             </div>
             <div class="booking-section">
                 <div class="booking-col">
                     <div class="section-title">Skill</div>
                     <div class="booking-group">
-                        <input type="text" placeholder="Skill name" name="skill_name">
-                        <select name="skill_level">
+                        <input type="text" placeholder="Skill name" id="skill_name">
+                        <select id="skill_level">
                             <option value="">Select Level</option>
                             <option value="Beginner">Beginner</option>
                             <option value="Intermediate">Intermediate</option>
                             <option value="Advanced">Advanced</option>
-                        </select>        
-                        <input type="text" placeholder="Description" name="skill_description">
-                        <button type="button" class="add-btn">Add</button>
+                        </select>
+                        <input type="text" placeholder="Description" id="skill_description">
+                        <button type="button" class="add-btn" onclick="addSkill()">Add</button>
                     </div>
-                    <div class="booking-list">
-                        <!-- List skill sẽ render ở đây -->
-                        <div class="booking-list-item">
-                            
-                        </div>
-                    </div>
+                    <div class="booking-list" id="skillList"></div>
+                    <div id="skillsHidden"></div>
                 </div>
                 <div class="booking-col">
                     <div class="section-title">Experience</div>
                     <div class="booking-group">
-                        <input type="text" placeholder="Experience name" name="experience_name">
-                        <input type="text" placeholder="Work place" name="work_place">
-                        <input type="text" placeholder="Description" name="experience_description">
-                        <button type="button" class="add-btn">Add</button>
+                        <input type="text" placeholder="Experience name" id="experience_name">
+                        <input type="text" placeholder="Work place" id="work_place">
+                        <input type="text" placeholder="Description" id="experience_description">
+                        <button type="button" class="add-experience-btn">Add</button>
                     </div>
-                    <div class="booking-list">
-                        <!-- List experience sẽ render ở đây -->
-                    </div>
+                    <div class="booking-list" id="experienceList"></div>
+                    <div id="experiencesHidden"></div>
                 </div>
             </div>
             <div class="booking-section">
@@ -71,34 +80,33 @@
                 <div class="booking-col">
                     <div class="section-title">Schedule</div>
                     <div class="booking-group">
-                    <div class="weekly-selection">
-                        <p>Weekly Availability</p>
-                        <label><input type="checkbox" name="week_days" value="monday"> Monday</label>
-                        <label><input type="checkbox" name="week_days" value="tuesday"> Tuesday</label>
-                        <label><input type="checkbox" name="week_days" value="wednesday"> Wednesday</label>
-                        <label><input type="checkbox" name="week_days" value="thursday"> Thursday</label>
-                        <label><input type="checkbox" name="week_days" value="friday"> Friday</label>
-                        <label><input type="checkbox" name="week_days" value="saturday"> Saturday</label>
-                        <label><input type="checkbox" name="week_days" value="sunday"> Sunday</label>
-                    </div>                       
-                    <input type="time" name="start_time" placeholder="Start Time">
+                        <div class="weekly-selection">
+                            <p>Weekly Availability</p>
+                            <label><input type="checkbox" name="week_days" value="monday"> Monday</label>
+                            <label><input type="checkbox" name="week_days" value="tuesday"> Tuesday</label>
+                            <label><input type="checkbox" name="week_days" value="wednesday"> Wednesday</label>
+                            <label><input type="checkbox" name="week_days" value="thursday"> Thursday</label>
+                            <label><input type="checkbox" name="week_days" value="friday"> Friday</label>
+                            <label><input type="checkbox" name="week_days" value="saturday"> Saturday</label>
+                            <label><input type="checkbox" name="week_days" value="sunday"> Sunday</label>
+                        </div>
+                        <input type="time" name="start_time" placeholder="Start Time">
                         <input type="time" name="end_time" placeholder="End Time">
                         <button type="button" class="add-btn">Add</button>
-
                     </div>
                     <div class="booking-list">
-                        
                         <!-- List schedule sẽ render ở đây -->
                     </div>
-
                 </div>
             </div>
             <div class="booking-actions">
-                <button type="submit" class="create-btn">Create</button>
+                <button type="submit" class="create-btn" th:text="${isEdit} ? 'Save' : 'Create'"></button>
+                <a th:if="${isEdit}" th:href="@{/profile}">
+                    <button type="button" class="cancel-btn">Cancel</button>
+                </a>
             </div>
         </form>
     </div>
     <script src="/pickleball/js/form_booking.js"></script>
-    
 </body>
 </html>

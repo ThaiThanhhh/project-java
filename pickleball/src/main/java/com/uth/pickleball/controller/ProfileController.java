@@ -18,11 +18,13 @@ import com.uth.pickleball.repositories.IUserRepository;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.ui.Model;
 import com.uth.pickleball.repositories.ICoachRepository;
+import com.uth.pickleball.model.Booking;
 import com.uth.pickleball.model.Certification;
 import com.uth.pickleball.model.Coach;
 import com.uth.pickleball.model.Student;
 import com.uth.pickleball.model.User;
 import java.util.UUID;
+import com.uth.pickleball.repositories.IBookingRepository;
 import java.util.List;
 
 
@@ -37,6 +39,8 @@ public class ProfileController {
     private ICoachRepository coachRepository;
     @Autowired
     private ICertificationRepository certificationRepository;
+    @Autowired
+    private IBookingRepository bookingRepository;
 
   @GetMapping("/profile")
     public String showProfile(HttpSession session, Model model) {
@@ -62,9 +66,11 @@ public class ProfileController {
         } else if ("coach".equalsIgnoreCase(role)) {
             Coach coach = coachRepository.findByUser(user);
             List<Certification> certifications = certificationRepository.findByCoach(coach);
+            List<Booking> bookings = bookingRepository.findByCoach(coach);
 
             model.addAttribute("coach", coach);
             model.addAttribute("certifications", certifications);
+            model.addAttribute("bookings", bookings);
             return "public/profile/coach";
         } else {
             return "redirect:/home";

@@ -110,12 +110,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // Sửa nội dung booking (ví dụ đơn giản)
-    document.querySelectorAll('.edit-booking-btn').forEach(btn => {
-        btn.onclick = function() {
-            alert('Chức năng sửa booking! (Bạn có thể mở form edit ở đây)');
-            // Ở đây bạn có thể mở modal hoặc form để sửa booking
-        };
-    });
+    
     document.querySelectorAll('.toggle-visibility-btn').forEach(btn => {
     btn.onclick = function() {
         if (btn.textContent === "Hide") {
