@@ -1,63 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advanced Pickleball Technique Analysis</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Advanced Pickleball Technique Analysis</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-        .video-container {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        #videoPreview {
-            width: 100%;
-        }
-        .analysis-card {
-            margin-bottom: 20px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        .error-card {
-            border-left: 5px solid #dc3545;
-        }
-        .technique-image {
-            max-width: 100%;
-            border-radius: 5px;
-        }
-        .error-item {
-            padding: 10px;
-            margin-bottom: 10px;
-            background: #f8d7da;
-            border-radius: 5px;
-        }
-        .stats-card {
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 5px;
-            margin-bottom: 20px;
-        }
-        .score-excellent {
-            color: #28a745;
-            font-weight: bold;
-        }
-        .score-good {
-            color: #ffc107;
-            font-weight: bold;
-        }
-        .score-poor {
-            color: #dc3545;
-            font-weight: bold;
-        }
-        .drill-card {
-            border-left: 4px solid #17a2b8;
-        }
-    </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Background Starfield animation */
+    body,html {
+      margin: 0; padding: 0; height: 100%;
+      background: radial-gradient(circle at top, #564c4e, transparent 55%), linear-gradient(to bottom, #d3e0ea 0%, #000 0%, #000000 100%);      overflow-x: hidden;
+      color: #dadada;
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      position: relative;
+    }
+
+    #starfield {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      z-index: 0;
+      pointer-events: none;
+      background: transparent;
+    }
+
+    .star {
+      position: absolute;
+      border-radius: 50%;
+      background: white;
+      opacity: 0.9;
+      animation-timing-function: linear;
+      filter: drop-shadow(0 0 1.5px white);
+    }
+
+    /* Subtle flicker animation for stars */
+    @keyframes twinkle {
+      0%, 100% {opacity: 0.85;}
+      50% {opacity: 0.3;}
+    }
+
+    /* Price toggle styles */
+    .toggle-switch {
+      background-color: #2c2c36;
+      border-radius: 30px;
+      display: inline-flex;
+      padding: 0.25rem;
+      cursor: pointer;
+      user-select: none;
+      font-weight: 600;
+      font-size: 0.875rem;
+      color: #bbb;
+    }
+    .toggle-switch > div {
+      padding: 0.25rem 1rem;
+      border-radius: 30px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .toggle-switch > .active {
+      background-color: #eee;
+      color: #222;
+    }
+
+    /* Custom scrollbar hidden */
+    ::-webkit-scrollbar {
+      width: 0px;
+      background: transparent;
+    }
+    .video-container {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    #videoPreview {
+        width: 100%;
+    }
+    .analysis-card {
+        margin-bottom: 20px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .error-card {
+        border-left: 5px solid #dc3545;
+    }
+    .technique-image {
+        max-width: 100%;
+        border-radius: 5px;
+    }
+    .error-item {
+        padding: 10px;
+        margin-bottom: 10px;
+        background: #f8d7da;
+        border-radius: 5px;
+    }
+    .stats-card {
+        background: #f8f9fa;
+        padding: 15px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+    .score-excellent {
+        color: #28a745;
+        font-weight: bold;
+    }
+    .score-good {
+        color: #ffc107;
+        font-weight: bold;
+    }
+    .score-poor {
+        color: #dc3545;
+        font-weight: bold;
+    }
+    .drill-card {
+        border-left: 4px solid #17a2b8;
+    }
+    #close{
+    color: #fff; 
+    font-size: 50px;
+    font-weight: 500;
+    position: fixed;
+    top:30px; 
+    right: 100px; 
+    cursor:pointer; 
+    width: 40px;
+    height: 40px; 
+    text-align: center;
+    line-height: 40px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+#close:hover{
+    background-color: rgba(255, 255, 255, 0.329);
+    color: #d31414;
+    transform: scale(1.2);
+}
+
+    
+  </style>
 </head>
 <body>
-    <div class="container py-5">
-        <h1 class="text-center mb-5">Advanced Pickleball Technique Analysis</h1>
+  <canvas id="starfield"></canvas>
+
+  <div class="container py-5">
+        <a href="http://localhost:8080/pickleball/"><div id="close">&times;</div></a>
+
+        <h1 class="text-center mb-5" style="font-size: 40px; font-weight: 500;">Advanced Pickleball Technique Analysis</h1>
         
         <div class="card mb-4">
             <div class="card-body">
@@ -74,18 +163,19 @@
             <div class="spinner-border text-primary" role="status">
                 <span class="visually-hidden">Loading...</span>
             </div>
-            <p>Analyzing video...</p>
-            <p class="text-muted">This may take a few minutes depending on video length</p>
+            <p style="font-size: 18px;color: #dadada;">Analyzing video...</p>
+            <p style="color: #dadada; font-size: 14px;">This may take a few minutes depending on video length</p>
         </div>
         
         <div id="resultsContainer">
             <!-- Results will be displayed here -->
         </div>
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        document.getElementById('analyzeBtn').addEventListener('click', async function() {
+
+  <script>
+
+    document.getElementById('analyzeBtn').addEventListener('click', async function() {
             const fileInput = document.getElementById('videoInput');
             if (!fileInput.files.length) {
                 alert('Please select a video before analyzing');
@@ -263,7 +353,7 @@
             // Display advanced overview statistics
             container.innerHTML = `
                 <div class="stats-card">
-                    <h3>Advanced Analysis Results</h3>
+                    <h3 style =" color: #ccc;">Advanced Analysis Results</h3>
                     
                     <div class="row mb-4">
                         <div class="col-md-4">
@@ -462,6 +552,121 @@
                 `;
             }
         }
-    </script>
+    
+  const starCount = 150;
+    const starfield = document.getElementById('starfield');
+    const ctx = starfield.getContext('2d');
+
+    let stars = [];
+
+    function randomBetween(min, max) {
+      return min + Math.random() * (max - min);
+    }
+
+    function createStars() {
+      stars = [];
+      const w = window.innerWidth;
+      const h = window.innerHeight;
+      starfield.width = w;
+      starfield.height = h;
+
+      for (let i = 0; i < starCount; i++) {
+        stars.push({
+          x: Math.random() * w,
+          y: Math.random() * h,
+          radius: Math.random() * 1.1 + 0.3,
+          alpha: randomBetween(0.1, 1),
+          twinkleSpeed: randomBetween(0.002, 0.008),
+          increasing: Math.random() < 0.5,
+          velocityX: randomBetween(-0.5, 0.5),
+          velocityY: randomBetween(-0.5, 0.5)
+        });
+      }
+    }
+
+    function animateStars() {
+      ctx.clearRect(0, 0, starfield.width, starfield.height);
+
+      stars.forEach(star => {
+        star.x += star.velocityX;
+        star.y += star.velocityY;
+
+        if (star.x > starfield.width) star.x = 0;
+        if (star.x < 0) star.x = starfield.width;
+        if (star.y > starfield.height) star.y = 0;
+        if (star.y < 0) star.y = starfield.height;
+
+        if (star.increasing) {
+          star.alpha += star.twinkleSpeed;
+          if (star.alpha >= 1) {
+            star.alpha = 1;
+            star.increasing = false;
+          }
+        } else {
+          star.alpha -= star.twinkleSpeed;
+          if (star.alpha <= 0.1) {
+            star.alpha = 0.1;
+            star.increasing = true;
+          }
+        }
+
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.radius, 0, 2 * Math.PI);
+        ctx.fillStyle = `rgba(255, 255, 255, ${star.alpha})`;
+        ctx.shadowColor = 'white';
+        ctx.shadowBlur = 4;
+        ctx.fill();
+      });
+
+      requestAnimationFrame(animateStars);
+    }
+
+    createStars();
+    animateStars();
+
+    window.addEventListener('resize', () => {
+      createStars();
+    });
+
+    const monthlyEl = document.getElementById('monthly');
+    const yearlyEl = document.getElementById('yearly');
+    const planToggle = document.getElementById('planToggle');
+    const priceEl = document.getElementById('price');
+
+    const monthlyPrice = 30.00;
+    const yearlyPrice = (monthlyPrice * 12) * 0.8;
+
+    function setActivePlan(plan) {
+      if (plan === 'monthly') {
+        monthlyEl.classList.add('active');
+        yearlyEl.classList.remove('active');
+        priceEl.textContent = `$${monthlyPrice.toFixed(2)}/ month`;
+        planToggle.setAttribute('aria-checked', 'false');
+      } else {
+        yearlyEl.classList.add('active');
+        monthlyEl.classList.remove('active');
+        priceEl.textContent = `$${yearlyPrice.toFixed(2)}/ year`;
+        planToggle.setAttribute('aria-checked', 'true');
+      }
+    }
+
+    monthlyEl.addEventListener('click', () => setActivePlan('monthly'));
+    yearlyEl.addEventListener('click', () => setActivePlan('yearly'));
+
+    planToggle.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft' || e.key === 'ArrowRight' || e.key === ' ') {
+        e.preventDefault();
+        if (monthlyEl.classList.contains('active')) {
+          setActivePlan('yearly');
+        } else {
+          setActivePlan('monthly');
+        }
+      }
+    });
+  </script>
+
+  
+  </script>
 </body>
 </html>
+
