@@ -18,18 +18,36 @@
             <nav class="container__header__nav">
                 <div class="container__header__nav--left">
                     <div class="dropdown">
-                        <a href="#" class="dropdown-toggle">Features</a>
+                        <!-- Nếu là coach thì Features bị xám và không click -->
+                        <a href="#" class="dropdown-toggle"
+                           th:attr="style=${session.role == null or session.role == 'coach'} ? 'pointer-events:none;opacity:0.5;cursor:not-allowed;' : ''">
+                            Features
+                        </a>
                         <div class="dropdown-menu">
-                            <a th:href="@{/structured}">Structured Learning</a>
-                            <a th:href="@{/videolibrary}">Video Library</a>
-                            <a th:href="@{/ai}">AI Technique Analysis</a>
-                            <a th:href="@{/process}">Progress Dashboard</a>
-                            <a th:href="@{/achievementsbadges}">Achievements & Badges</a>
-                            <a href="#">Booking & Payment</a>
+                            <a th:href="@{/structured}"
+                               th:attr="style=${session.role == null or session.role == 'coach'} ? 'pointer-events:none;opacity:0.5;cursor:not-allowed;' : ''">Structured Learning</a>
+                            <a th:href="@{/videolibrary}"
+                               th:attr="style=${session.role == null or session.role == 'coach'} ? 'pointer-events:none;opacity:0.5;cursor:not-allowed;' : ''">Video Library</a>
+                            <a th:href="@{/ai}"
+                               th:attr="style=${session.role == null or session.role == 'coach'} ? 'pointer-events:none;opacity:0.5;cursor:not-allowed;' : ''">AI Technique Analysis</a>
+                            <a th:href="@{/process}"
+                               th:attr="style=${session.role == null or session.role == 'coach'} ? 'pointer-events:none;opacity:0.5;cursor:not-allowed;' : ''">Progress Dashboard</a>
+                            <a th:href="@{/achievementsbadges}"
+                               th:attr="style=${session.role == null or session.role == 'coach'} ? 'pointer-events:none;opacity:0.5;cursor:not-allowed;' : ''">Achievements & Badges</a>
+                            <a th:href="@{/bookingpayment}"
+                               th:attr="style=${session.role == null or session.role == 'coach'} ? 'pointer-events:none;opacity:0.5;cursor:not-allowed;' : ''">Booking & Payment</a>
                         </div>
                     </div>
-                    <a th:href="@{/mylearning}">My Learning</a>
-                    <a th:href="@{/forcoach}">For Coach</a>
+                    <!-- My Learning: chỉ student click được, coach thì xám -->
+                    <a th:if="${session.role == 'student'}" th:href="@{/mylearning}">My Learning</a>
+                    <a th:if="${session.role != 'student'}"
+                       href="#"
+                       style="pointer-events:none;opacity:0.5;cursor:not-allowed;">My Learning</a>
+                    <!-- For Coach: chỉ coach click được, student thì xám -->
+                    <a th:if="${session.role == 'coach'}" th:href="@{/forcoach}">For Coach</a>
+                    <a th:if="${session.role != 'coach'}"
+                       href="#"
+                       style="pointer-events:none;opacity:0.5;cursor:not-allowed;">For Coach</a>
                 </div>
                 <div class="container__header__nav--logo">
                     <a th:href="@{/}"><img src="/pickleball/images/Logo app.png" alt="Logo King Pickleball"></a>

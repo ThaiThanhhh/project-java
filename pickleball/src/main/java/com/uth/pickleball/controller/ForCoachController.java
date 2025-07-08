@@ -1,5 +1,6 @@
 package com.uth.pickleball.controller;
 
+import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -7,24 +8,26 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class ForCoachController {
 
     @GetMapping("/forcoach")
-    public String forCoach() {
+    public String forCoach(HttpSession session) {
+        if (!"coach".equals(session.getAttribute("role"))) {
+            return "redirect:/login";
+        }
         return "private/for_coach/for_coach";
     }
-    @GetMapping("/forcoach/addcertifications")
-    public String addCertifications() {
-        return "private/for_coach/add_certifications";
-    }
+
     @GetMapping("/forcoach/teach")
-    public String teach() {
+    public String teach(HttpSession session) {
+        if (!"coach".equals(session.getAttribute("role"))) {
+            return "redirect:/login";
+        }
         return "private/for_coach/teach";
     }
+
     @GetMapping("/forcoach/viewfinancial")
-    public String viewFinancial() {
+    public String viewFinancial(HttpSession session) {
+        if (!"coach".equals(session.getAttribute("role"))) {
+            return "redirect:/login";
+        }
         return "private/for_coach/view_financial";
     }
-    @GetMapping("/forcoach/edit")
-    public String edit() {
-        return "private/for_coach/edit";
-    }
-
 }

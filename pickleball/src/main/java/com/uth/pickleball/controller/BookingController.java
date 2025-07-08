@@ -119,50 +119,50 @@ public class BookingController {
     }
 
     // Xử lý cập nhật booking
-    @PostMapping("/booking/edit/{id}")
-    public String updateBooking(
-            @PathVariable Long id,
-            HttpSession session,
-            @RequestParam String describe,
-            @RequestParam("price") Double amount,
-            @ModelAttribute BookingForm bookingForm
-    ) {
-        Long userId = (Long) session.getAttribute("userId");
-        if (userId == null) return "redirect:/login";
-        User user = userRepository.findById(userId).orElse(null);
-        if (user == null) return "redirect:/login";
-        Coach coach = coachRepository.findByUser(user);
+    // @PostMapping("/booking/edit/{id}")
+    // public String updateBooking(
+    //         @PathVariable Long id,
+    //         HttpSession session,
+    //         @RequestParam String describe,
+    //         @RequestParam("price") Double amount,
+    //         @ModelAttribute BookingForm bookingForm
+    // ) {
+    //     Long userId = (Long) session.getAttribute("userId");
+    //     if (userId == null) return "redirect:/login";
+    //     User user = userRepository.findById(userId).orElse(null);
+    //     if (user == null) return "redirect:/login";
+    //     Coach coach = coachRepository.findByUser(user);
 
-        Booking booking = bookingService.findById(id);
-        if (booking != null && booking.getCoach().getCoachId().equals(coach.getCoachId())) {
-            booking.setDescribe(describe);
-            booking.setAmount(amount);
-            bookingService.save(booking);
+    //     Booking booking = bookingService.findById(id);
+    //     if (booking != null && booking.getCoach().getCoachId().equals(coach.getCoachId())) {
+    //         booking.setDescribe(describe);
+    //         booking.setAmount(amount);
+    //         bookingService.save(booking);
 
-              // XÓA SKILL/EXPERIENCE CŨ CỦA BOOKING NÀY
-                List<Skill> oldSkills = skillRepository.findByBooking(booking);
-                skillRepository.deleteAll(oldSkills);
-                List<Experience> oldExps = experienceRepository.findByBooking(booking);
-                experienceRepository.deleteAll(oldExps);
+    //           // XÓA SKILL/EXPERIENCE CŨ CỦA BOOKING NÀY
+    //             List<Skill> oldSkills = skillRepository.findByBooking(booking);
+    //             skillRepository.deleteAll(oldSkills);
+    //             List<Experience> oldExps = experienceRepository.findByBooking(booking);
+    //             experienceRepository.deleteAll(oldExps);
 
-            // Lưu mới skill/experience từ form
-                List<Skill> skills = bookingForm.getSkills();
-                if (skills != null) {
-                    for (Skill skill : skills) {
-                        skill.setBooking(booking);
-                        skillRepository.save(skill);
-                    }
-                }
-                List<Experience> experiences = bookingForm.getExperiences();
-                if (experiences != null) {
-                    for (Experience exp : experiences) {
-                        exp.setBooking(booking);
-                        experienceRepository.save(exp);
-                    }
-                }
-            }
-                    return "redirect:/profile";
-            }
+    //         // Lưu mới skill/experience từ form
+    //             List<Skill> skills = bookingForm.getSkills();
+    //             if (skills != null) {
+    //                 for (Skill skill : skills) {
+    //                     skill.setBooking(booking);
+    //                     skillRepository.save(skill);
+    //                 }
+    //             }
+    //             List<Experience> experiences = bookingForm.getExperiences();
+    //             if (experiences != null) {
+    //                 for (Experience exp : experiences) {
+    //                     exp.setBooking(booking);
+    //                     experienceRepository.save(exp);
+    //                 }
+    //             }
+    //         }
+    //                 return "redirect:/profile";
+    //         }
 
     // Xóa booking
     @PostMapping("/booking/delete/{id}")

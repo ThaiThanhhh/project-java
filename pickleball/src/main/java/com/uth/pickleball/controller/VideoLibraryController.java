@@ -1,5 +1,6 @@
 package com.uth.pickleball.controller;
 
+import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.ui.Model;
@@ -17,7 +18,10 @@ public class VideoLibraryController {
     }
 
     @GetMapping("/videolibrary")
-    public String showVideoLibrary(Model model) {
+    public String showVideoLibrary(Model model, HttpSession session) {
+        if (!"student".equals(session.getAttribute("role"))) {
+            return "redirect:/login";
+        }
         List<VideoLibrary> videos = videoLibraryService.getAllVideos();
         model.addAttribute("videos", videos);
         return "private/features/video_library";
