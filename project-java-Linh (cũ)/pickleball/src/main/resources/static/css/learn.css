@@ -396,7 +396,7 @@
     flex: 1;
     overflow-y: auto;
     padding: 16px;
-    background-color: var(--background-color);
+    background-color: #000;
 }
 
 .message {
@@ -421,12 +421,12 @@
 }
 
 .message.sent .message-content {
-    background-color: var(--sent-bg);
+    background-color: blue;
     color: #fff;
 }
 
 .message.received .message-content {
-    background-color: var(--received-bg);
+    background-color: #fff;
     color: var(--text-color);
 }
 
